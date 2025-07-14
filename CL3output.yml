@@ -1,0 +1,184 @@
+name: 首页 > 新闻动态 > 新闻发布
+url: https://www.ndrc.gov.cn/xwdt/xwfb/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 金轩评论
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jxpl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 东数西算 > 政策文件
+url: https://www.ndrc.gov.cn/xwdt/ztzl/dsxs/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 东数西算 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/dsxs/gzdt5/202409/t20240927_1393402.html
+xpath: "None"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 数字经济 > 政策文件
+url: https://www.ndrc.gov.cn/xwdt/ztzl/szjj/zcwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 数字经济 > 政策解读
+url: https://www.ndrc.gov.cn/xwdt/ztzl/szjj/zcjd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 数字经济 > 专家观点
+url: https://www.ndrc.gov.cn/xwdt/ztzl/szjj/zjgd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 2025年全国节能宣传周 > 最新工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/2025qgjnxcz/zxgzdt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' clearfix ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 2025年全国节能宣传周 >部门节能成效
+url: https://www.ndrc.gov.cn/xwdt/ztzl/2025qgjnxcz/bnjncx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 2025年全国节能宣传周 >地方节能实践
+url: https://www.ndrc.gov.cn/xwdt/ztzl/2025qgjnxcz/dfjnsj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 推动大规模设备更新和消费品以旧换新 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/tddgmsbgxhxfpyjhx/gzdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 推动大规模设备更新和消费品以旧换新 > 地方经验
+url: https://www.ndrc.gov.cn/xwdt/ztzl/tddgmsbgxhxfpyjhx/dfjy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 地方投资工作
+url: https://www.ndrc.gov.cn/xwdt/ztzl/dtfzgz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 全国农产品成本调查
+url: https://www.ndrc.gov.cn/xwdt/ztzl/ncpdc70zn/?code=&state=123
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 优化营商环境 > 地方动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/xhyshj/?code=&state=123
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' JDCB_box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 新型城镇化建设 > 规划政策
+url: https://www.ndrc.gov.cn/xwdt/ztzl/xxczhjs/ghzc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' CZH_box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 新型城镇化建设 > 地方实践
+url: https://www.ndrc.gov.cn/xwdt/ztzl/xxczhjs/xcjsfz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' CZH_box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 城镇老旧小区改造资金保障典型经验做法
+url: https://www.ndrc.gov.cn/xwdt/ztzl/czljxqgz/?code=&state=123
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 招投标和公共资源交易 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/ztbhggzyjy/gzdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 招投标和公共资源交易 > 地方动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/ztbhggzyjy/dfdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 社会物流统计 > 全国数据
+url: https://www.ndrc.gov.cn/xwdt/ztzl/shwltj/qgsj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 社会物流统计 > 各地数据
+url: https://www.ndrc.gov.cn/xwdt/ztzl/shwltj/gdsj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 全国农村公共服务典型案例
+url: https://www.ndrc.gov.cn/xwdt/ztzl/qgncggfwdxal/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 先进制造业与现代服务业融合试点单位典型经验做法 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/rhsdjyzf/gzdt6/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 先进制造业与现代服务业融合试点单位典型经验做法 >试点区域
+url: https://www.ndrc.gov.cn/xwdt/ztzl/rhsdjyzf/1sdqy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 先进制造业与现代服务业融合试点单位典型经验做法 >试点企业
+url: https://www.ndrc.gov.cn/xwdt/ztzl/rhsdjyzf/sdqy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 家政服务业提质扩容 > 部际联席会议制度
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jzfwytzkr/bjlxhyzd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 家政服务业提质扩容 > 提质扩容典型案例
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jzfwytzkr/tzkrdxal/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 家政服务业提质扩容 > “领跑者”专项行动
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jzfwytzkr/zxxd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 市场准入负面清单信息公开平台 > 通知公告
+url: https://www.ndrc.gov.cn/xwdt/ztzl/sczrfmqd/tzggg1/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 市场准入负面清单信息公开平台 > 政策解读
+url: https://www.ndrc.gov.cn/xwdt/ztzl/sczrfmqd/zcjddd2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 市场准入负面清单信息公开平台 > 下载中心
+url: https://www.ndrc.gov.cn/xwdt/ztzl/sczrfmqd/xzzx0/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 通知公告
+url: https://www.ndrc.gov.cn/xwdt/tzgg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 动态 > 委领导动态
+url: https://www.ndrc.gov.cn/xwdt/dt/wlddt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 动态 > 司局动态
+url: https://www.ndrc.gov.cn/xwdt/dt/sjdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 动态 > 地方动态
+url: https://www.ndrc.gov.cn/xwdt/dt/dfdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 发展改革委令
+url: https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 规范性文件
+url: https://www.ndrc.gov.cn/xxgk/zcfb/ghxwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 规划文本
+url: https://www.ndrc.gov.cn/xxgk/zcfb/ghwb/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' u-list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 公告
+url: https://www.ndrc.gov.cn/xxgk/zcfb/gg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 通知
+url: https://www.ndrc.gov.cn/xxgk/zcfb/tz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 互动交流 > 意见征求
+url: https://www.ndrc.gov.cn/hdjl/yjzq/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 互动交流 > 网上公示及调查
+url: https://www.ndrc.gov.cn/hdjl/wsgsjdc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 互动交流 > 留言选登
+url: https://www.ndrc.gov.cn/hdjl/lyxd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cont-lists ')]"
+---
+name: 首页 > 互动交流 > 留言统计
+url: https://www.ndrc.gov.cn/hdjl/lytj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cont-lists ')]"
+---
+name: 首页 > 互动交流 > 建言献策
+url: https://www.ndrc.gov.cn/hdjl/jyxc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
