@@ -3,9 +3,10 @@ import requests
 import time
 import yaml
 from lxml import html
-from collections import Counter
-from math import log
+from yaml import SafeLoader
+from urllib.parse import urlparse
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
 def get_html_content(url):
@@ -25,15 +26,57 @@ def get_html_content(url):
     except requests.exceptions.RequestException as e:
         print(f"网络请求错误: {e}")
         return None
-def get_html_content_Selenium(url):
+def get_html_content_Selenium(url,max_retries=3):
     chrome_options = Options()
-    chrome_options.add_argument("--headless")  # 无界面模式
-    driver = webdriver.Chrome(options=chrome_options)
-    driver.get(url)
-    html_content = driver.page_source
-    return html_content
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+     # 添加 SwiftShader 相关设置
+    chrome_options.add_argument("--enable-unsafe-webgl")
+    chrome_options.add_argument("--enable-unsafe-swiftshader")
+    
+    # 禁用不必要的功能以提高性能
+    chrome_options.add_argument("--disable-software-rasterizer")
+    chrome_options.add_argument("--disable-webgl")
+    chrome_options.add_argument("--disable-webgl2")
+     # 设置页面加载策略
+     # eager会导致部分页面加载不完整
+    chrome_options.page_load_strategy = 'normal'
+    
+    for attempt in range(max_retries):
+        try:
+            driver = webdriver.Chrome(options=chrome_options)
+            # 设置更长的超时时间
+            driver.set_page_load_timeout(180)
+            driver.set_script_timeout(180)
+            
+            driver.get(url)
+            
+            # 等待页面加载完成
+            time.sleep(10)  # 等待10秒，有的页面比较逆天，我这垃圾笔记本的网络更加逆天，下次必须mac！
+            
+            html_content = driver.page_source
+            driver.quit()
+            return html_content
+            
+        except Exception as e:
+            print(f"获取页面失败 (尝试 {attempt + 1}/{max_retries}): {str(e)}")
+            try:
+                driver.quit()
+            except:
+                pass
+            
+            if attempt == max_retries - 1:
+                print("所有重试都失败，尝试使用备用方法")
+                return get_html_content(url)  # 使用requests作为备用方法
+                
+            time.sleep(5)  # 在重试之前等待
+    
+    return None
 def find_list_container(page_tree):
-    """使用分层搜索策略查找最优列表容器"""
+    """使用分层搜索策略查找最优列表容器，改进目标列表识别"""
+    # 定义多种可能的列表项选择器
     list_selectors = [
         "//li",
         "//tr",
@@ -57,18 +100,70 @@ def find_list_container(page_tree):
         )
         return len(items)
     
+    def calculate_container_score(container):
+        """计算容器作为目标列表的得分"""
+        score = 0
+        
+        # 1. 检查是否包含时间字符串（目标列表特征）
+        text_content = container.text_content().lower()
+        # 一部分事项列表都有时间字符串
+        time_patterns = [
+            r'\d{4}-\d{2}-\d{2}',  # YYYY-MM-DD
+            r'\d{4}年\d{1,2}月\d{1,2}日',  # 中文日期
+            r'\d{4}/\d{1,2}/\d{1,2}',  # YYYY/MM/DD
+            r'年', r'月', r'日',  # 中文字符
+            r'发布时间', r'更新日期'  # 常见日期标签
+        ]
+        
+        for pattern in time_patterns:
+            if re.search(pattern, text_content):
+                score += 10  # 发现时间特征加分
+        
+        # 2. 检查平均文本长度（目标列表通常有较长文本）
+        items = container.xpath(".//*[self::li or self::tr or self::article or self::div[contains(@class, 'item')]]")
+        if items:
+            total_length = sum(len(item.text_content().strip()) for item in items)
+            avg_length = total_length / len(items)
+            if avg_length > 50:  # 平均文本长度超过50字符
+                score += 8
+            elif avg_length > 30:
+                score += 5
+            elif avg_length > 15:
+                score += 2
+        
+        # 3. 检查是否包含导航特征（导航栏通常有这些特征）
+        xpath = generate_xpath(container).lower()
+        if 'nav' in xpath or 'menu' in xpath or 'sidebar' in xpath:
+            score -= 15  # 导航特征减分
+            
+        # 4. 检查类名和ID特征
+        classes = container.get('class', '').lower()
+        elem_id = container.get('id', '').lower()
+        
+        # 负面特征（导航/页眉/页脚）
+        negative_indicators = ['nav', 'menu', 'sidebar', 'header', 'footer', 'topbar']
+        for indicator in negative_indicators:
+            if indicator in classes or indicator in elem_id:
+                score -= 12
+        
+        # 正面特征（内容/列表/主体）
+        positive_indicators = ['content', 'main', 'list', 'result', 'item', 'news', 'article']
+        for indicator in positive_indicators:
+            if indicator in classes or indicator in elem_id:
+                score += 8
+        
+        return score
     
     # 第一层：找到所有可能的列表项
     all_items = []
     for selector in list_selectors:
         items = page_tree.xpath(selector)
-        # print(f"使用选择器 '{selector}' 找到 {len(items)} 个列表项")
         all_items.extend(items)
-    print(f"找到 {len(all_items)} 个列表项")
+    
     if not all_items:
         return None
     
-    # 按照父元素分组，找到包含最多列表项的父元素
+    # 按照父元素分组，找到包含列表项的父元素
     parent_counts = {}
     for item in all_items:
         parent = item.getparent()
@@ -80,13 +175,29 @@ def find_list_container(page_tree):
     if not parent_counts:
         return None
     
-    # 获取包含最多列表项的父元素
-    current_container = max(parent_counts.items(), key=lambda x: x[1])[0]
-    max_items = parent_counts[current_container]
+    # 筛选候选容器：至少包含3个列表项
+    candidate_containers = [(parent, count) for parent, count in parent_counts.items() if count >= 3]
     
-    # 逐层向上搜索，直到找到最优容器
+    # 如果没有符合条件的容器，返回包含最多列表项的容器
+    if not candidate_containers:
+        return max(parent_counts.items(), key=lambda x: x[1])[0]
+    
+    # 对候选容器进行评分并排序
+    scored_containers = []
+    for container, count in candidate_containers:
+        score = calculate_container_score(container)
+        scored_containers.append((container, score, count))
+    
+    # 按分数排序（分数相同则按列表项数量排序）
+    scored_containers.sort(key=lambda x: (x[1], x[2]), reverse=True)
+    
+    # 选择得分最高的容器作为初始候选
+    best_container = scored_containers[0][0]
+    max_items = parent_counts[best_container]
+    
+    # 逐层向上搜索优化容器
+    current_container = best_container
     while True:
-        # 获取当前容器的父元素
         parent = current_container.getparent()
         if parent is None or parent.tag == 'html':
             break
@@ -98,15 +209,17 @@ def find_list_container(page_tree):
         if parent_items > max_items * 1.5:
             break
             
-        # 获取同级元素中的列表项数量
-        siblings = parent.xpath(".//*[self::li or self::tr or self::article or self::div[contains(@class, 'item')]]")
-        if len(siblings) < 3:
+        # 检查父元素是否更适合作为容器
+        parent_score = calculate_container_score(parent)
+        current_score = calculate_container_score(current_container)
+        
+        # 如果父元素得分更高，则升级为当前容器
+        if parent_score > current_score:
+            current_container = parent
+            max_items = parent_items
+        else:
             break
             
-        # 更新当前容器和最大列表项数量
-        current_container = parent
-        max_items = parent_items
-        
         # 如果当前容器只包含很少的直接子列表项，说明已经到达最优层级
         direct_items = len(current_container.xpath(
             "./li | ./tr | ./article | ./div[contains(@class, 'item')]"
@@ -115,128 +228,6 @@ def find_list_container(page_tree):
             break
     
     return current_container
-
-
-
-def calculate_structure_entropy(element):
-    """计算元素内部结构的熵值（衡量结构复杂性）"""
-    if element is None:
-        return 0.0
-    
-    # 只统计直接子元素（避免过度深入嵌套结构）
-    children = list(element.iterchildren())
-    if not children:
-        return 0.0
-    
-    # 统计子元素标签的分布
-    tag_counter = Counter(child.tag for child in children)
-    total = len(children)
-    
-    # 计算熵值 - 熵值越低表示结构越统一
-    entropy = 0.0
-    for count in tag_counter.values():
-        probability = count / total
-        entropy -= probability * log(probability + 1e-10, 2)  # 避免log(0)
-    
-    return entropy
-
-def find_list_containerDS(page_tree):
-    """使用分层搜索策略查找最优列表容器，结合结构熵"""
-    list_selectors = [
-        "//li",
-        "//tr",
-        "//article",
-        "//div[contains(@class, 'item')]",
-        "//div[contains(@class, 'list')]",
-        "//ul//li",
-        "//ol//li",
-        "//table//tr",
-    ]
-    
-    def count_list_items(element):
-        """统计元素内的列表项数量"""
-        items = element.xpath(
-            ".//li | .//tr | .//article | "
-            ".//div[contains(@class, 'item')]"
-        )
-        return len(items)
-    
-    # 找到所有可能的列表项
-    all_items = []
-    for selector in list_selectors:
-        items = page_tree.xpath(selector)
-        all_items.extend(items)
-    
-    if not all_items:
-        return None
-    
-    # 按照父元素分组，找到包含最多列表项的父元素
-    parent_counts = {}
-    for item in all_items:
-        parent = item.getparent()
-        if parent is not None:
-            if parent not in parent_counts:
-                parent_counts[parent] = 0
-            parent_counts[parent] += 1
-    
-    if not parent_counts:
-        return None
-    
-    # 获取包含最多列表项的候选容器
-    candidate_containers = sorted(
-        parent_counts.items(), 
-        key=lambda x: x[1], 
-        reverse=True
-    )[:5]  # 只考虑前5个候选
-    
-    # 选择结构熵最小的容器
-    best_container = None
-    min_entropy = float('inf')
-    
-    for container, item_count in candidate_containers:
-        entropy = calculate_structure_entropy(container)
-        
-        # 打印调试信息
-        print(f"候选容器: {container.tag}@{container.get('class', '')} "
-              f"- 列表项: {item_count}, 熵值: {entropy:.3f}")
-        
-        # 熵值越低表示结构越统一（更可能是目标容器）
-        if entropy < min_entropy:
-            min_entropy = entropy
-            best_container = container
-    
-    if best_container is None:
-        return None
-    
-    # 逐层向上搜索，直到找到最优容器
-    current_container = best_container
-    max_items = parent_counts[best_container]
-    
-    while True:
-        parent = current_container.getparent()
-        if parent is None or parent.tag == 'html':
-            break
-            
-        # 计算父元素中的列表项数量
-        parent_items = count_list_items(parent)
-        
-        # 如果父元素的列表项数量显著增加，说明范围太大
-        if parent_items > max_items * 1.5:
-            break
-            
-        # 计算父容器的熵值
-        parent_entropy = calculate_structure_entropy(parent)
-        
-        # 如果父容器熵值更低（结构更统一），则使用父容器
-        if parent_entropy < min_entropy:
-            current_container = parent
-            min_entropy = parent_entropy
-            max_items = parent_items
-        else:
-            break
-    
-    return current_container
-
 def generate_xpath(element):
     """从元素生成XPath表达式"""
     if not element:
@@ -323,18 +314,18 @@ def validate_xpath(xpath, html_content):
         results = tree.xpath(xpath)
         
         if not results:
-            return False, 0
+            return False, "未找到元素"
         
         container = results[0]
         list_items = container.xpath(".//li | .//tr | .//article | .//div[contains(concat(' ', normalize-space(@class), ' '), ' item ')]")
 
         
         if len(list_items) >= 3:
-            return True, len(list_items)
+            return True, f"找到 {len(list_items)} 个列表项"
         
-        return False, len(list_items)
+        return False, f"仅找到 {len(list_items)} 个列表项（需要至少3个）"
     except Exception as e:
-        return False, -1
+        return False, f"XPath执行错误: {str(e)}"
 
 
 def process_entry(entry, max_retries=3):
@@ -362,49 +353,30 @@ def process_entry(entry, max_retries=3):
         tree = html.fromstring(html_content)
         
         container = find_list_container(tree)
-        containerDS = find_list_containerDS(tree)
-        # 以container为准，该方法可以保证90%以上的准确率
-        # DS只是作为辅助处理部分存在干扰列表的页面
+        
         if not container:
             print("未找到有效的列表容器")
             continue
+        
         candidate_xpath = generate_xpath(container)
-        candidate_xpathDS = generate_xpath(containerDS)
         if not candidate_xpath:
             print("无法生成XPath")
             time.sleep(1)
             continue
 
         print(f"XPath: {candidate_xpath}")
-        is_valid, validation_num = validate_xpath(candidate_xpath, html_content)
+        is_valid, validation_msg = validate_xpath(candidate_xpath, html_content)
         print(f"XPath候选: {candidate_xpath}")
-        print(f"验证结果: 找到{validation_num}个列表项")
-
-        print(f"DSXPath: {candidate_xpathDS}")
-        is_valid, validation_numDS = validate_xpath(candidate_xpathDS, html_content)
-        print(f"DSXPath候选: {candidate_xpathDS}")
-        print(f"DS验证结果: 找到{validation_numDS}个列表项")
+        print(f"验证结果: {validation_msg}")
         
         if is_valid:
-            if validation_num > validation_numDS:
-                best_xpath = candidate_xpath
-                validation_result = validation_num
-            else:
-                best_xpath = candidate_xpathDS
-                validation_result = validation_numDS
+            best_xpath = candidate_xpath
+            validation_result = validation_msg
+            break
         elif attempt == max_retries:
             # 最后一次尝试，使用最佳候选（即使不完美）
             best_xpath = candidate_xpath
-            validation_result = f"最终选择: {validation_num}"
-
-        # if is_valid:
-        #     best_xpath = candidate_xpath
-        #     validation_result = validation_num
-        #     break
-        # elif attempt == max_retries:
-        #     # 最后一次尝试，使用最佳候选（即使不完美）
-        #     best_xpath = candidate_xpath
-        #     validation_result = f"最终选择: {validation_num}"
+            validation_result = f"最终选择: {validation_msg}"
 
     if best_xpath:
         print(f"✓ 最终XPath: {best_xpath}")
@@ -478,10 +450,34 @@ def process_yml_file(input_file, output_file):
     
     print(f"\n处理完成: {success_count} 成功, {failure_count} 失败")
     print(f"结果已保存至: {output_file}")
-
+import os
+import glob
 if __name__ == "__main__":
     # input_file = "国家级（1），部委（28）.yml"    # 输入文件路径
     input_file = "test.yml"
     output_file = "testoutput.yml"  # 输出文件路径
     
     process_yml_file(input_file, output_file)
+
+
+    # input_folder = "waitprocess"
+    # output_folder = "processed"  
+    
+    # if not os.path.exists(output_folder):
+    #     os.makedirs(output_folder)
+    
+    # files = glob.glob(os.path.join(input_folder, "*.yml"))
+    
+    # for input_file in files:
+    #     base_name = os.path.basename(input_file)  
+    #     output_file = os.path.join(output_folder, base_name)
+    #     process_yml_file(input_file, output_file)
+
+
+
+
+# 一个页面中，存在k个列表，假定k=3，有三个列表，列表1为导航栏，里面有8个列表项，列表2为侧边栏，里面有5个列表项，列表3是事项列表，里面有7个列表项，
+# 此时，我的代码会把列表1作为目标获取，但实际情况应该是列表3才是正确的，这怎么办呢，
+# 目前对于目标列表3，可能存在以下特点：里面往往存在时间字符串，并且有些页面中的文字的长度是大于列表1和列表2的。
+# 除此之外，对于列表1，也有以下特点：当我们误获取这个列表1的时候，会去处理组装他的xpath，这个xpath里面往往是存在nav三个字母的，
+# 在我的观察下，大部分情况中，只要xpath里面包含nav，那就很大可能说明获取失败了，没有获取到列表3，而是获取到了列表1
