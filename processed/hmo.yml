@@ -1,0 +1,148 @@
+name: 首页 > 新闻中心 > 时政要闻
+url: https://www.hmo.gov.cn/xwzx/szyw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 新闻中心 > 政务要闻
+url: https://www.hmo.gov.cn/xwzx/zwyw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 新闻中心 > 工作动态
+url: https://www.hmo.gov.cn/xwzx/gzdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 新闻中心 > 新闻发布 > 新闻发布
+url: https://www.hmo.gov.cn/xwzx/xwfb/xwfb_child/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 宪法及相关法律文件
+url: https://www.hmo.gov.cn/zcfg_new/xf/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 基本法 > 香港
+url: https://www.hmo.gov.cn/zcfg_new/jbf/jbf/jbf_xg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 基本法 > 澳门
+url: https://www.hmo.gov.cn/zcfg_new/jbf/jbf/jbf_am/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 香港 > 全国人大常委会关于香港基本法的解释
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/xg/js1/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 香港 > 全国人大及其常委会涉港决定
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/xg/jd1/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 澳门 > 全国人大常委会关于澳门基本法的解释
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/am/js2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 澳门 > 全国人大及其常委会涉澳决定
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/am/jd2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 其他文件 > 香港
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/qtwj/qtwj_xg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 其他文件 > 澳门
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/qtwj/qtwj_am/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 在港澳特区实施的全国性法律 > 香港
+url: https://www.hmo.gov.cn/zcfg_new/gafl/xg2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 在港澳特区实施的全国性法律 > 澳门
+url: https://www.hmo.gov.cn/zcfg_new/gafl/am2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 与港澳有关的政策法规 > 内地、香港、澳门间司法协助相关安排
+url: https://www.hmo.gov.cn/zcfg_new/gafg/sfxz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 与港澳有关的政策法规 > 规范性文件
+url: https://www.hmo.gov.cn/zcfg_new/gafg/gfxwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 政策法规 > 法规数据库 > 普法专栏
+url: https://www.hmo.gov.cn/zcfg_new/fgsjk/pfzl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 合作交流 > 经济金融
+url: https://www.hmo.gov.cn/hzjl_new/jmjlhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 合作交流 > 社会发展
+url: https://www.hmo.gov.cn/hzjl_new/shjlhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 合作交流 > 文教青年
+url: https://www.hmo.gov.cn/hzjl_new/whjlhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 港澳要闻
+url: https://www.hmo.gov.cn/sgazx/gayw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳驻内地官方机构
+url: https://www.hmo.gov.cn/sgazx/fwgn/gazndgfjg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 赴内地采访
+url: https://www.hmo.gov.cn/sgazx/fwgn/fndcf/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 往来、定居内地
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/wldjnd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 赴内地投资
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/fndtz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 赴内地就学
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/fndjx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 赴内地就业
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/fndjy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 权益保障
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/qybz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 往来港澳
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgatz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 定居港澳
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/djga/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 赴港澳投资
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgatzx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 赴港澳就学
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgajx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 赴港澳就业
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgajy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 权益保障
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/ndqybz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 办事大厅 > 办证指南
+url: https://www.hmo.gov.cn/bsdt_new/bszn/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
+name: 首页 > 办事大厅 > 办证咨询
+url: https://www.hmo.gov.cn/bsdt_new/bszx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cy_toolbar_bg_table ')]"
+---
