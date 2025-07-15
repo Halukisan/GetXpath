@@ -18,107 +18,98 @@ def get_html_content(url):
     try:
         response = requests.get(url, headers=headers, timeout=15)
         response.raise_for_status()
-        
         return response.content
     except requests.exceptions.RequestException as e:
         print(f"网络请求错误: {e}")
         return None
-def get_html_content_Selenium(url):
-    driver = webdriver.Chrome()
-    driver.get(url)
-    html_content = driver.page_source
-    return html_content
+
 def find_list_container(page_tree):
-    """使用分层搜索策略查找最优列表容器"""
+    """查找包含最多列表项的最接近容器（使用分层搜索算法）"""
+    # 初始列表项选择器
     list_selectors = [
         "//li",
         "//tr",
         "//article",
-        "//div[contains(@class, 'item')]",
-        "//div[contains(@class, 'list')]",
-        "//ul//li",
-        "//ol//li",
-        "//table//tr",
-        "//section//ul[contains(@class, 'item')]",
-        "//section//ul[contains(@class, 'list')]",
-        "//section//div[contains(@class, 'list')]",
-        "//section//div[contains(@class, 'item')]"
+        "//div[contains(concat(' ', normalize-space(@class), ' '), ' item ')]",
+        "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]",
+        "//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')]",
+        "//ul",
+        "//ol",
+        "//table",
+        "//section"
     ]
     
-    def count_list_items(element):
-        """统计元素内的列表项数量"""
-        items = element.xpath(
-            ".//li | .//tr | .//article | "
-            ".//div[contains(@class, 'item')]"
-        )
-        return len(items)
-    
-    def get_direct_parent(elements):
-        """获取元素集合的直接父元素们"""
-        parents = set()
-        for element in elements:
-            parent = element.getparent()
-            if parent is not None:
-                parents.add(parent)
-        return list(parents)
-    
-    # 第一层：找到所有可能的列表项
-    all_items = []
+    # 收集所有可能的列表项
+    all_list_items = []
     for selector in list_selectors:
         items = page_tree.xpath(selector)
-        # print(f"使用选择器 '{selector}' 找到 {len(items)} 个列表项")
-        all_items.extend(items)
-    print(f"找到 {len(all_items)} 个列表项")
-    if not all_items:
+        all_list_items.extend(items)
+    
+    if not all_list_items:
         return None
     
-    # 按照父元素分组，找到包含最多列表项的父元素
-    parent_counts = {}
-    for item in all_items:
-        parent = item.getparent()
-        if parent is not None:
-            if parent not in parent_counts:
-                parent_counts[parent] = 0
-            parent_counts[parent] += 1
-    
-    if not parent_counts:
-        return None
-    
-    # 获取包含最多列表项的父元素
-    current_container = max(parent_counts.items(), key=lambda x: x[1])[0]
-    max_items = parent_counts[current_container]
-    
-    # 逐层向上搜索，直到找到最优容器
-    while True:
-        # 获取当前容器的父元素
-        parent = current_container.getparent()
-        if parent is None or parent.tag == 'html':
-            break
-            
-        # 计算父元素中的列表项数量
-        parent_items = count_list_items(parent)
+    # 分层搜索算法
+    def hierarchical_search(items, depth=0, max_depth=5):
+        """递归分层搜索最佳容器"""
+        if depth > max_depth or len(items) < 3:
+            return None
         
-        # 如果父元素的列表项数量显著增加，说明范围太大，保持当前容器
-        if parent_items > max_items * 1.5:
-            break
-            
-        # 获取同级元素中的列表项数量
-        siblings = parent.xpath(".//*[self::li or self::tr or self::article or self::div[contains(@class, 'item')]]")
-        if len(siblings) < 3:
-            break
-            
-        # 更新当前容器和最大列表项数量
-        current_container = parent
-        max_items = parent_items
+        # 统计每个父容器包含的列表项数量
+        parent_counter = {}
+        for item in items:
+            parent = item.getparent()
+            if parent is not None:
+                if parent not in parent_counter:
+                    parent_counter[parent] = 0
+                parent_counter[parent] += 1
         
-        # 如果当前容器只包含很少的直接子列表项，说明已经到达最优层级
-        direct_items = len(current_container.xpath(
-            "./li | ./tr | ./article | ./div[contains(@class, 'item')]"
-        ))
-        if direct_items < 3:
-            break
+        if not parent_counter:
+            return None
+        
+        # 找到包含最多列表项的父容器
+        best_parent = max(parent_counter.items(), key=lambda x: x[1])[0]
+        best_count = parent_counter[best_parent]
+        
+        # 获取当前容器内的列表项
+        current_items = best_parent.xpath(
+            ".//li | .//tr | .//article | "
+            ".//div[contains(concat(' ', normalize-space(@class), ' '), ' item ')] | "
+            ".//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')] | "
+            ".//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')] | "
+            ".//ul | .//ol | .//table"
+        )
+        
+        # 递归搜索下一层
+        next_level = hierarchical_search(current_items, depth + 1, max_depth)
+        
+        # 如果下一层没有更好的结果或当前层是最佳，返回当前容器
+        if next_level is None or len(current_items) >= parent_counter.get(next_level, 0):
+            return best_parent
+        
+        return next_level
     
-    return current_container
+    # 执行分层搜索
+    best_container = hierarchical_search(all_list_items)
+    
+    # 验证结果
+    if best_container is not None:
+        # 计算容器内的列表项数量
+        list_items = best_container.xpath(
+            ".//li | .//tr | .//article | "
+            ".//div[contains(concat(' ', normalize-space(@class), ' '), ' item ')] | "
+            ".//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')] | "
+            ".//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')] | "
+            ".//ul | .//ol | .//table"
+        )
+        
+        if len(list_items) >= 3:
+            return best_container
+    
+    # 回退策略：返回包含最多列表项的容器
+    if all_list_items:
+        return all_list_items[0].getroottree().getroot()
+    
+    return None
 def generate_xpath(element):
     """从元素生成XPath表达式"""
     if not element:
@@ -218,29 +209,17 @@ def validate_xpath(xpath, html_content):
     except Exception as e:
         return False, f"XPath执行错误: {str(e)}"
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 def process_entry(entry, max_retries=3):
     """处理单个条目"""
     url = entry['url']
     print(f"\n处理: {entry['name']}")
     print(f"URL: {url}")
     
-    html_content = get_html_content_Selenium(url)
-
-    # html_content = get_html_content(url)
+    html_content = get_html_content(url)
+    if not html_content:
+        print("获取HTML内容失败")
+        return {**entry, 'xpath': None, 'status': 'fetch_failed'}
     
-    # if not html_content:
-    #     print("\nHtml content获取失败，开始changshiSelenium获取!")
-
-    #     driver = webdriver.Chrome()
-    #     driver.get(url)
-    #     html_content = driver.page_source
-    
-    #     if not html_content:
-    #         print("Selenium获取失败，跳过此条目")
-    #         return {**entry, 'xpath': None, 'status': 'failed'}
-        
     best_xpath = None
     validation_result = ""
     candidate_xpath = None  # 添加初始化
@@ -350,7 +329,6 @@ def process_yml_file(input_file, output_file):
     print(f"结果已保存至: {output_file}")
 
 if __name__ == "__main__":
-    # input_file = "国家级（1），部委（28）.yml"    # 输入文件路径
     input_file = "test.yml"
     output_file = "testoutput.yml"  # 输出文件路径
     

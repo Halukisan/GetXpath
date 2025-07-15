@@ -1,0 +1,1916 @@
+name: 首页>学习新时代
+url: https://www.chinacourt.org/article/index/id/MzAwBEIiAQA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>高层
+url: https://www.chinacourt.org/article/index/id/MzAwNAAhIwMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>时政
+url: https://www.chinacourt.org/article/index/id/MzAwNAAhYwMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>最高法院
+url: https://www.chinacourt.org/article/index/id/MzAwNAAhMwMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>政法
+url: https://www.chinacourt.org/article/index/id/MzAwNAAhCwMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>社会
+url: https://www.chinacourt.org/article/index/id/MzAwNAAhEwMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>国际
+url: https://www.chinacourt.org/article/index/id/MzAwNAAhUwMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>立法
+url: https://www.chinacourt.org/article/index/id/MzAwNAAhcwMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>凯风网
+url: https://www.chinacourt.org/article/index/id/MzAwNAChTAMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>浪费可耻 节约为荣
+url: https://www.chinacourt.org/article/index/id/MzAwNAChLAMiAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>新闻>专题
+url: https://www.chinacourt.org/article/subjectmore.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>审判>民事案件
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwMgCRhAEA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>审判>刑事案件
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwAiPCAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>审判>行政案件
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwMjAwNiACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>审判>典型案例
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwMjAwMSACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>执行>追踪
+url: https://www.chinacourt.org/article/index/id/MzAwNDAoNwCRhAEA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>执行>纪事
+url: https://www.chinacourt.org/article/index/id/MzAwNDAoNzAwMiACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>执行>理论
+url: https://www.chinacourt.org/article/index/id/MzAwNDAoNzAwNiACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>评论>本网原创
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNgCRhAEA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>评论>时政
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNjAwMiACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>评论>法治
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwBiPCAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>评论>社会
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNjAwMSACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>时讯>各地快讯
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwMQCRhAEA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>时讯>人民陪审
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwMTAwNiACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>时讯>法官风采
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwASPCAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>民事研究
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNQCRhAEA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>刑事研究
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTAwMiACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>行政研究
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTAwNiACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>商事海事研究
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTAwMSACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>域外司法
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwBSPCAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>法院工作
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTAwMyACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>案例点评
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTAwNyACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法学>院长论坛
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTCwMCACAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法律服务>诉讼指南
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTBIMjAwMiAEAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法律服务>执行指南
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTBIMjAwNiAEAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法律服务>文书格式
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTBIMjAwMSAEAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法律服务>法律问答
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTBIApMEAAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页>法律服务>其他
+url: https://www.chinacourt.org/article/index/id/MzAwNDAwNTBIMjAwMyAEAA.shtml
+xpath: "//div[@id='articleList']"
+---
+name: 首页 > 新闻动态 > 新闻发布
+url: https://www.ndrc.gov.cn/xwdt/xwfb/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 金轩评论
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jxpl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 东数西算 > 政策文件
+url: https://www.ndrc.gov.cn/xwdt/ztzl/dsxs/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 东数西算 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/dsxs/gzdt5/202409/t20240927_1393402.html
+xpath: "None"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 数字经济 > 政策文件
+url: https://www.ndrc.gov.cn/xwdt/ztzl/szjj/zcwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 数字经济 > 政策解读
+url: https://www.ndrc.gov.cn/xwdt/ztzl/szjj/zcjd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 数字经济 > 专家观点
+url: https://www.ndrc.gov.cn/xwdt/ztzl/szjj/zjgd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 2025年全国节能宣传周 > 最新工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/2025qgjnxcz/zxgzdt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' clearfix ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 2025年全国节能宣传周 >部门节能成效
+url: https://www.ndrc.gov.cn/xwdt/ztzl/2025qgjnxcz/bnjncx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 2025年全国节能宣传周 >地方节能实践
+url: https://www.ndrc.gov.cn/xwdt/ztzl/2025qgjnxcz/dfjnsj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 推动大规模设备更新和消费品以旧换新 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/tddgmsbgxhxfpyjhx/gzdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 推动大规模设备更新和消费品以旧换新 > 地方经验
+url: https://www.ndrc.gov.cn/xwdt/ztzl/tddgmsbgxhxfpyjhx/dfjy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 地方投资工作
+url: https://www.ndrc.gov.cn/xwdt/ztzl/dtfzgz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 全国农产品成本调查
+url: https://www.ndrc.gov.cn/xwdt/ztzl/ncpdc70zn/?code=&state=123
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 优化营商环境 > 地方动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/xhyshj/?code=&state=123
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' JDCB_box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 新型城镇化建设 > 规划政策
+url: https://www.ndrc.gov.cn/xwdt/ztzl/xxczhjs/ghzc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' CZH_box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 新型城镇化建设 > 地方实践
+url: https://www.ndrc.gov.cn/xwdt/ztzl/xxczhjs/xcjsfz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' CZH_box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 城镇老旧小区改造资金保障典型经验做法
+url: https://www.ndrc.gov.cn/xwdt/ztzl/czljxqgz/?code=&state=123
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 招投标和公共资源交易 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/ztbhggzyjy/gzdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 招投标和公共资源交易 > 地方动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/ztbhggzyjy/dfdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 社会物流统计 > 全国数据
+url: https://www.ndrc.gov.cn/xwdt/ztzl/shwltj/qgsj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 社会物流统计 > 各地数据
+url: https://www.ndrc.gov.cn/xwdt/ztzl/shwltj/gdsj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 全国农村公共服务典型案例
+url: https://www.ndrc.gov.cn/xwdt/ztzl/qgncggfwdxal/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 先进制造业与现代服务业融合试点单位典型经验做法 > 工作动态
+url: https://www.ndrc.gov.cn/xwdt/ztzl/rhsdjyzf/gzdt6/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 先进制造业与现代服务业融合试点单位典型经验做法 >试点区域
+url: https://www.ndrc.gov.cn/xwdt/ztzl/rhsdjyzf/1sdqy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 先进制造业与现代服务业融合试点单位典型经验做法 >试点企业
+url: https://www.ndrc.gov.cn/xwdt/ztzl/rhsdjyzf/sdqy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 家政服务业提质扩容 > 部际联席会议制度
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jzfwytzkr/bjlxhyzd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 家政服务业提质扩容 > 提质扩容典型案例
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jzfwytzkr/tzkrdxal/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 家政服务业提质扩容 > “领跑者”专项行动
+url: https://www.ndrc.gov.cn/xwdt/ztzl/jzfwytzkr/zxxd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 市场准入负面清单信息公开平台 > 通知公告
+url: https://www.ndrc.gov.cn/xwdt/ztzl/sczrfmqd/tzggg1/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 市场准入负面清单信息公开平台 > 政策解读
+url: https://www.ndrc.gov.cn/xwdt/ztzl/sczrfmqd/zcjddd2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 专题专栏 > 市场准入负面清单信息公开平台 > 下载中心
+url: https://www.ndrc.gov.cn/xwdt/ztzl/sczrfmqd/xzzx0/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' box1 ')]"
+---
+name: 首页 > 新闻动态 > 通知公告
+url: https://www.ndrc.gov.cn/xwdt/tzgg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 动态 > 委领导动态
+url: https://www.ndrc.gov.cn/xwdt/dt/wlddt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 动态 > 司局动态
+url: https://www.ndrc.gov.cn/xwdt/dt/sjdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻动态 > 动态 > 地方动态
+url: https://www.ndrc.gov.cn/xwdt/dt/dfdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 发展改革委令
+url: https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 规范性文件
+url: https://www.ndrc.gov.cn/xxgk/zcfb/ghxwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 规划文本
+url: https://www.ndrc.gov.cn/xxgk/zcfb/ghwb/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' u-list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 公告
+url: https://www.ndrc.gov.cn/xxgk/zcfb/gg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政务公开 > 政策 > 通知
+url: https://www.ndrc.gov.cn/xxgk/zcfb/tz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 互动交流 > 意见征求
+url: https://www.ndrc.gov.cn/hdjl/yjzq/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 互动交流 > 网上公示及调查
+url: https://www.ndrc.gov.cn/hdjl/wsgsjdc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 互动交流 > 留言选登
+url: https://www.ndrc.gov.cn/hdjl/lyxd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cont-lists ')]"
+---
+name: 首页 > 互动交流 > 留言统计
+url: https://www.ndrc.gov.cn/hdjl/lytj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' cont-lists ')]"
+---
+name: 首页 > 互动交流 > 建言献策
+url: https://www.ndrc.gov.cn/hdjl/jyxc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 当前位置: 首页 > 时政要闻
+url: https://www.mps.gov.cn/n7598382/index.html
+xpath: "None"
+---
+name: 当前位置: 首页 > 公安要闻
+url: https://www.mps.gov.cn/n2253534/n2253535/index.html
+xpath: "None"
+---
+name: 当前位置: 首页 > 工作动态
+url: https://www.mps.gov.cn/n2254098/n4904352/index.html
+xpath: "None"
+---
+name: 当前位置: 首页 > 各地警务
+url: https://www.mps.gov.cn/n2253534/n4904351/index.html
+xpath: "None"
+---
+name: 当前位置: 首页 > 政策文件
+url: https://www.mps.gov.cn/n6557558/index.html
+xpath: "None"
+---
+name: 当前位置: 首页 > 政策解读
+url: https://www.mps.gov.cn/n6557563/index.html
+xpath: "None"
+---
+name: 当前位置: 首页 > 警方提示
+url: https://www.mps.gov.cn/n2253534/n2253543/index.html
+xpath: "None"
+---
+name: 首页 > 警事咨询
+url: https://www.mps.gov.cn/n2254536/hudong_index.html
+xpath: "None"
+---
+name: 首页 > 全面依法治国
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 首页 > 全面依法治国 > 机构简介
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/qmyfzgjgjj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 首页 > 全面依法治国 > 决策部署
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/qmyfzgjcbs/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 首页 > 全面依法治国 > 法治政府建设
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/fzgzzffz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 首页 > 全面依法治国 > 法治政府建设 > 年度报告
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/fzgzzffz/fzzfndbg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 首页 > 全面依法治国 > 法治政府建设 > 示范创建
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/fzgzzffz/fzzfsfcj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 首页 > 全面依法治国 > 法治调研
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/fzgzfzdy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 首页 > 全面依法治国 > 法治督察
+url: https://www.moj.gov.cn/pub/sfbgw/qmyfzg/fzgzfzdc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sLinkItem_table ')]"
+---
+name: 政府信息公开>司法部规章
+url: https://www.moj.gov.cn/policyManager/regulationsSearch.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' searchBox-form ')]"
+---
+name: 政府信息公开>司法部行政规范性文件
+url: https://www.moj.gov.cn/pub/sfbgw/zwxxgk/zfxxgkzc/index.html?type=2
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' dLeft ')]"
+---
+name: 政府信息公开>政府信息公开制度
+url: https://www.moj.gov.cn/pub/sfbgw/zwxxgk/zwxxgkzd/index.html
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' liA ')]"
+---
+name: 政府信息公开>政府信息公开工作年度报告
+url: https://www.moj.gov.cn/pub/sfbgw/zwxxgk/zfxxgkgzndbg/index.html
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' liA ')]"
+---
+name: 首页>新闻中心>图片新闻
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/SYtupianxinwen/202507/t20250709_548199.html
+xpath: "None"
+---
+name: 首页>新闻中心>时政要闻
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/shizhengyaowen/
+xpath: "None"
+---
+name: 首页>新闻中心>新闻>人社新闻
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/buneiyaowen/rsxw/
+xpath: "None"
+---
+name: 首页>新闻中心>新闻>会议活动
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/buneiyaowen/hyhd/
+xpath: "None"
+---
+name: 首页>新闻中心>地方动态
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/dfdt/
+xpath: "None"
+---
+name: 首页>新闻中心>发布会>例行新闻发布会
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/fbh/lxxwfbh/
+xpath: "None"
+---
+name: 首页>新闻中心>发布会>专题新闻发布会
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/fbh/ztxwfbh/
+xpath: "None"
+---
+name: 政府信息公开>法律
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：法律）
+xpath: "None"
+---
+name: 政府信息公开>行政法规
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：行政法规）
+xpath: "None"
+---
+name: 政府信息公开>规章>人力资源社会保障部规章库
+url: https://www.mohrss.gov.cn/xxgk2020/gzk/
+xpath: "None"
+---
+name: 政府信息公开>规章>修改、废止的决定
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：修改、废止的决定）
+xpath: "None"
+---
+name: 政府信息公开>规范性文件>综合
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：综合）
+xpath: "None"
+---
+name: 政府信息公开>规范性文件>就业
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：就业）
+xpath: "None"
+---
+name: 政府信息公开>规范性文件>社会保险
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：社会保险）
+xpath: "None"
+---
+name: 政府信息公开>规范性文件>人才人事
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：人才人事）
+xpath: "None"
+---
+name: 政府信息公开>规范性文件>劳动关系
+url: https://www.mohrss.gov.cn/xxgk2020/zc/（指向：劳动关系）
+xpath: "None"
+---
+name: 政府信息公开>政府信息公开制度>制度规定
+url: https://www.mohrss.gov.cn/xxgk2020/zfxxgkzd/zdgd/
+xpath: "None"
+---
+name: 政府信息公开>政府信息公开制度>工作安排
+url: https://www.mohrss.gov.cn/xxgk2020/zfxxgkzd/gzap/
+xpath: "None"
+---
+name: 首页>政策法规>意见征集
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/zcfg/SYzhengqiuyijian/
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容>规划统计>科研信息
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/（指向：科研信息）
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容>财政管理
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/（指向：财政管理）
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容>就业创业政策服务
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/（指向：就业创业政策服务）
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容>社会保险
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/（指向：社会保险）
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容>人才人事
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/（指向：人才人事）
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容>劳动关系
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/（指向：劳动关系）
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容>表彰奖励
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/（指向：表彰奖励）
+xpath: "None"
+---
+name: 首页>互动交流>在线访谈
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/zxhd/SYzaixianfangtan/
+xpath: "None"
+---
+name: 首页>互动交流>常见问题
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/zxhd/cjwd/
+xpath: "None"
+---
+name: 首页  >  公开  >  通知公告
+url: https://www.sport.gov.cn/n315/n20001395/index.html
+xpath: "//span[@id='comp_20166744']"
+---
+name: 首页  >  公开  >  总局要闻
+url: https://www.sport.gov.cn/n315/n20067006/index.html
+xpath: "//span[@id='comp_20166744']"
+---
+name: 首页  >  公开  >  地方动态
+url: https://www.sport.gov.cn/n315/n20066836/index.html
+xpath: "//span[@id='comp_20166744']"
+---
+name: 首页  >  公开  >  新闻发布会
+url: https://www.sport.gov.cn/n315/n20067425/index.html
+xpath: "//span[@id='comp_20166744']"
+---
+name: 首页  >  公开  >  政策法规
+url: https://www.sport.gov.cn/n315/n331/index.html
+xpath: "//span[@id='comp_20243364']"
+---
+name: 首页  >  公开  >  规划计划
+url: https://www.sport.gov.cn/n315/n330/index.html
+xpath: "//span[@id='comp_20166744']"
+---
+name: 首页  >  公开  >  财政资金
+url: https://www.sport.gov.cn/n315/n332/index.html
+xpath: "//span[@id='comp_20166744']"
+---
+name: 首页  >  公开  >  人大建议办理结果
+url: https://www.sport.gov.cn/n315/n10701/index.html
+xpath: "//span[@id='comp_20166744']"
+---
+name: 首页  >  公开  >  政协提案办理结果
+url: https://www.sport.gov.cn/n315/n10702/index.html
+xpath: "None"
+---
+name: 政府信息公开>政策法规>法律
+url: https://www.sport.gov.cn/gdnps/html/zhengce/index.jsp（法律）
+xpath: "None"
+---
+name: 政府信息公开>政策法规>行政法规
+url: https://www.sport.gov.cn/gdnps/html/zhengce/index.jsp（行政法规）
+xpath: "None"
+---
+name: 政府信息公开>政策法规>中央与国务院文件
+url: https://www.sport.gov.cn/gdnps/html/zhengce/index.jsp（中央与国务院文件）
+xpath: "None"
+---
+name: 政府信息公开>政策法规>体育总局部门规章
+url: https://www.sport.gov.cn/gdnps/html/zhengce/list.jsp（体育总局部门规章）
+xpath: "None"
+---
+name: 政府信息公开>政策法规>体育总局规范性文件
+url: https://www.sport.gov.cn/gdnps/html/zhengce/index.jsp（体育总局规范性文件）
+xpath: "None"
+---
+name: 政府信息公开>政策法规>体育总局制度性文件
+url: https://www.sport.gov.cn/gdnps/html/zhengce/index.jsp（体育总局制度性文件）
+xpath: "None"
+---
+name: 政府信息公开>政策法规>地方性法规、规章和规范性文件
+url: https://www.sport.gov.cn/gdnps/html/zhengce/index.jsp（地方性法规、规章和规范性文件）
+xpath: "None"
+---
+name: 政府信息公开>法定主动公开内容
+url: https://www.sport.gov.cn/gdnps/
+xpath: "None"
+---
+name: 首页  >  资讯  >  全民健身  >  动态信息
+url: https://www.sport.gov.cn/n20001280/n20001265/n20067533/index.html
+xpath: "None"
+---
+name: 首页  >  资讯  >  全民健身  >  健身设施
+url: https://www.sport.gov.cn/n20001280/n20001265/n20067708/index.html
+xpath: "None"
+---
+name: 首页  >  资讯  >  全民健身  >  健身指导
+url: https://www.sport.gov.cn/n20001280/n20001265/n20066978/index.html
+xpath: "None"
+---
+name: 首页  >  资讯  >  全民健身  >  全民健身志愿服务
+url: https://www.sport.gov.cn/n20001280/n20001265/n20067611/index.html
+xpath: "None"
+---
+name: 首页  >  资讯  >  全民健身  >  群众赛事活动
+url: https://www.sport.gov.cn/n20001280/n20001265/n20067706/index.html
+xpath: "None"
+---
+name: 首页  >  资讯  >  全民健身  >  经验共享
+url: https://www.sport.gov.cn/n20001280/n20001265/n20067664/index.html
+xpath: "None"
+---
+name: 首页> 医保新闻    > 医保动态
+url: https://www.nhsa.gov.cn/col/col14/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' bd ')]"
+---
+name: 首页> 医保新闻    > 地方医保动态
+url: https://www.nhsa.gov.cn/col/col15/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' bd ')]"
+---
+name: 首页> 医保新闻    > 媒体报道
+url: https://www.nhsa.gov.cn/col/col46/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' bd ')]"
+---
+name: 政府信息公开>法律法规
+url: https://www.nhsa.gov.cn/col/col175/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' dys_classified_by_subject ')]"
+---
+name: 政府信息公开>规章
+url: https://www.nhsa.gov.cn/col/col173/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' dys_classified_by_subject ')]"
+---
+name: 首页> 机关党建
+url: https://www.nhsa.gov.cn/col/col8/index.html
+xpath: "None"
+---
+name: 首页> 互动交流    > 交流公开
+url: https://www.nhsa.gov.cn/col/col59/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' bd ')]"
+---
+name: 工作动态
+url: https://www.scs.gov.cn/gzdt/
+xpath: "None"
+---
+name: 政策法规
+url: https://www.scs.gov.cn/zcfg/
+xpath: "None"
+---
+name: 首页 > 要闻动态 > 时政要闻
+url: http://www.counsellor.gov.cn/szyw.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' conright ')]"
+---
+name: 首页 > 要闻动态 > 室馆动态
+url: http://www.counsellor.gov.cn/sgdt.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 首页 > 要闻动态 > 对外交流
+url: http://www.counsellor.gov.cn/dwjl.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' conright ')]"
+---
+name: 首页 > 要闻动态 > 通知公告
+url: http://www.counsellor.gov.cn/tzgg.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' conright ')]"
+---
+name: 首页 > 要闻动态 > 地方室馆动态
+url: http://www.counsellor.gov.cn/dfsgdt.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 首页 > 参事之窗
+url: http://www.counsellor.gov.cn/cszc.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nameCon ')]"
+---
+name: 首页 > 馆员风采
+url: http://www.counsellor.gov.cn/gyfc.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nameCon ')]"
+---
+name: 首页 > 特约研究员 > 参事室特约研究员
+url: http://www.counsellor.gov.cn/csstyyjy.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nameCon ')]"
+---
+name: 首页 > 特约研究员 > 文史馆特约研究员
+url: http://www.counsellor.gov.cn/wsgtyyjy.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nameCon ')]"
+---
+name: 首页 > 信息发布 > 头条
+url: https://www.nppa.gov.cn/xxfb/tt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 信息发布 > 要闻信息
+url: https://www.nppa.gov.cn/xxfb/ywxx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 信息发布 > 通知公示
+url: https://www.nppa.gov.cn/xxfb/tzgs/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 信息发布 > 业务动态
+url: https://www.nppa.gov.cn/xxfb/ywdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 信息发布 > 地方工作
+url: https://www.nppa.gov.cn/xxfb/dfgz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 办事服务 > 结果公示 > 许可结果
+url: https://www.nppa.gov.cn/bsfw/jggs/xkjg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' hmMain ')]"
+---
+name: 首页 > 办事服务 > 结果公示 > 游戏审批结果
+url: https://www.nppa.gov.cn/bsfw/jggs/yxspjg/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' clearfix ')]"
+---
+name: 政府信息公开>政府信息公开制度
+url: https://www.nppa.gov.cn/xxgk/zfxxgkzd/
+xpath: "//ul[@id='accordion']/a[1]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 法律
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/fl_211/
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' gknr_conList ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 法规
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/fg_212/
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' gknr_conList ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 部门规章
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/bmgz_213/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rightBoxff ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 国际公约
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gjgy_214/
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' gknr_conList ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 规范性文件
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gfxwj_215/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rightBoxff ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 通知公示
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/tzgs_217/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rightBoxff ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 行政许可
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/xzxk/
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' gknr_conList ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 行政处罚
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/xzcf/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rightBoxff ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 行政许可事项清单
+url: https://www.nppa.gov.cn/bsfw/xksx/xzxksxqd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' hmMain ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 图书审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/tsspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 报纸审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/bzspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2menu ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 期刊审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/qkspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 音像审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/yxspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 电子审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/dzspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 网络出版服务审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/wlcbfwspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2menu ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 发行审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/fxspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2menu ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 新闻出版许可证核发事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/xwcbxkzhfsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2menu ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 著作权类
+url: https://www.nppa.gov.cn/bsfw/xksx/zzql/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' hmMain ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 对外交流合作类 > 合作出版审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/dwjlhzl/hzcbspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' hmMain ')]"
+---
+name: 首页 > 新闻中心 > 时政要闻
+url: https://www.hmo.gov.cn/xwzx/szyw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻中心 > 政务要闻
+url: https://www.hmo.gov.cn/xwzx/zwyw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻中心 > 工作动态
+url: https://www.hmo.gov.cn/xwzx/gzdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 新闻中心 > 新闻发布 > 新闻发布
+url: https://www.hmo.gov.cn/xwzx/xwfb/xwfb_child/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 宪法及相关法律文件
+url: https://www.hmo.gov.cn/zcfg_new/xf/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 基本法 > 香港
+url: https://www.hmo.gov.cn/zcfg_new/jbf/jbf/jbf_xg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 基本法 > 澳门
+url: https://www.hmo.gov.cn/zcfg_new/jbf/jbf/jbf_am/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 香港 > 全国人大常委会关于香港基本法的解释
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/xg/js1/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 香港 > 全国人大及其常委会涉港决定
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/xg/jd1/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 澳门 > 全国人大常委会关于澳门基本法的解释
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/am/js2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 澳门 > 全国人大及其常委会涉澳决定
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/am/jd2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 其他文件 > 香港
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/qtwj/qtwj_xg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 政策法规 > 基本法及相关法律文件 > 与基本法相关的法律文件 > 其他文件 > 澳门
+url: https://www.hmo.gov.cn/zcfg_new/jbf/flwj/qtwj/qtwj_am/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 政策法规 > 在港澳特区实施的全国性法律 > 香港
+url: https://www.hmo.gov.cn/zcfg_new/gafl/xg2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 在港澳特区实施的全国性法律 > 澳门
+url: https://www.hmo.gov.cn/zcfg_new/gafl/am2/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 与港澳有关的政策法规 > 内地、香港、澳门间司法协助相关安排
+url: https://www.hmo.gov.cn/zcfg_new/gafg/sfxz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 与港澳有关的政策法规 > 规范性文件
+url: https://www.hmo.gov.cn/zcfg_new/gafg/gfxwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 政策法规 > 法规数据库 > 普法专栏
+url: https://www.hmo.gov.cn/zcfg_new/fgsjk/pfzl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 合作交流 > 经济金融
+url: https://www.hmo.gov.cn/hzjl_new/jmjlhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 合作交流 > 社会发展
+url: https://www.hmo.gov.cn/hzjl_new/shjlhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 合作交流 > 文教青年
+url: https://www.hmo.gov.cn/hzjl_new/whjlhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 港澳要闻
+url: https://www.hmo.gov.cn/sgazx/gayw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳驻内地官方机构
+url: https://www.hmo.gov.cn/sgazx/fwgn/gazndgfjg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 赴内地采访
+url: https://www.hmo.gov.cn/sgazx/fwgn/fndcf/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 往来、定居内地
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/wldjnd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 赴内地投资
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/fndtz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 赴内地就学
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/fndjx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 赴内地就业
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/fndjy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 港澳来内地 > 权益保障
+url: https://www.hmo.gov.cn/sgazx/fwgn/galnd/qybz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 往来港澳
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgatz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 定居港澳
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/djga/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 赴港澳投资
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgatzx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 赴港澳就学
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgajx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 赴港澳就业
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/fgajy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 > 涉港澳资讯 > 服务小贴士 > 内地赴港澳 > 权益保障
+url: https://www.hmo.gov.cn/sgazx/fwgn/ndfga/ndqybz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 办事大厅 > 办证指南
+url: https://www.hmo.gov.cn/bsdt_new/bszn/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 首页 > 办事大厅 > 办证咨询
+url: https://www.hmo.gov.cn/bsdt_new/bszx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nav ')]"
+---
+name: 第一观察（无限下拉）
+url: https://www.news.cn/politics/leaders/xijinping/zlbd/dygc.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 学习进行时（无限下拉）
+url: https://www.news.cn/politics/xxjxs/index.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 第1视点
+url: https://www.news.cn/politics/leaders/xijinping/zlbd/dysd.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 学习快评
+url: https://www.news.cn/politics/leaders/xijinping/zlbd/xxkp.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 元首外交 心相近
+url: https://www.news.cn/politics/leaders/xijinping/zlbd/yswjxxj.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 镜观 领航
+url: https://www.news.cn/politics/leaders/xijinping/zlbd/jglh.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 习近平总书记关切事
+url: https://www.news.cn/politics/leaders/xijinping/zlbd/xjpzsjgqs.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 纪实 综述
+url: https://www.news.cn/politics/leaders/xijinping/zlbd/jszs.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 时政
+url: https://www.news.cn/politics/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' column-center-cont ')]"
+---
+name: 金融
+url: https://www.news.cn/money/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' bd ')]"
+---
+name: 中央文件>文件发布
+url: https://www.news.cn/politics/zywj/index.htm
+xpath: "None"
+---
+name: 中央文件>文件解读
+url: https://www.news.cn/politics/zywj/index.htm
+xpath: "None"
+---
+name: 首页 > 科研进展
+url: https://www.cas.cn/syky/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' gl_list2 ')]"
+---
+name: 首页 > 成果转化 > 工作动态
+url: https://www.cas.cn/cg/zh/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' gl_list2 ')]"
+---
+name: 首页 > 科学普及 > 科学教育 > 科学教育论坛
+url: https://casad.cas.cn/kpjy/kxjy/kxjylt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar-collapse ')]"
+---
+name: 首页新闻动态
+url: https://scicn.casad.cas.cn/xwdt1/
+xpath: "//div[@id='navbar-menu']"
+---
+name: 首页 > 决策咨询 > 咨询与智库建设
+url: https://casad.cas.cn/jczx/zxpy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' new-graphics ')]"
+---
+name: 首页 > 决策咨询 > 咨询成果 > 院士建议
+url: https://casad.cas.cn/jczx/zxcg/ysjy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' new-graphics ')]"
+---
+name: 首页要闻
+url: http://www.cass.cn/yaowen/
+xpath: "//div[@id='hwslider']"
+---
+name: 首页科研动态科研管理
+url: http://www.cass.cn/keyandongtai/keyanguanli/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页科研动态强院战略
+url: http://www.cass.cn/keyandongtai/qiangyuanzhanlue/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页科研动态学术会议
+url: http://www.cass.cn/keyandongtai/xueshuhuiyi/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页科研动态出版动态
+url: http://www.cass.cn/keyandongtai/baokanchuban/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页科研动态社科基金
+url: http://www.cass.cn/keyandongtai/shekejijin/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页科研动态国情调研
+url: http://www.cass.cn/keyandongtai/guoqingdiaoyan/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果马克思主义学部
+url: http://www.cass.cn/xueshuchengguo/makesizhuyixuebu/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果文学哲学学部
+url: http://www.cass.cn/xueshuchengguo/wenzhexuebulishixuebu/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果中国历史研究院
+url: http://www.cass.cn/xueshuchengguo/xscg_lsyjy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果经济学部
+url: http://www.cass.cn/xueshuchengguo/jingjixuebu/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果社会政法学部
+url: http://www.cass.cn/xueshuchengguo/shehuizhengfaxuebu/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果国际研究学部
+url: http://www.cass.cn/xueshuchengguo/guojiyanjiuxuebu/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果学部委员
+url: http://www.cass.cn/xueshuchengguo/xscg_xbwy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页学术成果荣誉学部委员
+url: http://www.cass.cn/xueshuchengguo/xscg_ryxbwy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kydtInnerCLBox ')]"
+---
+name: 首页国际交流
+url: http://www.cass.cn/duiwaijiaoliu/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' innerLBox ')]"
+---
+name: 首页 > 战略咨询 > 简介
+url: https://www.cae.cn/cae/html/main/col83/column_83_1.html
+xpath: "//div[@id='anchor_point']"
+---
+name: 首页 > 战略咨询 > 研究动态
+url: https://www.cae.cn/cae/html/main/col84/column_84_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 战略咨询 > 战略研究联盟
+url: https://www.cae.cn/cae/html/main/col85/column_85_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 战略咨询 > 咨询建议
+url: https://www.cae.cn/cae/html/main/col95/column_95_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 战略咨询 > 研究报告
+url: https://www.cae.cn/cae/html/main/col96/column_96_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 战略咨询 > 项目管理
+url: https://www.cae.cn/cae/html/main/col97/column_97_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 学术引领 > 学术研讨
+url: https://www.cae.cn/cae/html/main/col2294/column_2294_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 学术引领 > 院刊建设
+url: https://www.cae.cn/cae/html/main/col2295/column_2295_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 科技合作 > 工作动态
+url: https://www.cae.cn/cae/html/main/col104/column_104_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 科技合作 > 战略咨询
+url: https://www.cae.cn/cae/html/main/col110/column_110_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 科技合作 > 院士行
+url: https://www.cae.cn/cae/html/main/col112/column_112_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 对外交流 > 国际及港澳台交流与合作 > 国际交流与合作动态
+url: https://www.cae.cn/cae/html/main/col296/column_296_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 对外交流 > 国际及港澳台交流与合作 > 港澳台交流与合作动态
+url: https://www.cae.cn/cae/html/main/col297/column_297_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 对外交流 > 国际工程科技机构动态
+url: https://www.cae.cn/cae/html/main/col119/column_119_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 对外交流 > 合作项目与活动信息
+url: https://www.cae.cn/cae/html/main/col120/column_120_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right_md_list ')]"
+---
+name: 首页 > 互动交流 > 留言选登
+url: http://tousu.cae.cn:8090/cae/pro/messageIssuedList
+xpath: "//td[contains(concat(' ', normalize-space(@class), ' '), ' tr_bottom ')]"
+---
+name: 首页>中心动态
+url: https://www.drc.gov.cn/Leaf.aspx?leafid=1346
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')]/div[1]"
+---
+name: 首页>政策解读
+url: https://www.drc.gov.cn/Leaf.aspx?leafid=1338
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')]/div[1]"
+---
+name: 首页>交流合作>学术交流
+url: https://www.drc.gov.cn/gjjl.aspx?chnid=380&leafid=1351
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')]/div[1]"
+---
+name: 首页>交流合作>国际合作
+url: https://www.drc.gov.cn/gjjl.aspx?chnid=380&leafid=1344
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')]/div[1]"
+---
+name: 时政-人民领袖习近平
+url: https://news.cctv.com/rmlx/index.shtml?spm=C94212.PX2vlYqXvXQY.EfiGibs0QGJi.1
+xpath: "None"
+---
+name: 时政-联播+时
+url: https://news.cctv.com/lbj/index.shtml?spm=C94212.PS0fQGGS65U3.EfiGibs0QGJi.2
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' boxs ')]"
+---
+name: 时政-央视快评
+url: https://news.cctv.com/yskp/index.shtml?spm=0.PzTiZQK9A6QP.EfiGibs0QGJi.4
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kuaiping17711_con03 ')]/ul[1]"
+---
+name: 时政-热解读
+url: https://news.cctv.com/rjd/?spm=0.PzTiZQK9A6QP.EfiGibs0QGJi.6
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' kuaiping17711_con03 ')]/ul[1]"
+---
+name: 新闻-乡村振兴-大国农业
+url: https://xczx.cctv.com/xczxzx/index.shtml?spm=C73274.Pt2UfsofZQQ5.Eusg5uC2UvID.3
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' swiper-container ')]"
+---
+name: 新闻-乡村振兴-大美中国
+url: https://xczx.cctv.com/xczxzx/xcwl/index.shtml?spm=C73274.Pqz3eMqOKpJn.Eusg5uC2UvID.4
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' swiper-container ')]"
+---
+name: 新闻-生态环境-生态聚焦
+url: https://eco.cctv.com/second/Ecofocus/index.shtml?spm=C94433.Pt3TM2eA7qqo.E0yYfSJTucdP.3
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' shengtai19970_con01 ')]"
+---
+name: 新闻-生态环境-曝光台
+url: https://eco.cctv.com/second/notice/index.shtml?spm=C94433.PU4mqfCFM3eB.E0yYfSJTucdP.4
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' shengtai19970_con01 ')]"
+---
+name: 评论-复兴网评
+url: https://opinion.cctv.com/yangshiwangping/plist/index.shtml?spm=C88965.P72990804435.E72991808447.16
+xpath: "//div[@id='contentELMT1413451612160580']"
+---
+name: 央视网>财经频道
+url: https://finance.cctv.com/money/index.shtml?spm=C02773.PEgWtUrxhn9O.Ee9oqgxeXEsH.4
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' swiper-container ')]"
+---
+name: 首页  >  政务公开  >  通知公告
+url: https://www.sastind.gov.cn/n10086167/n10086216/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  政务公开  >  政策法规
+url: https://www.sastind.gov.cn/n10086167/n10086221/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_infor_notice ')]"
+---
+name: 首页  >  政务公开  >  政策解读
+url: https://www.sastind.gov.cn/n10086167/n10086187/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_infor_notice ')]"
+---
+name: 政府信息公开>政府信息公开目录
+url: https://www.sastind.gov.cn/gdnps/pc/index.jsp
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' leftsidebar ')]"
+---
+name: 政府信息公开>法定主动公开内容>法律法规
+url: https://www.sastind.gov.cn/gdnps/pc/content.jsp?id=740&mtype=2
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' leftsidebar ')]"
+---
+name: 政府信息公开>法定主动公开内容>科技创新
+url: https://www.sastind.gov.cn/gdnps/pc/content.jsp?id=740&mtype=2
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' leftsidebar ')]"
+---
+name: 政府信息公开>法定主动公开内容>行业监管
+url: https://www.sastind.gov.cn/gdnps/pc/content.jsp?id=740&mtype=2
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' leftsidebar ')]"
+---
+name: 政府信息公开>法定主动公开内容>其他
+url: https://www.sastind.gov.cn/gdnps/pc/content.jsp?id=740&mtype=2
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' leftsidebar ')]"
+---
+name: 首页  >  党建工作  >  机关党建
+url: https://www.sastind.gov.cn/n10100084/n10100100/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  新闻宣传  >  时政要闻
+url: https://www.sastind.gov.cn/n10086200/n10086319/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  新闻宣传  >  工作动态
+url: https://www.sastind.gov.cn/n10086200/n10086344/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  新闻宣传  >  军工科技
+url: https://www.sastind.gov.cn/n10086200/n10086331/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  工作动态
+url: https://www.sastind.gov.cn/n10086200/n10682020/n10682050/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' NewsListbox ')]/ul[1]"
+---
+name: 首页  >  通知公告
+url: https://www.sastind.gov.cn/n10086200/n10682020/n10682055/index.html
+xpath: "//span[@id='comp_10683268']"
+---
+name: 首页  >  制度文件
+url: https://www.sastind.gov.cn/n10086200/n10682020/n10682060/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' NewsListbox ')]/ul[1]"
+---
+name: 首页  >  党建工作  >  机关党建
+url: https://www.sastind.gov.cn/n10100084/n10100100/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  新闻宣传  >  成果转化
+url: https://www.sastind.gov.cn/n10086200/n10086354/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页--行业资讯--烟草新闻--行业要闻
+url: http://www.tobacco.gov.cn/gjyc/hyyw/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--烟草新闻--央媒报道
+url: http://www.tobacco.gov.cn/gjyc/ymbd/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--烟草新闻--各地新闻
+url: http://www.tobacco.gov.cn/gjyc/gdxw/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--烟草新闻--基层工作
+url: http://www.tobacco.gov.cn/gjyc/jcgz/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--乡村振兴--乡村振兴工作信息
+url: http://www.tobacco.gov.cn/gjyc/fpgzdt/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--乡村振兴--相关政策
+url: http://www.tobacco.gov.cn/gjyc/fpzc/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--专卖管理
+url: http://www.tobacco.gov.cn/gjyc/zmgl/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--数字化转型
+url: http://www.tobacco.gov.cn/gjyc/ychyszhzx/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--统计信息
+url: http://www.tobacco.gov.cn/gjyc/tjxx/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--互联网+政务服务--工作信息
+url: http://www.tobacco.gov.cn/gjyc/gzdt/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--行业资讯--互联网+政务服务--政府网站工作年度报表
+url: http://www.tobacco.gov.cn/gjyc/wzndbb/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 政策文件库
+url: http://www.tobacco.gov.cn/gjyc/zcwjk/zck.shtml?tab=zcwj
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' w1200 ')]/ul[1]"
+---
+name: 首页--行业资讯--计划规划
+url: http://www.tobacco.gov.cn/gjyc/jhgh/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--互动交流--热点问答
+url: http://www.tobacco.gov.cn/gjyc/jpwd/lylist.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' w1200 ')]/ul[1]"
+---
+name: 首页--互动交流--留言列表
+url: http://www.tobacco.gov.cn/gjyc/lylb/lylb_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' w1200 ')]/ul[1]"
+---
+name: 首页--互动交流--在线访谈
+url: http://www.tobacco.gov.cn/gjyc/zxft/list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--监管动态
+url: http://www.tobacco.gov.cn/gjyc/dzygljgdt/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--权威发布
+url: http://www.tobacco.gov.cn/gjyc/dzyglqwfb/dzy_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' inTyList ')]"
+---
+name: 首页--电子烟管理--回应关切
+url: http://www.tobacco.gov.cn/gjyc/dzyglhygq/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--公示公开
+url: http://www.tobacco.gov.cn/gjyc/dzyglgsgk/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--政策文件--许可管理
+url: http://www.tobacco.gov.cn/gjyc/dzyglxzxk/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--政策文件--技术审评
+url: http://www.tobacco.gov.cn/gjyc/dzygljsspjzlaq/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--政策文件--生产管理
+url: http://www.tobacco.gov.cn/gjyc/dzyglscgl/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--政策文件--销售管理
+url: http://www.tobacco.gov.cn/gjyc/dzyglltgl/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--政策文件--综合管理
+url: http://www.tobacco.gov.cn/gjyc/dzyglzhwj/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页--电子烟管理--政策文件--行政执法
+url: http://www.tobacco.gov.cn/gjyc/dzyglxzzf/dzy_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' tyList ')]"
+---
+name: 首页 > 新闻发布 > 移民管理要闻
+url: https://www.nia.gov.cn/n741435/n741517/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_bd ')]"
+---
+name: 首页 > 新闻发布 > 新闻发布会
+url: https://www.nia.gov.cn/n741435/n1194535/list-index.html
+xpath: "//span[@id='comp_1208819']/table[1]/tr[1]/td[1]"
+---
+name: 首页 > 新闻发布 > 媒体聚焦
+url: https://www.nia.gov.cn/n741435/n741532/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_bd ')]"
+---
+name: 首页 > 政务公开 > 通知公告
+url: https://www.nia.gov.cn/n741440/n741542/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_bd ')]"
+---
+name: 首页 > 政务公开 > 政策文件
+url: https://www.nia.gov.cn/n741440/n741547/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_bd ')]"
+---
+name: 首页 > 政务公开 > 政策解读
+url: https://www.nia.gov.cn/n741440/n741577/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_bd ')]"
+---
+name: 首页 > 政务公开 > 统计数据
+url: https://www.nia.gov.cn/n741440/n741567/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_bd ')]"
+---
+name: 政府信息公开-政策-规章
+url: https://www.nia.gov.cn/News/new/index.jsp（规章）
+xpath: "None"
+---
+name: 政府信息公开-政策-行政规范性文件
+url: https://www.nia.gov.cn/News/new/index.jsp（行政规范性文件）
+xpath: "None"
+---
+name: 政府信息公开-政府信息公开制度
+url: https://www.nia.gov.cn/News/new/index.jsp（政府信息公开制度）
+xpath: "None"
+---
+name: 政府信息公开-法定主动公开内容-主题分类-组织机构信息
+url: https://www.nia.gov.cn/News/new/index.jsp（组织机构信息）
+xpath: "None"
+---
+name: 政府信息公开-法定主动公开内容-主题分类-政策信息
+url: https://www.nia.gov.cn/News/new/index.jsp（政策信息）
+xpath: "None"
+---
+name: 政府信息公开-法定主动公开内容-主题分类-规划计划
+url: https://www.nia.gov.cn/News/new/index.jsp（规划计划）
+xpath: "None"
+---
+name: 政府信息公开-法定主动公开内容-主题分类-信息公开分析报告
+url: https://www.nia.gov.cn/News/new/index.jsp（信息公开分析报告）
+xpath: "None"
+---
+name: 政府信息公开-法定主动公开内容-主题分类-行政许可项目
+url: https://www.nia.gov.cn/News/new/index.jsp（行政许可项目）
+xpath: "None"
+---
+name: 政府信息公开-法定主动公开内容-主题分类-其他
+url: https://www.nia.gov.cn/News/new/index.jsp（其他）
+xpath: "None"
+---
+name: 首页 > 咨询建议
+url: https://www.nia.gov.cn/Enquiry/publish/zxjyindex.jsp?reset=true
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' detailsProblem ')]"
+---
+name: 首页 > 新闻资讯 > 新闻信息 > 新闻列表
+url: https://www.nra.gov.cn/xwzx/xwxx/xwlb/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 新闻资讯 > 新闻信息 > 滚动新闻
+url: https://www.nra.gov.cn/xwzx/xwxx/gdxw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 新闻资讯 > 新闻信息 > 一句话新闻
+url: https://www.nra.gov.cn/xwzx/xwxx/yjxw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 新闻资讯 > 交流合作 > 合作交流信息
+url: https://www.nra.gov.cn/xwzx/jlhz/hzjl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 新闻资讯 > 交流合作 > 国际条约介绍
+url: https://www.nra.gov.cn/xwzx/jlhz/gjty/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 政府信息公开-政府信息公开制度
+url: https://www.nra.gov.cn/xxgk/gkzd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' twolist ')]"
+---
+name: 政府信息公开-政府信息公开内容
+url: https://www.nra.gov.cn/xxgk/gkml/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' twolist ')]"
+---
+name: 首页 > 监管履职 > 安全监察 > 政策法规
+url: https://www.nra.gov.cn/jglz/apjc/zcfg/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news_w ')]"
+---
+name: 首页 > 监管履职 > 安全监察 > 监管信息
+url: https://www.nra.gov.cn/jglz/apjc/jgxx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 安全监察 > 安全专题
+url: https://www.nra.gov.cn/jglz/apjc/aqzt/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 运输监管 > 政策法规
+url: https://www.nra.gov.cn/jglz/ysjg/fgys/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 运输监管 > 许可项目
+url: https://www.nra.gov.cn/jglz/ysjg/xkxm/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 监管履职 > 运输监管 > 监管信息
+url: https://www.nra.gov.cn/jglz/ysjg/jgys/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 工程监管 > 政策法规
+url: https://www.nra.gov.cn/jglz/gcjg/fggz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 工程监管 > 监管信息
+url: https://www.nra.gov.cn/jglz/gcjg/jggc/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 设备监管 > 政策法规
+url: https://www.nra.gov.cn/jglz/sbjg/fgsb/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 设备监管 > 监管信息
+url: https://www.nra.gov.cn/jglz/sbjg/jgsb/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 设备监管 > 质量监督抽查
+url: https://www.nra.gov.cn/jglz/sbjg/zljdcc/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 科技管理 > 重要文件
+url: https://www.nra.gov.cn/jglz/kjgl/zywj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 科技管理 > 科技综合管理
+url: https://www.nra.gov.cn/jglz/kjgl/kjgl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 科技管理 > 科研项目管理
+url: https://www.nra.gov.cn/jglz/kjgl/kyxm/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 科技管理 > 科研成果管理
+url: https://www.nra.gov.cn/jglz/kjgl/kycg/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 科技管理 > 技术监督 > 计量规程规范
+url: https://www.nra.gov.cn/jglz/kjgl/jsjd/jlfc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 执法检查 > 执法公告
+url: https://www.nra.gov.cn/jglz/zfjc/zfgg/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
+---
+name: 首页 > 监管履职 > 法规制度 > 法律
+url: https://www.nra.gov.cn/jglz/fgzd/fl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 监管履职 > 法规制度 > 行政法规
+url: https://www.nra.gov.cn/jglz/fgzd/xzfg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 监管履职 > 法规制度 > 法规性文件
+url: https://www.nra.gov.cn/jglz/fgzd/fgwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 监管履职 > 法规制度 > 部门规章
+url: https://www.nra.gov.cn/jglz/fgzd/bmgz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 监管履职 > 法规制度 > 规范性文件
+url: https://www.nra.gov.cn/jglz/fgzd/gfwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' navbar ')]"
+---
+name: 首页 > 互动交流 > 政策解读 > 政策解读汇总
+url: https://www.nra.gov.cn/hdjl/zcjd/jdhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' bd ')]"
+---
+name: 首页  >  信息发布  >  国内新闻
+url: https://www.caea.gov.cn/n6760338/n6760342/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  信息发布  >  国际新闻
+url: https://www.caea.gov.cn/n6760338/n6760343/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页  >  业务办理  >  有问有答
+url: https://www.caea.gov.cn/n6760339/n6760351/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' subnav ')]"
+---
+name: 首页 >> 新闻中心 >> 信访要闻
+url: https://www.gjxfj.gov.cn/gjxfj/news/ttxw.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 新闻中心>>时政要闻
+url: https://www.gjxfj.gov.cn/gjxfj/news/szyw.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 首页 >> 新闻中心>>工作资讯
+url: https://www.gjxfj.gov.cn/gjxfj/news/gzyw.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 新闻中心 >> 新闻发布
+url: https://www.gjxfj.gov.cn/gjxfj/news/xwfb.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 新闻中心 >> 媒体关注
+url: https://www.gjxfj.gov.cn/gjxfj/news/mtgz.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 新闻中心 >> 地方动态
+url: https://www.gjxfj.gov.cn/gjxfj/news/dfdt.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xpage-container ')]"
+---
+name: 首页 >> 新闻中心 >> 部委动态
+url: https://www.gjxfj.gov.cn/gjxfj/news/bwdt.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 政府信息公开 >> 政府信息公开制度 >> 信息公开法规制度
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/xxgkfgzd.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 政府信息公开 >> 政府信息公开制度 >> 政务公开要点
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zwgkyd.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 政府信息公开 >> 法定主动公开内容 >> 政策解读
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zcjd.htm
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' focus ')]"
+---
+name: 首页 >> 政府信息公开 >> 法定主动公开内容 >> 重大会议
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zdhy.htm
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' focus ')]"
+---
+name: 首页 >> 政府信息公开 >> 政策文件 >> 规范性文件
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/gfxwj1.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 >> 政府信息公开 >> 政策文件 >> 其他文件
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/qtwj.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>信访广角>>探索思考
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/tssk.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>信访广角>>典型推介
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/dxtj.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>信访广角>>曝光台
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/bgt.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>信访广角>>督查事项
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/dcsx.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>信访广角>>理论研究
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/llyj.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>信访广角>>党建苑地
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/djyd.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>信访广角>>聚焦网上信访
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/jjwsxf.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页>>互动交流>>在线访谈
+url: https://www.gjxfj.gov.cn/gjxfj/hdjl/zxft.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' ejxxgk_xqcon ')]"
+---
+name: 首页 > 侨务要闻
+url: https://www.gqb.gov.cn/gqb/qwyw/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 政策法规
+url: https://www.gqb.gov.cn/gqb/zcfg/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-基本法律
+url: https://www.gqb.gov.cn/gqb/flfg_jbfl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-国籍与身份类
+url: https://www.gqb.gov.cn/gqb/flfg_gjysfl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' qw_list_pphdul ')]"
+---
+name: 首页 > 法律法规-民事类
+url: https://www.gqb.gov.cn/gqb/flfg_msl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-投资类
+url: https://www.gqb.gov.cn/gqb/flfg_tzl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-进出口类
+url: https://www.gqb.gov.cn/gqb/flfg_jckl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' qw_list_pphdul ')]"
+---
+name: 首页 > 法律法规-房产类
+url: https://www.gqb.gov.cn/gqb/flfg_fcl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-捐赠类
+url: https://www.gqb.gov.cn/gqb/flfg_jzl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-出入境类
+url: https://www.gqb.gov.cn/gqb/flfg_crjl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-社会保障类
+url: https://www.gqb.gov.cn/gqb/flfg_shbzl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' qw_list_pphdul ')]"
+---
+name: 首页 > 法律法规-领事条约类
+url: https://www.gqb.gov.cn/gqb/flfg_lstyl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 法律法规-司法解释类
+url: https://www.gqb.gov.cn/gqb/flfg_sfjsl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' qw_list_pphdul ')]"
+---
+name: 首页 > 公告栏
+url: https://www.gqb.gov.cn/gqb/ggl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 行政审批
+url: https://www.gqb.gov.cn/gqb/xzsp/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 地方侨务
+url: https://www.gqb.gov.cn/gqb/sqxx/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页 > 侨务问答
+url: https://www.gqb.gov.cn/gqb/qwwd/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' left_list_hjpd ')]"
+---
+name: 首页  >  新闻动态  >  领导活动
+url: https://www.nda.gov.cn/sjj/swdt/jlddt/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' leader-left ')]"
+---
+name: 首页  >  新闻动态  >  新闻发布
+url: https://www.nda.gov.cn/sjj/swdt/xwfb/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  新闻动态  >  司局动态
+url: https://www.nda.gov.cn/sjj/swdt/sjdt/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  新闻动态  >  地方动态
+url: https://www.nda.gov.cn/sjj/swdt/dfdt/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  政务公开  >  政策发布
+url: https://www.nda.gov.cn/sjj/zwgk/zcfb/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  政务公开  >  政策解读
+url: https://www.nda.gov.cn/sjj/zwgk/zcjd/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  政务公开  >  专家解读
+url: https://www.nda.gov.cn/sjj/zwgk/zjjd/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  政务公开  >  通知公告
+url: https://www.nda.gov.cn/sjj/zwgk/tzgg/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  政务公开  >  建议提案复文  >  全国人大代表建议复文公开
+url: https://www.nda.gov.cn/sjj/zwgk/tafw/rdjyfw/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  政务公开  >  建议提案复文  >  全国政协委员提案复文公开
+url: https://www.nda.gov.cn/sjj/zwgk/tafw/zxtafw/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  业务频道
+url: https://www.nda.gov.cn/sjj/ywpd/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' right-list ')]"
+---
+name: 首页  >  互动交流  >  意见征求
+url: https://www.nda.gov.cn/sjj/hdjl/yjzq/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')]"
+---
+name: 首页  >  互动交流  >  网上调查及公示
+url: https://www.nda.gov.cn/sjj/hdjl/wsdcjgs/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  >  互动交流  >  建言献策
+url: https://www.nda.gov.cn/sjj/hdjl/jyxc/list/index_pc_1.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' container ')]"
+---
+name: 首页 > 要闻动态 > 监管动态
+url: https://nnsa.mee.gov.cn/ywdt/gzdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 要闻动态 > 行业资讯
+url: https://nnsa.mee.gov.cn/ywdt/hyzx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 要闻动态 > 国际资讯
+url: https://nnsa.mee.gov.cn/ywdt/gjzx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 政策文件 > 部文件
+url: https://nnsa.mee.gov.cn/zcwj/bwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 政策文件 > 核安全局文件 > 文件
+url: https://nnsa.mee.gov.cn/zcwj/haqjwj/wj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 政策文件 > 核安全局文件 > 函
+url: https://nnsa.mee.gov.cn/zcwj/haqjwj/han/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 政策文件 > 其他
+url: https://nnsa.mee.gov.cn/zcwj/qt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 政策文件 > 解读
+url: https://nnsa.mee.gov.cn/zcwj/jd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核动力厂和研究堆
+url: https://nnsa.mee.gov.cn/ywdh/fyd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核燃料、放废 > 核燃料
+url: https://nnsa.mee.gov.cn/ywdh/hrlff/hrl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核燃料、放废 > 放射性废物
+url: https://nnsa.mee.gov.cn/ywdh/hrlff/fsxfw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核技术、电磁、矿冶 > 核技术
+url: https://nnsa.mee.gov.cn/ywdh/hjsdcky/hjs/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核技术、电磁、矿冶 > 电磁
+url: https://nnsa.mee.gov.cn/ywdh/hjsdcky/dc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核技术、电磁、矿冶 > 矿冶
+url: https://nnsa.mee.gov.cn/ywdh/hjsdcky/ky/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 监测与应急 > 辐射环境监测
+url: https://nnsa.mee.gov.cn/ywdh/jcyj_1/fshjjc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 监测与应急 > 核与辐射应急
+url: https://nnsa.mee.gov.cn/ywdh/jcyj_1/hyfsyj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核安全设备与人员 > 核安全设备
+url: https://nnsa.mee.gov.cn/ywdh/haqsbry/haqsb/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 核安全设备与人员 > 核安全特种人员
+url: https://nnsa.mee.gov.cn/ywdh/haqsbry/haqtzry/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页 > 业务工作 > 国际合作
+url: https://nnsa.mee.gov.cn/ywdh/gjhz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' center ')]"
+---
+name: 首页  > 领导活动 > 高层声音
+url: https://www.ccdi.gov.cn/ldhdn/gcsy/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 领导活动 > 委领导
+url: https://www.ccdi.gov.cn/ldhdn/wbld/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 信息公开 > 会议资料
+url: https://www.ccdi.gov.cn/xxgkn/hyzl/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页-党纪法规
+url: https://www.ccdi.gov.cn/fgk/index
+xpath: "None"
+---
+name: 首页  > 监督举报 > 违反中央八项规定精神问题
+url: https://www.ccdi.gov.cn/jdjbnew/wfbxgd/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 监督举报 > 群众身边不正之风和腐败问题
+url: https://www.ccdi.gov.cn/jdjbnew/fbhbzzf/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 审查调查 > 中管干部 > 执纪审查
+url: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 审查调查 > 中管干部 > 党纪政务处分
+url: https://www.ccdi.gov.cn/scdcn/zggb/djcf/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 审查调查 > 中央一级党和国家机关、国企和金融单位干部 > 执纪审查
+url: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 审查调查 > 中央一级党和国家机关、国企和金融单位干部 > 党纪政务处分
+url: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/
+xpath: "//section[contains(concat(' ', normalize-space(@class), ' '), ' fixed ')]"
+---
+name: 首页  > 审查调查 > 省管干部 > 执纪审查
+url: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/
+xpath: "None"
+---
+name: 首页  > 审查调查 > 省管干部 > 党纪政务处分
+url: https://www.ccdi.gov.cn/scdcn/sggb/djcf/
+xpath: "None"
+---
+name: 首页  > 巡视巡察
+url: https://www.ccdi.gov.cn/xsxcn/
+xpath: "None"
+---
+name: 首页  > 理论学习
+url: https://www.ccdi.gov.cn/llxx/
+xpath: "None"
+---
