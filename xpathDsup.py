@@ -1,13 +1,19 @@
 import re
 import requests
 import time
-import yaml
+from queue import Queue
+from threading import Lock
 from lxml import html
 from yaml import SafeLoader
 from urllib.parse import urlparse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from concurrent.futures import ThreadPoolExecutor
+from webdriver_pool import WebDriverPool
+
+# 创建全局的WebDriver池
+driver_pool = WebDriverPool(pool_size=3)  # 根据机器性能调整池大小
 
 def get_html_content(url):
     """获取网页HTML内容"""
@@ -26,52 +32,33 @@ def get_html_content(url):
     except requests.exceptions.RequestException as e:
         print(f"网络请求错误: {e}")
         return None
-def get_html_content_Selenium(url,max_retries=3):
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-     # 添加 SwiftShader 相关设置
-    chrome_options.add_argument("--enable-unsafe-webgl")
-    chrome_options.add_argument("--enable-unsafe-swiftshader")
-    
-    # 禁用不必要的功能以提高性能
-    chrome_options.add_argument("--disable-software-rasterizer")
-    chrome_options.add_argument("--disable-webgl")
-    chrome_options.add_argument("--disable-webgl2")
-     # 设置页面加载策略
-     # eager会导致部分页面加载不完整
-    chrome_options.page_load_strategy = 'normal'
-    
+
+def get_html_content_Selenium(url, max_retries=3):
+    """使用 Selenium 获取页面内容"""
     for attempt in range(max_retries):
+        driver = None
         try:
-            driver = webdriver.Chrome(options=chrome_options)
-            # 设置更长的超时时间
+            driver = driver_pool.get_driver()
             driver.set_page_load_timeout(180)
             driver.set_script_timeout(180)
             
             driver.get(url)
-            
-            # 等待页面加载完成
-            time.sleep(10)  # 等待10秒，有的页面比较逆天，我这垃圾笔记本的网络更加逆天，下次必须mac！
+            time.sleep(5)
             
             html_content = driver.page_source
-            driver.quit()
+            driver_pool.return_driver(driver)
             return html_content
             
         except Exception as e:
             print(f"获取页面失败 (尝试 {attempt + 1}/{max_retries}): {str(e)}")
-            try:
-                driver.quit()
-            except:
-                pass
+            if driver:
+                driver_pool.return_driver(driver)
             
             if attempt == max_retries - 1:
                 print("所有重试都失败，尝试使用备用方法")
-                return get_html_content(url)  # 使用requests作为备用方法
+                return get_html_content(url)
                 
-            time.sleep(5)  # 在重试之前等待
+            time.sleep(5)
     
     return None
 def find_list_container(page_tree):
@@ -109,10 +96,10 @@ def find_list_container(page_tree):
         # 一部分事项列表都有时间字符串
         time_patterns = [
             r'\d{4}-\d{2}-\d{2}',  # YYYY-MM-DD
-            r'\d{4}年\d{1,2}月\d{1,2}日',  # 中文日期
+            r'\d{4}年\d{1,2}月\d{1,2}日',  
             r'\d{4}/\d{1,2}/\d{1,2}',  # YYYY/MM/DD
-            r'年', r'月', r'日',  # 中文字符
-            r'发布时间', r'更新日期'  # 常见日期标签
+            r'年', r'月', r'日',  
+            r'发布时间', r'更新日期'
         ]
         
         for pattern in time_patterns:
@@ -420,9 +407,14 @@ def write_output_file(results, output_file):
             f.write(f"xpath: \"{output_data['xpath']}\"\n")
             f.write("---\n")  # 添加分隔符
 
+def process_entries_parallel(entries, max_workers=3):
+    """并行处理多个条目"""
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        results = list(executor.map(process_entry, entries))
+    return results
+
 def process_yml_file(input_file, output_file):
     """处理YML文件"""
-    # 解析输入文件
     entries = parse_input_file(input_file)
     total = len(entries)
     
@@ -432,14 +424,8 @@ def process_yml_file(input_file, output_file):
     
     print(f"找到 {total} 个待处理条目")
     
-    # 处理条目
-    results = []
-    for i, entry in enumerate(entries):
-        print(f"\n{'='*40}")
-        print(f"处理条目 {i+1}/{total}")
-        result = process_entry(entry)
-        results.append(result)
-        print(f"{'='*40}")
+    # 使用并行处理
+    results = process_entries_parallel(entries)
     
     # 写入结果
     write_output_file(results, output_file)
@@ -450,28 +436,32 @@ def process_yml_file(input_file, output_file):
     
     print(f"\n处理完成: {success_count} 成功, {failure_count} 失败")
     print(f"结果已保存至: {output_file}")
+
 import os
 import glob
 if __name__ == "__main__":
-    # input_file = "国家级（1），部委（28）.yml"    # 输入文件路径
-    input_file = "test.yml"
-    output_file = "testoutput.yml"  # 输出文件路径
-    
-    process_yml_file(input_file, output_file)
+    try:
+        # input_file = "国家级（1），部委（28）.yml"    # 输入文件路径
+        # input_file = "test.yml"
+        # output_file = "testoutput.yml"  # 输出文件路径
+        
+        # process_yml_file(input_file, output_file)
 
 
-    # input_folder = "waitprocess"
-    # output_folder = "processed"  
-    
-    # if not os.path.exists(output_folder):
-    #     os.makedirs(output_folder)
-    
-    # files = glob.glob(os.path.join(input_folder, "*.yml"))
-    
-    # for input_file in files:
-    #     base_name = os.path.basename(input_file)  
-    #     output_file = os.path.join(output_folder, base_name)
-    #     process_yml_file(input_file, output_file)
+        input_folder = "waitprocess"
+        output_folder = "processed"  
+        
+        if not os.path.exists(output_folder):
+            os.makedirs(output_folder)
+        
+        files = glob.glob(os.path.join(input_folder, "*.yml"))
+        
+        for input_file in files:
+            base_name = os.path.basename(input_file)  
+            output_file = os.path.join(output_folder, base_name)
+            process_yml_file(input_file, output_file)
+    finally:
+        driver_pool.close_all()
 
 
 
