@@ -1,0 +1,12 @@
+name: 首页  >  信息发布  >  国内新闻
+url: https://www.caea.gov.cn/n6760338/n6760342/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' lx_list_infor_news ')]"
+---
+name: 首页  >  信息发布  >  国际新闻
+url: https://www.caea.gov.cn/n6760338/n6760343/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' lx_list_infor_news ')]"
+---
+name: 首页  >  业务办理  >  有问有答
+url: https://www.caea.gov.cn/n6760339/n6760351/index.html
+xpath: "//span[@id='comp_6783480']/ul[1]"
+---

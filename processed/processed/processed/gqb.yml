@@ -1,0 +1,68 @@
+name: 首页 > 侨务要闻
+url: https://www.gqb.gov.cn/gqb/qwyw/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 政策法规
+url: https://www.gqb.gov.cn/gqb/zcfg/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-基本法律
+url: https://www.gqb.gov.cn/gqb/flfg_jbfl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-国籍与身份类
+url: https://www.gqb.gov.cn/gqb/flfg_gjysfl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-民事类
+url: https://www.gqb.gov.cn/gqb/flfg_msl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-投资类
+url: https://www.gqb.gov.cn/gqb/flfg_tzl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-进出口类
+url: https://www.gqb.gov.cn/gqb/flfg_jckl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-房产类
+url: https://www.gqb.gov.cn/gqb/flfg_fcl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-捐赠类
+url: https://www.gqb.gov.cn/gqb/flfg_jzl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-出入境类
+url: https://www.gqb.gov.cn/gqb/flfg_crjl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-社会保障类
+url: https://www.gqb.gov.cn/gqb/flfg_shbzl/index.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' qw_list_pphdul ')]"
+---
+name: 首页 > 法律法规-领事条约类
+url: https://www.gqb.gov.cn/gqb/flfg_lstyl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 法律法规-司法解释类
+url: https://www.gqb.gov.cn/gqb/flfg_sfjsl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 公告栏
+url: https://www.gqb.gov.cn/gqb/ggl/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 行政审批
+url: https://www.gqb.gov.cn/gqb/xzsp/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 地方侨务
+url: https://www.gqb.gov.cn/gqb/sqxx/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---
+name: 首页 > 侨务问答
+url: https://www.gqb.gov.cn/gqb/qwwd/index.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' paging ')]"
+---

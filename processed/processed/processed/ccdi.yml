@@ -1,0 +1,56 @@
+name: 首页  > 领导活动 > 高层声音
+url: https://www.ccdi.gov.cn/ldhdn/gcsy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl ')]"
+---
+name: 首页  > 领导活动 > 委领导
+url: https://www.ccdi.gov.cn/ldhdn/wbld/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl ')]"
+---
+name: 首页  > 信息公开 > 会议资料
+url: https://www.ccdi.gov.cn/xxgkn/hyzl/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页-党纪法规
+url: https://www.ccdi.gov.cn/fgk/index
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl ')]"
+---
+name: 首页  > 监督举报 > 违反中央八项规定精神问题
+url: https://www.ccdi.gov.cn/jdjbnew/wfbxgd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 监督举报 > 群众身边不正之风和腐败问题
+url: https://www.ccdi.gov.cn/jdjbnew/fbhbzzf/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 审查调查 > 中管干部 > 执纪审查
+url: https://www.ccdi.gov.cn/scdcn/zggb/zjsc/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 审查调查 > 中管干部 > 党纪政务处分
+url: https://www.ccdi.gov.cn/scdcn/zggb/djcf/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 审查调查 > 中央一级党和国家机关、国企和金融单位干部 > 执纪审查
+url: https://www.ccdi.gov.cn/scdcn/zyyj/zjsc/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 审查调查 > 中央一级党和国家机关、国企和金融单位干部 > 党纪政务处分
+url: https://www.ccdi.gov.cn/scdcn/zyyj/djcf/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 审查调查 > 省管干部 > 执纪审查
+url: https://www.ccdi.gov.cn/scdcn/sggb/zjsc/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 审查调查 > 省管干部 > 党纪政务处分
+url: https://www.ccdi.gov.cn/scdcn/sggb/djcf/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 巡视巡察
+url: https://www.ccdi.gov.cn/xsxcn/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---
+name: 首页  > 理论学习
+url: https://www.ccdi.gov.cn/llxx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list_news_dl2 ')]"
+---

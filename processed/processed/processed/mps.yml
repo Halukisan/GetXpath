@@ -1,0 +1,32 @@
+name: 当前位置: 首页 > 时政要闻
+url: https://www.mps.gov.cn/n7598382/index.html
+xpath: "//span[@id='comp_7574611']"
+---
+name: 当前位置: 首页 > 公安要闻
+url: https://www.mps.gov.cn/n2253534/n2253535/index.html
+xpath: "//span[@id='comp_7574611']"
+---
+name: 当前位置: 首页 > 工作动态
+url: https://www.mps.gov.cn/n2254098/n4904352/index.html
+xpath: "//span[@id='comp_7574611']"
+---
+name: 当前位置: 首页 > 各地警务
+url: https://www.mps.gov.cn/n2253534/n4904351/index.html
+xpath: "//span[@id='comp_7574611']"
+---
+name: 当前位置: 首页 > 政策文件
+url: https://www.mps.gov.cn/n6557558/index.html
+xpath: "//span[@id='comp_7574611']"
+---
+name: 当前位置: 首页 > 政策解读
+url: https://www.mps.gov.cn/n6557563/index.html
+xpath: "//span[@id='comp_7574611']"
+---
+name: 当前位置: 首页 > 警方提示
+url: https://www.mps.gov.cn/n2253534/n2253543/index.html
+xpath: "//span[@id='comp_7574611']"
+---
+name: 首页 > 警事咨询
+url: https://www.mps.gov.cn/n2254536/hudong_index.html
+xpath: "//span[@id='comp_7574611']"
+---

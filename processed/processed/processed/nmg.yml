@@ -1,0 +1,174 @@
+name: 首页/要闻动态/今日关注
+url: https://www.nmg.gov.cn/zwyw/jrgz/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' c_newslistfz ')]"
+---
+name: 首页/要闻动态/工作动态/部门动态
+url: https://www.nmg.gov.cn/zwyw/gzdt/bmdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' c_niewslist ')]"
+---
+name: 首页/要闻动态/工作动态/盟市动态
+url: https://www.nmg.gov.cn/zwyw/gzdt/msdt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' c_newslistfz ')]"
+---
+name: 首页/要闻动态/通知公告
+url: https://www.nmg.gov.cn/zwyw/tzgg/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' c_newslistfz ')]"
+---
+name: 首页/要闻动态/重要会议/自治区政府党组会议
+url: https://www.nmg.gov.cn/zwyw/zyhy/zfdzhy/202507/t20250707_2753830.html
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' clearfix ')]"
+---
+name: 首页/要闻动态/重要会议/自治区政府全体会议
+url: https://www.nmg.gov.cn/zwyw/zyhy/zfqthy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' c_newslistfz ')]"
+---
+name: 首页/要闻动态/重要会议/政府常务会议
+url: https://www.nmg.gov.cn/zwyw/zyhy/zfcwhy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' c_newslistfz ')]"
+---
+name: 首页/要闻动态/重要会议/专项工作会议
+url: https://www.nmg.gov.cn/zwyw/zyhy/zxgghy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' c_newslistfz ')]"
+---
+name: 政府信息公开-政策-规章
+url: https://www.nmg.gov.cn/zwgk/gzk/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rules-list ')]"
+---
+name: 政府信息公开-政策-行政规范性文件
+url: https://www.nmg.gov.cn/xxgfxwjkk/
+xpath: "//table[@id='table1']"
+---
+name: 政府信息公开-政策-其他文件
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='其他文件']"
+---
+name: 政府信息公开-法定主动公开内容-政府令
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='政府令']"
+---
+name: 政府信息公开-法定主动公开内容-行政规范性文件目录
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='行政规范性文件目录']"
+---
+name: 政府信息公开-法定主动公开内容-政府文件
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='政府文件']"
+---
+name: 政府信息公开-法定主动公开内容-规划计划-国民经济和社会发展规划
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='国民经济和社会发展规划']"
+---
+name: 政府信息公开-法定主动公开内容-规划计划-专项规划
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='专项规划']"
+---
+name: 政府信息公开-法定主动公开内容-规划计划-区域规划
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='区域规划']"
+---
+name: 政府信息公开-法定主动公开内容-应急管理-文件
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='文件']"
+---
+name: 政府信息公开-法定主动公开内容-应急管理-应急管理信息
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='应急管理信息']"
+---
+name: 政府信息公开-法定主动公开内容-应急管理- 建议提案办理
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='建议提案办理']"
+---
+name: 政府信息公开-法定主动公开内容-重点领域信息-减税降费
+url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3#iframe
+xpath: "//table[@id='table1']"
+xpathList4Click:
+  - "//a[text()='减税降费']"
+---
+name: 政府信息公开-法定主动公开内容-重点领域信息-财政资金直达基层-扶贫资金直达-政策、制度、办法
+url: https://czt.nmg.gov.cn/zwgk/zfxxgk/fdzdgknr/czfpzjgk/zczdbf/
+xpath: "//table[@id='table1']"
+---
+name: 政府信息公开-法定主动公开内容- 重点领域信息-财政资金直达基层-扶贫资金直达-资金安排分配情况
+url: https://czt.nmg.gov.cn/zwgk/zfxxgk/fdzdgknr/czfpzjgk/zjapfpqk/
+xpath: "//table[@id='table1']"
+---
+name: 政府信息公开-法定主动公开内容-重点领域信息-财政资金直达基层-重点领域资金直达-财政数据
+url: https://czt.nmg.gov.cn/zwgk/zfxxgk/fdzdgknr/czsj/
+xpath: "//table[@id='table1']"
+---
+name: 政府信息公开-法定主动公开内容-重点领域信息-财政资金直达基层-重点领域资金直达-政府债券信息公开
+url: https://czt.nmg.gov.cn/zwgk/zfxxgk/fdzdgknr/zfzqxxgk/
+xpath: "//table[@id='table1']"
+---
+name: 首页/政务公开/政策解读/国家政策解读
+url: https://www.nmg.gov.cn/zwgk/zcjd/gjzcjd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zcjdlie-2022-02-09 ')]/ul[1]"
+---
+name: 首页/政务公开/政策解读/自治区政府政策解读
+url: https://www.nmg.gov.cn/zwgk/zcjd/zzqzcjd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' zzqlist ')]"
+---
+name: 首页/政务公开/政策解读/自治区部门政策解读
+url: https://www.nmg.gov.cn/zwgk/zcjd/bmzcjd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zcjdlie-2022-02-09 ')]/ul[1]"
+---
+name: 首页/政务公开/政策解读/政策简明问答
+url: https://www.nmg.gov.cn/zwgk/zcjd/jmwd/?ad_check=1
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' zzqlist ')]"
+---
+name: 政策问答库-社会保险
+url: https://www.nmg.gov.cn/zmhd/zcwdk/shbx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-劳动
+url: https://www.nmg.gov.cn/zmhd/zcwdk/ld/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-教育
+url: https://www.nmg.gov.cn/zmhd/zcwdk/jy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-户籍
+url: https://www.nmg.gov.cn/zmhd/zcwdk/hj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-车辆
+url: https://www.nmg.gov.cn/zmhd/zcwdk/cl/?ad_check=1
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-生育收养
+url: https://www.nmg.gov.cn/zmhd/zcwdk/sysy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-医疗卫生
+url: https://www.nmg.gov.cn/zmhd/zcwdk/ysws/?ad_check=1
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-公共企事业
+url: https://www.nmg.gov.cn/zmhd/zcwdk/ggsy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---
+name: 政策问答库-社会援助
+url: https://www.nmg.gov.cn/zmhd/zcwdk/shjz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' inBd ')]/ul[1]"
+---

@@ -1,0 +1,84 @@
+name: 首页 >> 新闻中心 >> 信访要闻
+url: https://www.gjxfj.gov.cn/gjxfj/news/ttxw.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 新闻中心>>时政要闻
+url: https://www.gjxfj.gov.cn/gjxfj/news/szyw.htm
+xpath: "//ul[@id='firstPageList']"
+---
+name: 首页 >> 新闻中心>>工作资讯
+url: https://www.gjxfj.gov.cn/gjxfj/news/gzyw.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 新闻中心 >> 新闻发布
+url: https://www.gjxfj.gov.cn/gjxfj/news/xwfb.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 新闻中心 >> 媒体关注
+url: https://www.gjxfj.gov.cn/gjxfj/news/mtgz.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 新闻中心 >> 地方动态
+url: https://www.gjxfj.gov.cn/gjxfj/news/dfdt.htm
+xpath: "//ul[@id='firstPageList']"
+---
+name: 首页 >> 新闻中心 >> 部委动态
+url: https://www.gjxfj.gov.cn/gjxfj/news/bwdt.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 政府信息公开 >> 政府信息公开制度 >> 信息公开法规制度
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/xxgkfgzd.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 政府信息公开 >> 政府信息公开制度 >> 政务公开要点
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zwgkyd.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 政府信息公开 >> 法定主动公开内容 >> 政策解读
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zcjd.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 政府信息公开 >> 法定主动公开内容 >> 重大会议
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/zdhy.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 政府信息公开 >> 政策文件 >> 规范性文件
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/gfxwj1.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页 >> 政府信息公开 >> 政策文件 >> 其他文件
+url: https://www.gjxfj.gov.cn/gjxfj/zfxxgk/zfxxgkzn/qtwj.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>信访广角>>探索思考
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/tssk.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>信访广角>>典型推介
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/dxtj.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>信访广角>>曝光台
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/bgt.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>信访广角>>督查事项
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/dcsx.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>信访广角>>理论研究
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/llyj.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>信访广角>>党建苑地
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/djyd.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>信访广角>>聚焦网上信访
+url: https://www.gjxfj.gov.cn/gjxfj/xfgj/jjwsxf.htm
+xpath: "//ul[@id='showData0']"
+---
+name: 首页>>互动交流>>在线访谈
+url: https://www.gjxfj.gov.cn/gjxfj/hdjl/zxft.htm
+xpath: "//ul[@id='showData0']"
+---

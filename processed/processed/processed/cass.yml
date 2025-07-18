@@ -1,0 +1,64 @@
+name: 首页要闻
+url: http://www.cass.cn/yaowen/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ldhdUl ')]"
+---
+name: 首页科研动态科研管理
+url: http://www.cass.cn/keyandongtai/keyanguanli/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ldhdUl2 ')]"
+---
+name: 首页科研动态强院战略
+url: http://www.cass.cn/keyandongtai/qiangyuanzhanlue/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页科研动态学术会议
+url: http://www.cass.cn/keyandongtai/xueshuhuiyi/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ldhdUl2 ')]"
+---
+name: 首页科研动态出版动态
+url: http://www.cass.cn/keyandongtai/baokanchuban/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ldhdUl2 ')]"
+---
+name: 首页科研动态社科基金
+url: http://www.cass.cn/keyandongtai/shekejijin/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ldhdUl2 ')]"
+---
+name: 首页科研动态国情调研
+url: http://www.cass.cn/keyandongtai/guoqingdiaoyan/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ldhdUl2 ')]"
+---
+name: 首页学术成果马克思主义学部
+url: http://www.cass.cn/xueshuchengguo/makesizhuyixuebu/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页学术成果文学哲学学部
+url: http://www.cass.cn/xueshuchengguo/wenzhexuebulishixuebu/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页学术成果中国历史研究院
+url: http://www.cass.cn/xueshuchengguo/xscg_lsyjy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ldhdUl2 ')]"
+---
+name: 首页学术成果经济学部
+url: http://www.cass.cn/xueshuchengguo/jingjixuebu/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页学术成果社会政法学部
+url: http://www.cass.cn/xueshuchengguo/shehuizhengfaxuebu/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页学术成果国际研究学部
+url: http://www.cass.cn/xueshuchengguo/guojiyanjiuxuebu/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页学术成果学部委员
+url: http://www.cass.cn/xueshuchengguo/xscg_xbwy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页学术成果荣誉学部委员
+url: http://www.cass.cn/xueshuchengguo/xscg_ryxbwy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' kyxlTRListUl ')]"
+---
+name: 首页国际交流
+url: http://www.cass.cn/duiwaijiaoliu/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' tzggLUl ')]"
+---

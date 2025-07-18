@@ -1,0 +1,76 @@
+name: 当前位置：首页 > 新闻 > 贵州要闻
+url: https://www.guizhou.gov.cn/home/tt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---
+name: 首页 > 新闻 > 工作动态
+url: https://www.guizhou.gov.cn/home/gzyw/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---
+name: 首页 > 新闻 > 通知公告
+url: https://www.guizhou.gov.cn/home/tzgg/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---
+name: 政策文件库- 政务公开-省委有关文件
+url: https://www.guizhou.gov.cn/zwgk/zcfg/swygwj/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件 -省政府令
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/szfl/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件 - 黔府发
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qff/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件 -黔府函
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qfh/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件 -黔府办发
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qfbf/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件 -黔府办函
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qfbh/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件-修改废止情况
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/wjxgfzqk/xgfzqk/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件-失效废止文件
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/wjxgfzqk/sxfzwj/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件-规范性文件备案审查
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/gfxwjbasc/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 政策文件库-省政府文件-其他
+url: https://www.guizhou.gov.cn/zwgk/zcfg/szfwj/qt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ResultCon ')]"
+---
+name: 首页 > 政民互动 > 省长—群众直通交流台 > 留言选登
+url: https://www.guizhou.gov.cn/zmhd/szztcjlpt/lyxd/
+xpath: "//tbody[@id='conList']"
+---
+name: 首页 > 政务公开 > 政策解读 > 文字解读
+url: https://www.guizhou.gov.cn/zwgk/zcjd/wzjd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---
+name: 首页 > 政务公开 > 政策解读 > 专家解读
+url: https://www.guizhou.gov.cn/zwgk/zcjd/zjjd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---
+name: 首页 > 政务公开 > 政策解读 > 媒体视角
+url: https://www.guizhou.gov.cn/zwgk/zcjd/mtsj/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---
+name: 首页 > 政务公开 > 政策解读 > 部门解读
+url: https://www.guizhou.gov.cn/zwgk/zcjd/rmjd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---
+name: 首页 > 政民互动 > 回应关切
+url: https://www.guizhou.gov.cn/zmhd/hygq/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' NewsList ')]"
+---

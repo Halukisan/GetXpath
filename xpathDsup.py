@@ -441,25 +441,24 @@ import os
 import glob
 if __name__ == "__main__":
     try:
-        # input_file = "国家级（1），部委（28）.yml"    # 输入文件路径
-        # input_file = "test.yml"
-        # output_file = "testoutput.yml"  # 输出文件路径
+        input_file = "mps.yml"    # 输入文件路径
+        output_file = "mpsout.yml"  # 输出文件路径
         
-        # process_yml_file(input_file, output_file)
+        process_yml_file(input_file, output_file)
 
 
-        input_folder = "waitprocess"
-        output_folder = "processed"  
+        # input_folder = "waitprocess"
+        # output_folder = "processed"  
         
-        if not os.path.exists(output_folder):
-            os.makedirs(output_folder)
+        # if not os.path.exists(output_folder):
+        #     os.makedirs(output_folder)
         
-        files = glob.glob(os.path.join(input_folder, "*.yml"))
+        # files = glob.glob(os.path.join(input_folder, "*.yml"))
         
-        for input_file in files:
-            base_name = os.path.basename(input_file)  
-            output_file = os.path.join(output_folder, base_name)
-            process_yml_file(input_file, output_file)
+        # for input_file in files:
+        #     base_name = os.path.basename(input_file)  
+        #     output_file = os.path.join(output_folder, base_name)
+        #     process_yml_file(input_file, output_file)
     finally:
         driver_pool.close_all()
 

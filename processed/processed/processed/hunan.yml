@@ -1,0 +1,44 @@
+name: 首页 > 省政府 > 政府领导 > 工作动态
+url: https://www.hunan.gov.cn/hnszf/szf/zfld/gzdt_1/gzdt.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' yl-listbox ')]"
+---
+name: 首页 > 省政府 > 省政府会议
+url: https://www.hunan.gov.cn/hnszf/szf/zfhyjtj/hyztrb.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' yl-listbox ')]"
+---
+name: 首页 > 政务要闻 > 要闻动态
+url: https://www.hunan.gov.cn/hnszf/hnyw/zwdt/szdt_sjpx.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' fwlist-content ')]"
+---
+name: 首页 > 政务要闻 > 部门动态
+url: https://www.hunan.gov.cn/hnszf/hnyw/bmdt/szdt_sjpx.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' fwlist-content ')]"
+---
+name: 首页 > 政务要闻 > 市州动态
+url: https://www.hunan.gov.cn/hnszf/hnyw/szdt/szdt_sjpx.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' fwlist-content ')]"
+---
+name: 首页 > 政务公开 > 文件库 > 省政府文件
+url: https://www.hunan.gov.cn/hnszf/xxgk/wjk/szfwj/wjk_glrb.html
+xpath: "//table[contains(concat(' ', normalize-space(@class), ' '), ' table ')]"
+---
+name: 首页 > 政务公开 > 文件库 > 省政府办公厅文件
+url: https://www.hunan.gov.cn/hnszf/xxgk/wjk/szfbgt/wjk_glrb.html
+xpath: "//table[contains(concat(' ', normalize-space(@class), ' '), ' table ')]"
+---
+name: 首页 > 政务公开 > 文件库 > 省直部门文件
+url: https://www.hunan.gov.cn/hnszf/xxgk/wjk/szbm/index.html
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' address ')]"
+---
+name: 首页 > 政务公开 >政府规章库
+url: https://www.hunan.gov.cn/hnszf/xxgk/zfgz/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rules_list ')]"
+---
+name: 首页 > 互动交流 > 省长信箱 > 信件公示
+url: https://www.hunan.gov.cn/hnszf/hdjl/wxszsjh/xjgs/xjgs.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' myxj11c ')]/table[1]/tbody[1]"
+---
+name: 首页 > 政府数据 > 数据发布
+url: https://www.hunan.gov.cn/hnszf/zfsj/sjfb/tygl.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' yl-listbox ')]/ul[1]"
+---

@@ -1,0 +1,80 @@
+name: 首页-今日关注
+url: https://www.tj.gov.cn/sy/jrgz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zcjdlb ')]"
+---
+name: 首页-天津新闻
+url: https://www.tj.gov.cn/sy/tjxw/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页-通知通告
+url: https://www.tj.gov.cn/sy/tzgg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政务公开-政府文件
+url: https://www.tj.gov.cn/zwgk/szfwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政务公开  >  政策解读
+url: https://www.tj.gov.cn/zwgk/zcjd/202507/t20250710_6976960.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' footer2_1 ')]/ul[1]"
+---
+name: 首页-新闻发布会
+url: https://www.tj.gov.cn/sy/xwfbh/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页-政务动态
+url: https://www.tj.gov.cn/sy/zwdt/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政务公开-市政府常务会-2025常务会议
+url: https://www.tj.gov.cn/zwgk/szfcwh/2025ncwhy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政务公开-市政府全体会
+url: https://www.tj.gov.cn/zwgk/szfqh/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政务公开-政府文件
+url: https://www.tj.gov.cn/zwgk/szfwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政务公开-政策解读
+url: https://www.tj.gov.cn/zwgk/zcjd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政务公开  >  信息公开专栏  >  政策
+url: https://www.tj.gov.cn/zwgk/zfxxgkzl/zlzc/zlgz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rules_list ')]"
+---
+name: 首页  >  政务公开  >  信息公开专栏  >  政策
+url: https://www.tj.gov.cn/zwgk/zfxxgkzl/zlzc/xzgfxwj/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' xl-r2-list ')]"
+---
+name: 首页  >  政务公开  >  信息公开专栏  >  法定主动公开内容  >  重大民生信息-政策文件
+url: https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zdmsxx220316/yl_157354/#%E6%94%BF%E7%AD%96%E6%96%87%E4%BB%B6
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' xl-r2-list ')]"
+---
+name: 首页  >  政务公开  >  信息公开专栏  >  法定主动公开内容  >  重大民生信息  >  天津教育
+url: https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zdmsxx220316/jy_157357/zcwj_157369/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' xl-r2-list ')]"
+---
+name: 首页  >  政务公开  >  信息公开专栏  >  法定主动公开内容  >  重大民生信息  >  基础教育
+url: https://www.tj.gov.cn/zwgk/zfxxgkzl/fdzdgknr/zdmsxx220316/jy_157357/jcjy/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' xl-r2-list ')]"
+---
+name: 首页  >  政民互动-回应关切
+url: https://www.tj.gov.cn/zmhd/hygqx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  政民互动-留言选登
+url: https://www.tj.gov.cn/zmhd/wmfkxd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  市情-投资政策
+url: https://www.tj.gov.cn/sq/tztj/tzzc/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---
+name: 首页  >  市情-招商热点
+url: https://www.tj.gov.cn/sq/tztj/zsrd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list-circle-red ')]"
+---

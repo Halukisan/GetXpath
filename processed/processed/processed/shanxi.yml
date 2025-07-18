@@ -1,0 +1,60 @@
+name: 首页 > 要闻动态 > 今日头条
+url: https://www.shanxi.gov.cn/ywdt/tt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 要闻动态 > 全国要闻
+url: https://www.shanxi.gov.cn/ywdt/qgyw/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 要闻动态 > 政务活动
+url: https://www.shanxi.gov.cn/ywdt/zwhd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 要闻动态 > 山西要闻
+url: https://www.shanxi.gov.cn/ywdt/sxyw/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 要闻动态 > 政务联播 > 各市动态
+url: https://www.shanxi.gov.cn/ywdt/zwlb/gsdt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 要闻动态 > 政务联播 > 部门快讯
+url: https://www.shanxi.gov.cn/ywdt/zwlb/bmkx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 要闻动态 > 政策解读 > 文字解读
+url: https://www.shanxi.gov.cn/ywdt/zcjd/wzjd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页>政务公开>政府信息公开专栏>法定主动公开内容>履职依据>省委文件
+url: https://www.shanxi.gov.cn/zcwjk/swwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sxinfo-pubfiles-items ')]"
+---
+name: 首页>政务公开>政府信息公开专栏>法定主动公开内容>履职依据>省政府令
+url: https://www.shanxi.gov.cn/zcwjk/szfl/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sxinfo-pubfiles-items ')]"
+---
+name: 首页>政务公开>政府信息公开专栏>法定主动公开内容>履职依据>省政府文件
+url: https://www.shanxi.gov.cn/zcwjk/szfwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sxinfo-pubfiles-items ')]"
+---
+name: 首页>政务公开>政府信息公开专栏>法定主动公开内容>履职依据>省政府办公厅文件
+url: https://www.shanxi.gov.cn/zcwjk/bgtwj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sxinfo-pubfiles-items ')]"
+---
+name: 首页 > 政务公开 > 政府信息公开专栏 > 政府信息公开制度
+url: https://www.shanxi.gov.cn/zfxxgk/zfxxgkzl/zfxxgkzd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 政府令
+url: https://www.shanxi.gov.cn/1102/1103/index_10695.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' sxinfo-pubfiles-items ')]"
+---
+name: 首页 > 政民互动 > 省长信箱 > 来信选登
+url: https://www.shanxi.gov.cn/zmhd/szxx/lxxd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---
+name: 首页 > 政民互动 > 在线访谈
+url: https://www.shanxi.gov.cn/zmhd/zxft/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' common-textnews-list ')]"
+---

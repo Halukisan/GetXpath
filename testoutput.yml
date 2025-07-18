@@ -1,4 +1,0 @@
-name: 首页 > 新闻资讯 > 新闻信息 > 新闻列表
-url: https://www.nra.gov.cn/xwzx/xwxx/xwlb/
-xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' mobile_list_news2 ')]"
----

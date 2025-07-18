@@ -1,0 +1,88 @@
+name: 首页 / 政务动态 / 新疆要闻
+url: https://www.xinjiang.gov.cn/xinjiang/xjyw/common_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 / 政务动态 / 地方动态
+url: https://www.xinjiang.gov.cn/xinjiang/dzdt/common_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 / 政务动态 / 部门动态
+url: https://www.xinjiang.gov.cn/xinjiang/bmdt/common_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 / 政务公开 / 通知公告
+url: https://www.xinjiang.gov.cn/xinjiang/tzgg/zwgk_com_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 / 政务公开 / 政策解读
+url: https://www.xinjiang.gov.cn/xinjiang/zcjd/zwgk_com_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 / 政务公开 / 新闻发布
+url: https://www.xinjiang.gov.cn/xinjiang/xwfb/zwgk_com_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 政府信息公开-政策-自治区文件-规章
+url: https://www.xinjiang.gov.cn/xinjiang/gzk/search_gkgz.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' gkgz_list_content ')]"
+---
+name: 政府信息公开-政策-自治区文件-行政规范性文件
+url: https://www.xinjiang.gov.cn/xinjiang/gfxwj1/zfxxgk_zc_gfxwj.shtml
+xpath: "//table[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_table ')]"
+---
+name: 政府信息公开-政策-自治区文件-政府文件-政府令
+url: https://www.xinjiang.gov.cn/xinjiang/zfl/zfxxgk_zhengce_list.shtml?cnName=%E6%94%BF%E5%BA%9C%E4%BB%A4
+xpath: "//table[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_table ')]"
+---
+name: 政府信息公开-政策-自治区文件-政府文件-新政发
+url: https://www.xinjiang.gov.cn/xinjiang/c112543/zfxxgk_zhengce.shtml?cnName=%E6%96%B0%E6%94%BF%E5%8F%91
+xpath: "//table[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_table ')]"
+---
+name: 政府信息公开-政策-自治区文件-政府文件-新政办发
+url: https://www.xinjiang.gov.cn/xinjiang/c112545/zfxxgk_zhengce.shtml?cnName=%E6%96%B0%E6%94%BF%E5%8A%9E%E5%8F%91
+xpath: "//table[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_table ')]"
+---
+name: 政府信息公开-政策-自治区文件-其他文件
+url: https://www.xinjiang.gov.cn/xinjiang/qtwj/zfxxgk_gknrz.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_left ')]/ul[1]"
+---
+name: 政府信息公开-法定主动公开内容-会议信息
+url: https://www.xinjiang.gov.cn/xinjiang/zfxxzwhy/zfxxgk_gknrz.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' on ')]"
+---
+name: 政府信息公开-法定主动公开内容-重点领域/重大民生-涉农补贴
+url: https://www.xinjiang.gov.cn/xinjiang/c112296/zfxxgk_gknrz.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' on ')]"
+---
+name: 政府信息公开-法定主动公开内容-重点领域/重大民生-食品监管
+url: https://scjgj.xinjiang.gov.cn/xjaic/c112985/zfxxgk_gknrz.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_left ')]/ul[1]"
+---
+name: 政府信息公开-法定主动公开内容-重点领域/重大民生-产品质量
+url: https://scjgj.xinjiang.gov.cn/xjaic/cpzlzdly/zfxxgk_gknrz.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_left ')]/ul[1]"
+---
+name: 政府信息公开-法定主动公开内容-重点领域/重大民生-养老服务
+url: https://mzt.xinjiang.gov.cn/xjmzt/c113051/zfxxgk_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_left ')]/ul[1]"
+---
+name: 政府信息公开-法定主动公开内容-重点领域/重大民生-基础教育
+url: https://jyt.xinjiang.gov.cn/edu/jcjygk/cszfxxgk2.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' on ')]"
+---
+name: 政府信息公开-法定主动公开内容-重点领域/重大民生-社会救助
+url: https://mzt.xinjiang.gov.cn/xjmzt/c113050/zfxxgk_list.shtml
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zfxxgk_left ')]/ul[1]"
+---
+name: 政府信息公开-法定主动公开内容-重点领域/重大民生-乡村振兴
+url: https://www.xinjiang.gov.cn/xinjiang/xiangczx/zfxxgk_gknrz.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' on ')]"
+---
+name: 首页 / 政务动态 / 政务专题 / 新疆互联网+督查 / 督查回声
+url: https://www.xinjiang.gov.cn/xinjiang/dchs/common_list.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页 / 政民互动 / 咨询建议 / 信件选登
+url: https://www.xinjiang.gov.cn/xinjiang/xjxd/hd_mailbox.shtml
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' hd_list_detail ')]"
+---

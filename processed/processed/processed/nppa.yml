@@ -1,0 +1,108 @@
+name: 首页 > 信息发布 > 头条
+url: https://www.nppa.gov.cn/xxfb/tt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 信息发布 > 要闻信息
+url: https://www.nppa.gov.cn/xxfb/ywxx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 信息发布 > 通知公示
+url: https://www.nppa.gov.cn/xxfb/tzgs/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 信息发布 > 业务动态
+url: https://www.nppa.gov.cn/xxfb/ywdt/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 信息发布 > 地方工作
+url: https://www.nppa.gov.cn/xxfb/dfgz/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 结果公示 > 许可结果
+url: https://www.nppa.gov.cn/bsfw/jggs/xkjg/
+xpath: "//ul[@id='dataCenter']"
+---
+name: 首页 > 办事服务 > 结果公示 > 游戏审批结果
+url: https://www.nppa.gov.cn/bsfw/jggs/yxspjg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' m2nRcon ')]"
+---
+name: 政府信息公开>政府信息公开制度
+url: https://www.nppa.gov.cn/xxgk/zfxxgkzd/
+xpath: "//ul[@id='accordion']/a[1]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 法律
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/fl_211/
+xpath: "//li[contains(concat(' ', normalize-space(@class), ' '), ' gknr_conList ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 法规
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/fg_212/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' mesgopen2 ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 部门规章
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/bmgz_213/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' mesgopen2 ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 国际公约
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gjgy_214/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' mesgopen2 ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 政策法规 > 规范性文件
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/zcfg_210/gfxwj_215/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' mesgopen2 ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 通知公示
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/tzgs_217/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' mesgopen2 ')]"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 行政许可
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/xzxk/
+xpath: "//ul[@id='dataCenter']"
+---
+name: 首页 > 信息公开 > 法定主动公开内容 > 行政处罚
+url: https://www.nppa.gov.cn/xxgk/fdzdgknr/xzcf/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' mesgopen2 ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 行政许可事项清单
+url: https://www.nppa.gov.cn/bsfw/xksx/xzxksxqd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nNav ')]/ul[1]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 图书审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/tsspsx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 报纸审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/bzspsx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 期刊审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/qkspsx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 音像审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/yxspsx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 电子审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/dzspsx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 网络出版服务审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/wlcbfwspsx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 发行审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/fxspsx/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 出版发行类 > 新闻出版许可证核发事项
+url: https://www.nppa.gov.cn/bsfw/xksx/cbfxl/xwcbxkzhfsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nNav ')]/ul[1]"
+---
+name: 首页 > 办事服务 > 许可事项 > 著作权类
+url: https://www.nppa.gov.cn/bsfw/xksx/zzql/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' m2nrul ')]"
+---
+name: 首页 > 办事服务 > 许可事项 > 对外交流合作类 > 合作出版审批事项
+url: https://www.nppa.gov.cn/bsfw/xksx/dwjlhzl/hzcbspsx/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' nNav ')]/ul[1]"
+---

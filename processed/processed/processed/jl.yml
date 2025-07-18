@@ -1,0 +1,48 @@
+name: 牢记嘱托-感恩奋进
+url: https://www.jl.gov.cn/szfzt/2025/gefj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' airQuality_tab ')]/ul[1]"
+---
+name: 专题首页 > 工作动态
+url: https://www.jl.gov.cn/szfzt/gzlfz/gzdt/
+xpath: "//div[@id='h1']"
+---
+name: 政府信息公开-政策
+url: https://xxgk.jl.gov.cn/?stit=%E5%85%A8%E9%83%A8&num=4
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' clearfix ')]"
+---
+name: 政务信息公开- 地方性法规
+url: https://www.jlrd.gov.cn/jlsjk/fgklb/?wjlx=1,2,3,4
+xpath: "//ul[@id='listUl']"
+---
+name: 政务信息公开-政府规章
+url: https://xxgk.jl.gov.cn/szf/gzk/
+xpath: "//tbody[@id='zfgz111']"
+---
+name: 政务信息公开-规范性文件
+url: https://www.jlrd.gov.cn/jlsjk/fgklb/?wjlx=7,8,9,10,11
+xpath: "//ul[@id='listUl']"
+---
+name: 政务信息公开- 政府信息公开制度
+url: https://xxgk.jl.gov.cn/szf/gkyj/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' wrapper ')]/ul[1]"
+---
+name: 政务信息公开-通知公告
+url: https://www.jl.gov.cn/zcxx/tzgg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' news_List ')]"
+---
+name: 政策订阅
+url: https://www.jl.gov.cn/zcxx/zcdy/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' zcdy_contents_list ')]"
+---
+name: 文件解读
+url: https://www.jl.gov.cn/zcjd/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' news_List ')]"
+---
+name: 政务联播-省直
+url: https://www.jl.gov.cn/szyw/zwlb/sz/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' news_List ')]"
+---
+name: 政务联播-各地方
+url: https://www.jl.gov.cn/szyw/zwlb/gdq/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' news_List ')]"
+---

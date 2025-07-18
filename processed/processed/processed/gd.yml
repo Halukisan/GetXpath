@@ -1,0 +1,216 @@
+name: 首页 > 要闻动态 > 要闻
+url: https://www.gd.gov.cn/gdywdt/gdyw/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 部门动态
+url: https://www.gd.gov.cn/gdywdt/bmdt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 地市动态
+url: https://www.gd.gov.cn/gdywdt/dsdt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 执法监管
+url: https://www.gd.gov.cn/gdywdt/zfjg/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 投资指南 > 投资政策
+url: https://www.gd.gov.cn/gdywdt/tzfw/tzzc/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 投资动态
+url: https://www.gd.gov.cn/gdywdt/tzdt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > “一带一路”与广东
+url: https://www.gd.gov.cn/gdywdt/ydylygd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 激情全运会 活力大湾区 > 决策部署
+url: https://www.gd.gov.cn/gdywdt/zwzt/jqqyh/jcbs/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 激情全运会 活力大湾区 > 最新消息
+url: https://www.gd.gov.cn/gdywdt/zwzt/jqqyh/zxxx/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 深入贯彻中央八项规定精神学习教育 > 头条
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxgd/tt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 深入贯彻中央八项规定精神学习教育 > 要闻报道
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxgd/ywbd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 广东部署实施提振消费专项行动 > 工作推进
+url: https://www.gd.gov.cn/gdywdt/zwzt/tzxf/gztj/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 广东部署实施提振消费专项行动 > 政策集成
+url: https://www.gd.gov.cn/gdywdt/zwzt/tzxf/zcjc/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 广东部署实施提振消费专项行动 > 政策解读
+url: https://www.gd.gov.cn/gdywdt/zwzt/tzxf/zcjd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 广东部署实施提振消费专项行动 > 实施效果
+url: https://www.gd.gov.cn/gdywdt/zwzt/tzxf/ssxg/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > “两新”政策焦点·知多D——大规模设备更新和消费品以旧换新 > 政策文件
+url: https://www.gd.gov.cn/gdywdt/zwzt/yjhx/zcwj/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > “两新”政策焦点·知多D——大规模设备更新和消费品以旧换新 > 政策解读
+url: https://www.gd.gov.cn/gdywdt/zwzt/yjhx/zcjd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > “两新”政策焦点·知多D——大规模设备更新和消费品以旧换新 > 政策问答
+url: https://www.gd.gov.cn/gdywdt/zwzt/yjhx/zcwd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > “两新”政策焦点·知多D——大规模设备更新和消费品以旧换新 > 实施效果
+url: https://www.gd.gov.cn/gdywdt/zwzt/yjhx/gdzxd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推动旅游业高质量发展 加快建设旅游强省 > 决策部署
+url: https://www.gd.gov.cn/gdywdt/zwzt/lyqs/jcbs/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推动旅游业高质量发展 加快建设旅游强省 > 建好旅游“硬设施”
+url: https://www.gd.gov.cn/gdywdt/zwzt/lyqs/yss/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推动旅游业高质量发展 加快建设旅游强省 > 优化旅游“软服务”
+url: https://www.gd.gov.cn/gdywdt/zwzt/lyqs/rfw/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推动旅游业高质量发展 加快建设旅游强省 > 打响旅游“强品牌”
+url: https://www.gd.gov.cn/gdywdt/zwzt/lyqs/qpp/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 学习贯彻党的二十届三中全会精神 > 头条
+url: https://www.gd.gov.cn/gdywdt/zwzt/ddesjszqh/tt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 学习贯彻党的二十届三中全会精神 > 要闻报道
+url: https://www.gd.gov.cn/gdywdt/zwzt/ddesjszqh/ywbd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 学习贯彻党的二十届三中全会精神 > 宣讲进行时
+url: https://www.gd.gov.cn/gdywdt/zwzt/ddesjszqh/xjjxs/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 学习贯彻党的二十届三中全会精神 > 南粤回响 > 地市
+url: https://www.gd.gov.cn/gdywdt/zwzt/ddesjszqh/nyhx/ds/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 学习贯彻党的二十届三中全会精神 > 南粤回响 > 部门
+url: https://www.gd.gov.cn/gdywdt/zwzt/ddesjszqh/nyhx/bm/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦“百县千镇万村高质量发展工程” > 要闻速递
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxqzwc/ywsd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦“百县千镇万村高质量发展工程” > 工作部署 > 因地制宜抓产业
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxqzwc/gzbs/ydzyzcy/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦“百县千镇万村高质量发展工程” > 工作部署 > 壮大县域经济
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxqzwc/gzbs/zdxyjj/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦“百县千镇万村高质量发展工程” > 工作部署 > 持续改善人居环境
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxqzwc/gzbs/gsrjhj/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦“百县千镇万村高质量发展工程” > 工作部署 > 推进体制机制改革
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxqzwc/gzbs/tjtzjzgg/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦“百县千镇万村高质量发展工程” > 最新政策
+url: https://www.gd.gov.cn/gdywdt/zwzt/bxqzwc/zxzc/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 广东部署低空经济高质量发展 > 政策文件
+url: https://www.gd.gov.cn/gdywdt/zwzt/dkjj/zcwj/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 广东部署低空经济高质量发展 > 产业链布局
+url: https://www.gd.gov.cn/gdywdt/zwzt/dkjj/cylbj/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 广东部署低空经济高质量发展 > 应用牵引
+url: https://www.gd.gov.cn/gdywdt/zwzt/dkjj/yyqy/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦粤港澳大湾区建设发展 > 推动科技产业互促双强
+url: https://www.gd.gov.cn/gdywdt/zwzt/ygadwq/kjcyhcsq/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦粤港澳大湾区建设发展 > 推进基础设施互联互通
+url: https://www.gd.gov.cn/gdywdt/zwzt/ygadwq/ylt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦粤港澳大湾区建设发展 > 着力提升市场一体化水平
+url: https://www.gd.gov.cn/gdywdt/zwzt/ygadwq/rlt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦粤港澳大湾区建设发展 > 加快建设粤港澳重大合作平台
+url: https://www.gd.gov.cn/gdywdt/zwzt/ygadwq/zdhzpt/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 聚焦粤港澳大湾区建设发展 > 最新政策
+url: https://www.gd.gov.cn/gdywdt/zwzt/ygadwq/zxzc/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推进广东高水平科技自立自强 > 新闻速览
+url: https://www.gd.gov.cn/gdywdt/zwzt/kjzlzq/xwsl/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推进广东高水平科技自立自强 > 金融
+url: https://www.gd.gov.cn/gdywdt/zwzt/kjzlzq/jr/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推进广东高水平科技自立自强 > 产业
+url: https://www.gd.gov.cn/gdywdt/zwzt/kjzlzq/cy/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推进广东高水平科技自立自强 > 人才
+url: https://www.gd.gov.cn/gdywdt/zwzt/kjzlzq/rc/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 要闻动态 > 政务专题 > 推进广东高水平科技自立自强 > 政策速递
+url: https://www.gd.gov.cn/gdywdt/zwzt/kjzlzq/zcsd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 政务公开 > 文件库 > 全部文件
+url: https://www.gd.gov.cn/zwgk/wjk/qbwj/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 政务公开 > 政策解读 > 文件解读 > 部门解读
+url: https://www.gd.gov.cn/zwgk/zcjd/bmjd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 政务公开 > 政策解读 > 文件解读 > 媒体解读
+url: https://www.gd.gov.cn/zwgk/zcjd/mtjd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 政务公开 > 政策解读 > 国内政策速递
+url: https://www.gd.gov.cn/zwgk/zcjd/gnzcsd/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---
+name: 首页 > 政务公开 > 政策解读 > 省内政策速递
+url: https://www.gd.gov.cn/zwgk/zcjd/index.html
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' list ')]"
+---
+name: 首页  ⁄  政务公开  ⁄  省政府公报  ⁄  2025年  ⁄  第19期
+url: https://www.gd.gov.cn/zwgk/gongbao/2025/19/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' leftBox ')]"
+---
+name: 首页 > 互动交流 > 回应关切
+url: https://www.gd.gov.cn/hdjl/hygq/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' viewList ')]"
+---

@@ -1,0 +1,8 @@
+name: 工作动态
+url: https://www.scs.gov.cn/gzdt/
+xpath: "div[@class='gjgwy_main_er_main']"
+---
+name: 政策法规
+url: https://www.scs.gov.cn/zcfg/
+xpath: "div[@class='gjgwy_main_er_main']"
+---

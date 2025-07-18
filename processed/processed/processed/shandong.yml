@@ -1,0 +1,76 @@
+name: 首页    > 要闻动态    > 政务要闻
+url: http://www.shandong.gov.cn/col/col97902/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' simple_pgContainer ')]"
+---
+name: 首页    > 要闻动态    > 媒体聚焦
+url: http://www.shandong.gov.cn/col/col97904/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' simple_pgContainer ')]"
+---
+name: 首页    > 要闻动态    > 政务联播
+url: http://www.shandong.gov.cn/col/col116200/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' simple_pgContainer ')]"
+---
+name: 首页    >政务公开    >通知公告
+url: http://www.shandong.gov.cn/col/col94237/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 政策规章
+url: http://www.shandong.gov.cn/col/col235486/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' rotundity_pgContainer ')]/ul[1]"
+---
+name: 规范性文件公开
+url: http://www.shandong.gov.cn/col/col314852/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' about_con ')]/ul[1]"
+---
+name: 首页    > 政务公开    > 法定主动公开内容    > 履职依据    > 规范性文件备案
+url: http://www.shandong.gov.cn/col/col307615/index.html?number=SD2701&vc_xxgkarea=113700000045022274&number=SD2701
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 首页    > 政务公开    > 法定主动公开内容    > 履职依据    > 规范性文件清理
+url: http://www.shandong.gov.cn/col/col307616/index.html?number=SD2702&vc_xxgkarea=113700000045022274&number=SD2702
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 首页    >政务公开    >其他文件
+url: http://www.shandong.gov.cn/col/col316574/index.html
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' szfbgt_list ')]"
+---
+name: 政务信息公开-政府信息公开制度
+url: http://www.shandong.gov.cn/col/col315153/index.html?vc_xxgkarea=113700000045022274&jh=261
+xpath: "//div[@id='div4']/table[1]/tbody[1]/tr[1]/td[1]"
+---
+name: 政务信息公开-重点民生信息
+url: http://www.shandong.gov.cn/col/col315153/index.html?vc_xxgkarea=113700000045022274&jh=261
+xpath: "//div[@id='div4']/table[1]/tbody[1]/tr[1]/td[1]"
+---
+name: 首页    >政务公开    >政策文件
+url: http://www.shandong.gov.cn/col/col316573/index.html
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' szfbgt_list ')]"
+---
+name: 首页    >政务公开    >法定主动公开内容    >规划信息    >专项规划
+url: http://www.shandong.gov.cn/col/col307620/index.html?vc_xxgkarea=113700000045022274&number=SD2803
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 首页    >政务公开    >法定主动公开内容    >规划信息    >国民经济和社会发展五年规划
+url: http://www.shandong.gov.cn/col/col307618/index.html?vc_xxgkarea=113700000045022274&number=SD2801
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 首页    >政务公开    >法定主动公开内容    >规划信息    >国土空间规划
+url: http://www.shandong.gov.cn/col/col307619/index.html?vc_xxgkarea=113700000045022274&number=SD2802
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 首页    >政务公开    >法定主动公开内容    >规划信息    >区域规划
+url: http://www.shandong.gov.cn/col/col307621/index.html?vc_xxgkarea=113700000045022274&number=SD2804
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 首页    >政务公开    >法定主动公开内容    >规划信息    >行业规划（计划）
+url: http://www.shandong.gov.cn/col/col307622/index.html?vc_xxgkarea=113700000045022274&number=SD2805
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' default_pgContainer ')]"
+---
+name: 首页    > 政民互动    > 回应关切
+url: http://www.shandong.gov.cn/col/col315612/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' simple_pgContainer ')]"
+---
+name: 首页    > 政民互动    > 省长信箱    > 反馈回应
+url: http://www.shandong.gov.cn/col/col100084/index.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' simple_pgContainer ')]"
+---

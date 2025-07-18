@@ -1,0 +1,147 @@
+name: 首页>新闻中心>时政要闻
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/shizhengyaowen/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 首页>新闻中心>新闻>人社新闻
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/buneiyaowen/rsxw/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 首页>新闻中心>新闻>会议活动
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/buneiyaowen/hyhd/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 首页>新闻中心>地方动态
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/dfdt/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 首页>新闻中心>发布会>例行新闻发布会
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/fbh/lxxwfbh/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 首页>新闻中心>发布会>专题新闻发布会
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/fbh/ztxwfbh/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 政府信息公开>法律
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='法律']"
+---
+name: 政府信息公开>行政法规
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='行政法规']"
+---
+name: 政府信息公开>规章>人力资源社会保障部规章库
+url: https://www.mohrss.gov.cn/xxgk2020/gzk/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' gz_list ')]"
+---
+name: 政府信息公开>规章>修改、废止的决定
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='修改、废止的决定']"
+---
+name: 政府信息公开>规范性文件>综合
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='综合']"
+---
+name: 政府信息公开>规范性文件>就业
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='就业']"
+---
+name: 政府信息公开>规范性文件>社会保险
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='社会保险']"
+---
+name: 政府信息公开>规范性文件>人才人事
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='人才人事']"
+---
+name: 政府信息公开>规范性文件>劳动关系
+url: https://www.mohrss.gov.cn/xxgk2020/zc/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//p[@class='rsb_con_left_zc']"
+  - "//p[text()='劳动关系']"
+---
+name: 政府信息公开>政府信息公开制度>制度规定
+url: https://www.mohrss.gov.cn/xxgk2020/zfxxgkzd/zdgd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' rsb_con_rightUl ')]"
+---
+name: 政府信息公开>政府信息公开制度>工作安排
+url: https://www.mohrss.gov.cn/xxgk2020/zfxxgkzd/gzap/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' rsb_con_rightUl ')]"
+---
+name: 首页>政策法规>意见征集
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/zcfg/SYzhengqiuyijian/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 政府信息公开>法定主动公开内容>规划统计>科研信息
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/
+xpath: "//ul[@class='rsb_con_rightUl']"
+xpathList4Click:
+  - "//a[text()='规划统计']"
+  - "//a[text()='科研信息']"
+---
+name: 政府信息公开>法定主动公开内容>财务管理
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//a[text()='财务管理']"
+---
+name: 政府信息公开>法定主动公开内容>就业创业政策服务
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//a[text()='就业创业政策服务']"
+---
+name: 政府信息公开>法定主动公开内容>社会保险
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//a[text()='社会保险']"
+---
+name: 政府信息公开>法定主动公开内容>人才人事
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//a[text()='人才人事']"
+---
+name: 政府信息公开>法定主动公开内容>劳动关系
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//a[text()='劳动关系']"
+---
+name: 政府信息公开>法定主动公开内容>表彰奖励
+url: https://www.mohrss.gov.cn/xxgk2020/fdzdgknr/
+xpath: "//div[@class='rsb_con_right']"
+xpathList4Click:
+  - "//a[text()='表彰奖励']"
+---
+name: 首页>互动交流>在线访谈
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/zxhd/SYzaixianfangtan/
+xpath: "//div[@class='serviceMainListConType']"
+---
+name: 首页>互动交流>常见问题
+url: https://www.mohrss.gov.cn/SYrlzyhshbzb/zxhd/cjwd/
+xpath: "//ul[contains(concat(' ', normalize-space(@class), ' '), ' cj_page_list ')]"
+---
