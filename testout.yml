@@ -1,28 +1,5 @@
 ---
-name: 政 策-其他文件js
-url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696&ad_check=1
-xpath: "//tbody[@id='infoList']"
-xpathList4Click:
-  - "//em[(contains(text(), '政 策'))]"
-  - "//a[(contains(text(), '其他文件'))]"
----
-name: 法定-政府令js
-url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696&ad_check=1
-xpath: "//table[@id='table1']/tbody[1]"
-xpathList4Click:
-  - "//em[(contains(text(), '法定主动 公开内容'))]"
-  - "//a[(contains(text(), '政府令（95）'))]"
----
-name: 法定-行政规范性文件js
-url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696&ad_check=1
-xpath: "//tbody[@id='infoList']"
-xpathList4Click:
-  - "//em[(contains(text(), '法定主动 公开内容'))]"
-  - "//a[(contains(text(), '行政规范性文件'))]"
----
-name: 法定-规划计划js
-url: https://www.nmg.gov.cn/zwgk/zfxxgk/zfxxgkml/?gk=3&cid=3696&ad_check=1
-xpath: "//tbody[@id='infoList']"
-xpathList4Click:
-  - "//em[(contains(text(), '法定主动 公开内容'))]"
-  - "//a[(contains(text(), '规划计划'))]"
+name: 测试
+url: https://www.quanzhou.gov.cn/zfb/xxgk/zfxxgkzl/qzdt/qzyw/202404/t20240401_3021580.htm?area=16496
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' TRS_Editor ')]"
+xpathList4Click: []

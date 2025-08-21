@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 from webdriver_pool import WebDriverPool
 
 # 创建全局的WebDriver池
-driver_pool = WebDriverPool(pool_size=3)  # 根据机器性能调整池大小
+driver_pool = WebDriverPool(pool_size=1)  # 根据机器性能调整池大小
 
 def get_html_content(url):
     """获取网页HTML内容"""
@@ -43,7 +43,7 @@ def get_html_content_Selenium(url, max_retries=3):
             driver.set_script_timeout(180)
             
             driver.get(url)
-            time.sleep(5)
+            time.sleep(10)
             
             html_content = driver.page_source
             driver_pool.return_driver(driver)
