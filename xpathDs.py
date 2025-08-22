@@ -61,88 +61,683 @@ def get_html_content_Selenium(url, max_retries=3):
             time.sleep(5)
     
     return None
-def find_article_container(page_tree):
-    """通用文章内容容器查找"""
+def remove_header_footer_by_content_traceback(body):
     
-    all_divs = page_tree.xpath("//div")
-    candidates = []
+    # 首部内容特征关键词
+    header_content_keywords = [
+        '登录', '注册', '首页', '主页', '无障碍', '政务', '办事', '互动', 
+        '走进', '移动版', '手机版', '导航', '菜单', '搜索', '市政府',
+        'login', 'register', 'home', 'menu', 'search', 'nav'
+    ]
     
-    for div in all_divs:
-        is_footer, _ = is_in_footer_area(div)
-        if is_footer:
-            continue
+    # 尾部内容特征关键词
+    footer_content_keywords = [
+        '网站说明', '网站标识码', '版权所有', '主办单位', '承办单位', 
+        '技术支持', '联系我们', '网站地图', '隐私政策', '免责声明',
+        '备案号', 'icp', '公安备案', '政府网站', '网站管理',
+        'copyright', 'all rights reserved', 'powered by', 'designed by'
+    ]
+    
+    # 查找包含首部特征文字的元素
+    header_elements = []
+    for keyword in header_content_keywords:
+        xpath = f"//*[contains(text(), '{keyword}')]"
+        elements = body.xpath(xpath)
+        header_elements.extend(elements)
+    
+    # 查找包含尾部特征文字的元素
+    footer_elements = []
+    for keyword in footer_content_keywords:
+        xpath = f"//*[contains(text(), '{keyword}')]"
+        elements = body.xpath(xpath)
+        footer_elements.extend(elements)
+    
+    # 收集需要删除的容器
+    containers_to_remove = set()
+    
+    # 处理首部元素
+    for element in header_elements:
+        container = find_header_footer_container(element)
+        if container and container not in containers_to_remove:
+            containers_to_remove.add(container)
+            print(f"发现首部容器: {container.tag} class='{container.get('class', '')[:50]}'")
+    
+    # 处理尾部元素
+    for element in footer_elements:
+        container = find_footer_container_by_traceback(element)
+        if container and container not in containers_to_remove:
+            containers_to_remove.add(container)
+            print(f"发现尾部容器: {container.tag} class='{container.get('class', '')[:50]}'")
+    
+    # 额外检查：查找所有直接包含header/footer标签的div容器
+    header_divs = body.xpath(".//div[.//header] | .//div[.//footer] | .//div[.//nav]")
+    for div in header_divs:
+        # 检查这个div是否包含首部/尾部内容特征
+        div_text = div.text_content().lower()
+        
+        header_count = sum(1 for keyword in header_content_keywords if keyword in div_text)
+        footer_count = sum(1 for keyword in footer_content_keywords if keyword in div_text)
+        
+        if header_count >= 2 or footer_count >= 2:
+            if div not in containers_to_remove:
+                containers_to_remove.add(div)    
+    # 删除容器
+    removed_count = 0
+    for container in containers_to_remove:
+        try:
+            parent = container.getparent()
+            if parent is not None:
+                parent.remove(container)
+                removed_count += 1
+        except Exception as e:
+            print(f"删除容器时出错: {e}")
+    
+    return body
+
+def find_header_footer_container(element):
+    """通过回溯找到包含首部/尾部特征的容器 - 增强版"""
+    current = element
+    
+    # 向上回溯查找容器
+    while current is not None and current.tag != 'html':
+        # 检查当前元素是否为容器（div、section、header、footer、nav等）
+        if current.tag in ['div', 'section', 'header', 'footer', 'nav', 'aside']:
+            # 检查容器是否包含首部/尾部结构特征
+            classes = current.get('class', '').lower()
+            elem_id = current.get('id', '').lower()
+            tag_name = current.tag.lower()
             
-        score = calculate_article_score(div)
-        if score > 20:
-            candidates.append((div, score))
+            # 首部结构特征
+            header_indicators = ['header', 'nav', 'navigation', 'menu', 'topbar', 'banner', 'menubar', 'head']
+            # 尾部结构特征
+            footer_indicators = ['footer', 'foot', 'bottom', 'end', 'copyright', 'links', 'sitemap', 'contact']
+            
+            # 检查是否包含首部或尾部结构特征
+            for indicator in header_indicators + footer_indicators:
+                if (indicator in classes or indicator in elem_id or indicator in tag_name):
+                    return current
+        
+        # 检查是否到达顶层标签
+        parent = current.getparent()
+        if parent is None or parent.tag in ['html', 'head', 'body', 'script', 'meta']:
+            # 如果父级是html或body，说明已经到顶了
+            break
+        
+        # 继续向上查找
+        current = parent
     
-    if not candidates:
-        return None
+    # 特殊处理：如果当前元素被div包装，但div本身没有明显特征
+    # 检查当前元素的父级是否是div，且祖父级是body/html
+    if (element.getparent() and 
+        element.getparent().tag == 'div' and 
+        element.getparent().getparent() and 
+        element.getparent().getparent().tag in ['body', 'html']):
+        
+        # 检查这个div是否包含首部/尾部内容特征
+        div_element = element.getparent()
+        div_text = div_element.text_content().lower()
+        
+        # 首部内容特征关键词
+        header_content_keywords = [
+            '登录', '注册', '首页', '主页', '无障碍', '政务', '办事', '互动', 
+            '走进', '移动版', '手机版', '导航', '菜单', '搜索', '市政府'
+        ]
+        
+        # 尾部内容特征关键词
+        footer_content_keywords = [
+            '网站说明', '网站标识码', '版权所有', '主办单位', '承办单位', 
+            '技术支持', '联系我们', '网站地图', '隐私政策', '免责声明',
+            '备案号', 'icp', '公安备案', '政府网站', '网站管理'
+        ]
+        
+        # 检查是否包含多个首部或尾部关键词
+        header_count = sum(1 for keyword in header_content_keywords if keyword in div_text)
+        footer_count = sum(1 for keyword in footer_content_keywords if keyword in div_text)
+        
+        if header_count >= 2 or footer_count >= 2:
+            return div_element
     
-    candidates.sort(key=lambda x: x[1], reverse=True)
-    best_container = candidates[0][0]
+    # 如果没有找到明显的结构特征容器，返回直接父级容器
+    if element.getparent() and element.getparent().tag != 'html':
+        return element.getparent()
     
-    print(f"文章容器得分: {candidates[0][1]}")
+    return None
+def find_footer_container_by_traceback(element):
+    """通过回溯找到footer容器"""
+    current = element
+    
+    while current is not None:
+        # 检查当前元素是否为容器
+        if current.tag in ['div', 'section', 'footer']:
+            # 检查容器特征
+            classes = current.get('class', '').lower()
+            elem_id = current.get('id', '').lower()
+            
+            # footer结构特征
+            footer_indicators = ['footer', 'foot', 'bottom', 'end', 'copyright']
+            for indicator in footer_indicators:
+                if indicator in classes or indicator in elem_id:
+                    return current
+        
+        # 检查是否到达顶层标签
+        parent = current.getparent()
+        if parent is None or parent.tag in ['html', 'head', 'body', 'script', 'meta']:
+            break
+            
+        current = parent
+    
+    return None
+def preprocess_html_remove_interference(page_tree):
+    
+    # 获取body元素
+    body = page_tree.xpath("//body")[0] if page_tree.xpath("//body") else page_tree
+    
+    # 第一步：通过内容特征回溯删除首部和尾部容器
+    body = remove_header_footer_by_content_traceback(body)
+    
+    # 第二步：识别并删除明显的页面级header/footer容器（原有逻辑）
+    interference_containers = []
+    
+    # 查找所有可能的干扰容器
+    all_containers = body.xpath(".//div | .//section | .//header | .//footer | .//nav | .//aside")
+    
+    for container in all_containers:
+        if is_interference_container(container):
+            interference_containers.append(container)
+    
+    # 删除干扰容器
+    removed_count = 0
+    for container in interference_containers:
+        try:
+            parent = container.getparent()
+            if parent is not None:
+                parent.remove(container)
+                removed_count += 1
+        except Exception as e:
+            print(f"删除容器时出错: {e}")
+    
+    
+    # 输出清理后的HTML到终端
+    cleaned_html = html.tostring(body, encoding='unicode', pretty_print=True)
+    print("\n=== 清理后的HTML内容 ===")
+    print(cleaned_html[:2000] + "..." if len(cleaned_html) > 2000 else cleaned_html)
+    print("=== HTML内容结束 ===\n")
+    
+    return body
+
+def is_interference_container(container):
+    """判断是否为需要删除的干扰容器"""
+    classes = container.get('class', '').lower()
+    elem_id = container.get('id', '').lower()
+    tag_name = container.tag.lower()
+    text_content = container.text_content().lower()
+    
+    # 强制删除的标签
+    if tag_name in ['header', 'footer', 'nav']:
+        return True
+    
+    # 强制删除的结构特征
+    strong_interference_keywords = [
+        'header', 'footer', 'nav', 'navigation', 'menu', 'menubar', 
+        'topbar', 'bottom', 'sidebar', 'aside', 'banner'
+    ]
+    
+    for keyword in strong_interference_keywords:
+        if keyword in classes or keyword in elem_id:
+            return True
+    
+    # 基于内容特征的删除判断
+    # 页面级header内容特征
+    header_content_patterns = [
+        '登录', '注册', '首页', '主页', '无障碍', '政务服务', '办事服务',
+        '互动交流', '走进', '移动版', '手机版', '导航', '菜单', '搜索',
+        'login', 'register', 'home', 'menu', 'search', 'nav'
+    ]
+    
+    # 页面级footer内容特征
+    footer_content_patterns = [
+        '网站说明', '网站标识码', '版权所有', '主办单位', '承办单位',
+        '技术支持', '联系我们', '网站地图', '隐私政策', '免责声明',
+        '备案号', 'icp', '公安备案', '政府网站', '网站管理',
+        'copyright', 'all rights reserved', 'powered by'
+    ]
+    
+    # 计算内容特征匹配度
+    header_matches = sum(1 for pattern in header_content_patterns if pattern in text_content)
+    footer_matches = sum(1 for pattern in footer_content_patterns if pattern in text_content)
+    
+    # 如果包含多个header或footer特征词，认为是干扰容器
+    if header_matches >= 3:
+        return True
+    
+    if footer_matches >= 3:
+        return True
+    
+    # 检查容器大小和内容密度
+    text_length = len(text_content.strip())
+    child_count = len(container.xpath(".//*"))
+    
+    # 如果是小容器但包含很多链接，可能是导航
+    links = container.xpath(".//a")
+    if text_length < 500 and len(links) > 8:
+        link_text_ratio = sum(len(link.text_content()) for link in links) / max(text_length, 1)
+        if link_text_ratio > 0.6:  # 链接文本占比超过60%
+            return True
+    
+    return False
+
+def find_article_container(page_tree):
+    cleaned_body = preprocess_html_remove_interference(page_tree)
+    main_content = find_main_content_in_cleaned_html(cleaned_body)
+    
+    return main_content
+
+def find_main_content_in_cleaned_html(cleaned_body):
+    """在清理后的HTML中查找主内容区域"""
+    
+    # 获取所有可能的内容容器
+    content_containers = cleaned_body.xpath(".//div | .//section | .//article | .//main")
+    
+    if not content_containers:
+        print("未找到内容容器，返回body")
+        return cleaned_body
+    
+    # 对容器进行评分
+    scored_containers = []
+    for container in content_containers:
+        score = calculate_content_container_score(container)
+        if score > 0:  # 只考虑正分容器
+            scored_containers.append((container, score))
+    
+    if not scored_containers:
+        print("未找到正分容器，返回第一个容器")
+        return content_containers[0]
+    
+    # 选择得分最高的容器
+    scored_containers.sort(key=lambda x: x[1], reverse=True)
+    # best_container = scored_containers[0][0]
+    best_score = scored_containers[0][1]
+    same_score_containers = [container for container, score in scored_containers if score == best_score]
+    if len(same_score_containers) > 1:
+        # 检查层级关系，层级关系。这一步直接影响结果的范围，对于某些范围大的页面，你可以考虑不获取最佳的，而获取次佳的容器 
+        best_container = select_best_from_same_score_containers(same_score_containers)
+    else:
+        best_container = scored_containers[0][0]
+    print(f"选择最佳内容容器，得分: {best_score}")
+    print(f"容器信息: {best_container.tag} class='{best_container.get('class', '')[:50]}'")
+    
     return best_container
 
-def calculate_article_score(container):
+def select_best_from_same_score_containers(containers):
+    """从得分相同的多个容器中选择层级最深的一个（儿子容器）"""
+    # 检查容器之间的层级关系，选择层级最深的
+    container_depths = []
+    
+    for container in containers:
+        # 计算容器的层级深度（距离body的层级数）
+        depth = calculate_container_depth(container)
+        container_depths.append((container, depth))
+        
+        print(f"容器层级深度: {depth} - {container.tag} class='{container.get('class', '')[:30]}'")
+    
+    # 按层级深度排序（深度越大，层级越深）
+    container_depths.sort(key=lambda x: x[1], reverse=True)
+    
+    # 选择层级最深的容器（儿子容器）
+    best_container = container_depths[0][0]
+    best_depth = container_depths[0][1]
+    
+    print(f"选择层级最深的容器 (深度 {best_depth}): {best_container.tag} class='{best_container.get('class', '')[:30]}'")
+    
+    return best_container
+
+def calculate_container_depth(container):
+    """计算容器距离body的层级深度"""
+    depth = 0
+    current = container
+    
+    # 向上遍历直到body或html
+    while current is not None and current.tag not in ['body', 'html']:
+        depth += 1
+        current = current.getparent()
+        if current is None:
+            break
+    
+    return depth
+def calculate_content_container_score(container):
+    """计算内容容器得分 - 专注于识别真正的内容区域"""
+    score = 0
+    debug_info = []
+    
+    classes = container.get('class', '').lower()
+    elem_id = container.get('id', '').lower()
+    text_content = container.text_content()
+    text_length = len(text_content.strip())
+    
+    # 1. 基础内容长度评分
+    if text_length > 1000:
+        score += 50
+        debug_info.append("长内容: +50")
+    elif text_length > 500:
+        score += 35
+        debug_info.append("中等内容: +35")
+    elif text_length > 200:
+        score += 20
+        debug_info.append("短内容: +20")
+    elif text_length < 50:
+        score -= 20
+        debug_info.append("内容太少: -20")
+    
+    # 2. 时间特征检测（强正面特征）
+    time_patterns = [
+        r'\d{4}-\d{2}-\d{2}',
+        r'\d{4}年\d{1,2}月\d{1,2}日',
+        r'\d{4}/\d{1,2}/\d{1,2}',
+        r'发布时间', r'更新日期', r'发布日期'
+    ]
+    
+    time_matches = 0
+    for pattern in time_patterns:
+        time_matches += len(re.findall(pattern, text_content))
+    
+    if time_matches > 0:
+        time_score = min(time_matches * 25, 75)
+        score += time_score
+        debug_info.append(f"时间特征: +{time_score}")
+    
+    # 3. 正面类名/ID特征
+    positive_keywords = [
+        'content', 'main', 'article', 'news', 'data', 'info', 
+        'detail', 'result', 'list', 'body', 'text'
+    ]
+    
+    positive_matches = 0
+    for keyword in positive_keywords:
+        if keyword in classes or keyword in elem_id:
+            positive_matches += 1
+    
+    if positive_matches > 0:
+        positive_score = min(positive_matches * 20, 60)
+        score += positive_score
+        debug_info.append(f"正面特征: +{positive_score}")
+    
+    # 4. 结构化内容检测
+    structured_elements = container.xpath(".//p | .//h1 | .//h2 | .//h3 | .//li | .//table")
+    if len(structured_elements) > 5:
+        structure_score = min(len(structured_elements) * 2, 40)
+        score += structure_score
+        debug_info.append(f"结构化内容: +{structure_score}")
+    
+    # 5. 图片内容
+    images = container.xpath(".//img")
+    if len(images) > 0:
+        image_score = min(len(images) * 3, 20)
+        score += image_score
+        debug_info.append(f"图片内容: +{image_score}")
+    
+    # 6. 负面特征检测（剩余的干扰项）
+    remaining_negative_keywords = [
+        'sidebar', 'aside', 'related', 'recommend', 'ad', 'advertisement'
+    ]
+    
+    for keyword in remaining_negative_keywords:
+        if keyword in classes or keyword in elem_id:
+            score -= 30
+            debug_info.append(f"负面特征: -30 ({keyword})")
+    
+    # 输出调试信息
+    container_info = f"{container.tag} class='{classes[:30]}'"
+    print(f"容器评分: {score} - {container_info}")
+    for info in debug_info[:4]:
+        print(f"  {info}")
+    
+    return score
+
+def exclude_page_header_footer(body):
+    """排除页面级别的header和footer"""
+    children = body.xpath("./div | ./main | ./section | ./article")
+    
+    if not children:
+        return body
+    
+    valid_children = []
+    for child in children:
+        if not is_page_level_header_footer(child):
+            valid_children.append(child)
+    
+    return find_middle_content(valid_children)
+
+def is_page_level_header_footer(element):
+    """判断是否是页面级别的header或footer - 更严格的检查"""
+    classes = element.get('class', '').lower()
+    elem_id = element.get('id', '').lower()
+    tag_name = element.tag.lower()
+    
+    # 检查标签名
+    if tag_name in ['header', 'footer', 'nav']:
+        return True
+    
+    # 检查是否在footer区域
+    is_footer, _ = is_in_footer_area(element)
+    if is_footer:
+        return True
+    
+    # 检查页面级别的header/footer特征
+    page_keywords = ['header', 'footer', 'nav', 'menu', 'topbar', 'bottom', 'top']
+    for keyword in page_keywords:
+        if keyword in classes or keyword in elem_id:
+            return True
+    
+    # 检查role属性
+    role = element.get('role', '').lower()
+    if role in ['banner', 'navigation', 'contentinfo']:
+        return True
+    
+    return False
+
+def find_middle_content(valid_children):
+    """从有效子元素中找到中间的主要内容"""
+    if not valid_children:
+        return None
+    
+    if len(valid_children) == 1:
+        return valid_children[0]
+    
+    # 计算每个容器的内容得分
+    scored_containers = []
+    for container in valid_children:
+        score = calculate_content_richness(container)
+        scored_containers.append((container, score))
+    
+    # 选择得分最高的容器
+    scored_containers.sort(key=lambda x: x[1], reverse=True)
+    best_container = scored_containers[0][0]
+    
+    print(f"页面主体容器得分: {scored_containers[0][1]}")
+    return best_container
+
+def calculate_content_richness(container):
+    """计算容器的内容丰富度"""
     score = 0
     
     text_content = container.text_content().strip()
     content_length = len(text_content)
     
-    if content_length < 50:
-        return -10
-    
-    images = container.xpath(".//img")
-    styled_divs = container.xpath(".//div[contains(@style, 'text-align') or contains(@style, 'font-size')]")
-    paragraphs = container.xpath(".//p")
-    
     if content_length > 1000:
-        score += 30
+        score += 40
     elif content_length > 500:
-        score += 20
+        score += 30
     elif content_length > 200:
+        score += 20
+    elif content_length > 100:
+        score += 10
+    else:
+        return -5
+    
+    # 检查图片数量
+    images = container.xpath(".//img")
+    if len(images) > 0:
+        score += min(len(images) * 3, 20)
+    
+    # 检查结构化内容
+    structured_elements = container.xpath(".//p | .//div[contains(@style, 'text-align')] | .//h1 | .//h2 | .//h3")
+    if len(structured_elements) > 0:
+        score += min(len(structured_elements) * 2, 25)
+    
+    return score
+
+def exclude_local_header_footer(container):
+    """在容器内部排除局部的header和footer"""
+    children = container.xpath("./div | ./section | ./article")
+    
+    if not children:
+        return container
+    
+    valid_children = []
+    for child in children:
+        if not is_local_header_footer(child):
+            valid_children.append(child)
+    
+    if not valid_children:
+        return container
+    
+    return select_content_container(valid_children)
+
+def is_local_header_footer(element):
+    """判断是否是局部的header或footer"""
+    classes = element.get('class', '').lower()
+    elem_id = element.get('id', '').lower()
+    
+    # 检查局部header/footer特征
+    local_keywords = ['title', 'tit', 'head', 'foot', 'top', 'bottom', 'nav', 'menu']
+    for keyword in local_keywords:
+        if keyword in classes or keyword in elem_id:
+            # 进一步检查是否真的是header/footer
+            text_content = element.text_content().strip()
+            if len(text_content) < 200:  # 内容较少，可能是标题或导航
+                return True
+    
+    return False
+
+def select_content_container(valid_children):
+    """从有效子容器中选择最佳的内容容器"""
+    if len(valid_children) == 1:
+        return valid_children[0]
+    
+    # 计算每个容器的得分
+    scored_containers = []
+    for container in valid_children:
+        score = calculate_final_score(container)
+        scored_containers.append((container, score))
+    
+    # 选择得分最高的容器
+    scored_containers.sort(key=lambda x: x[1], reverse=True)
+    best_container = scored_containers[0][0]
+    
+    return best_container
+
+def calculate_final_score(container):
+    """计算最终容器得分"""
+    score = 0
+    
+    text_content = container.text_content().strip()
+    content_length = len(text_content)
+    
+    if content_length > 500:
+        score += 30
+    elif content_length > 200:
+        score += 20
+    elif content_length > 100:
         score += 15
     else:
         score += 5
     
-    if len(images) > 5:
-        score += 30
-    elif len(images) > 0:
-        score += len(images) * 3
+    # 检查图片
+    images = container.xpath(".//img")
+    if len(images) > 0:
+        score += min(len(images) * 4, 25)
+    
+    # 检查结构化内容
+    styled_divs = container.xpath(".//div[contains(@style, 'text-align')]")
+    paragraphs = container.xpath(".//p")
     
     structure_count = len(styled_divs) + len(paragraphs)
-    if structure_count > 10:
-        score += 20
-    elif structure_count > 5:
-        score += 15
-    elif structure_count > 0:
-        score += 10
+    if structure_count > 0:
+        score += min(structure_count * 2, 20)
     
-    centered_content = container.xpath(".//div[contains(@style, 'text-align: center')]")
-    if len(centered_content) > 0:
-        score += 15
-    
+    # 检查类名特征
     classes = container.get('class', '').lower()
     elem_id = container.get('id', '').lower()
     
-    positive_words = ['content', 'article', 'detail', 'main', 'body', 'text', 'editor']
-    negative_words = ['nav', 'menu', 'sidebar', 'header', 'footer', 'ad', 'banner']
-    
-    for word in positive_words:
-        if word in classes or word in elem_id:
-            score += 10
-    
-    for word in negative_words:
-        if word in classes or word in elem_id:
-            score -= 25
-    
-    child_divs = container.xpath("./div")
-    if len(child_divs) == 1 and content_length < 100:
-        score -= 10
+    content_keywords = ['content', 'article', 'detail', 'main', 'body', 'text', 'editor', 'con']
+    for keyword in content_keywords:
+        if keyword in classes or keyword in elem_id:
+            score += 15
     
     return score
+
+def find_main_content_area(containers):
+    """在有效容器中找到主内容区域"""
+    candidates = []
+    
+    for container in containers:
+        score = calculate_main_content_score(container)
+        if score > 0:
+            candidates.append((container, score))
+    
+    if not candidates:
+        return None
+    
+    # 选择得分最高的作为主内容区域
+    candidates.sort(key=lambda x: x[1], reverse=True)
+    main_area = candidates[0][0]
+    
+    print(f"主内容区域得分: {candidates[0][1]}")
+    return main_area
+
+def calculate_main_content_score(container):
+    """计算主内容区域得分"""
+    score = 0
+    
+    text_content = container.text_content().strip()
+    content_length = len(text_content)
+    
+    # 内容长度是主要指标
+    if content_length > 500:
+        score += 30
+    elif content_length > 200:
+        score += 20
+    elif content_length > 100:
+        score += 10
+    else:
+        return -5  # 内容太少
+    
+    # 检查是否包含丰富内容
+    images = container.xpath(".//img")
+    if len(images) > 0:
+        score += min(len(images) * 2, 15)
+    
+    # 检查类名特征
+    classes = container.get('class', '').lower()
+    elem_id = container.get('id', '').lower()
+    
+    content_keywords = ['content', 'main', 'article', 'detail', 'body']
+    for keyword in content_keywords:
+        if keyword in classes or keyword in elem_id:
+            score += 15
+    
+    return score
+
+
+    
+    # 检查类名
+    classes = container.get('class', '').lower()
+    if any(word in classes for word in ['content', 'article', 'detail', 'editor', 'text']):
+        score += 15
+    
+    return score
+
+
 
 def is_in_footer_area(element):
     """检查元素是否在footer区域"""
@@ -175,13 +770,10 @@ def is_in_footer_area(element):
     return False, ""
 
 def find_list_container(page_tree):
+    # 首先尝试使用改进的文章容器查找算法
     article_container = find_article_container(page_tree)
     if article_container is not None:
-        print("找到文章内容容器")
-        return article_container
-    
-    print("未找到文章内容容器，尝试查找列表容器")
-    
+        return article_container    
     list_selectors = [
         "//li", "//tr", "//article",
         "//div[contains(@class, 'item')]",
@@ -198,14 +790,100 @@ def find_list_container(page_tree):
         return len(items)
     
     def calculate_container_score(container):
-        """计算容器作为目标列表的得分"""
+        """计算容器作为目标列表的得分 - 第一轮严格过滤首部尾部"""
         score = 0
-        debug_info = []  # 用于调试信息
+        debug_info = []
         
-        # 1. 检查是否包含时间字符串（目标列表特征）- 修正逻辑
+        # 获取容器的基本信息
+        classes = container.get('class', '').lower()
+        elem_id = container.get('id', '').lower()
+        role = container.get('role', '').lower()
+        tag_name = container.tag.lower()
         text_content = container.text_content().lower()
         
-        # 更精确的时间模式，避免误匹配footer中的版权年份
+        # 第一轮过滤：根据内容特征直接排除首部和尾部容器
+        # 1. 检查首部特征内容
+        header_content_keywords = [
+            '登录', '注册', '首页', '主页', '无障碍', '政务', '办事', '互动', 
+            '走进', '移动版', '手机版', '导航', '菜单', '搜索', '市政府',
+            'login', 'register', 'home', 'menu', 'search', 'nav'
+        ]
+        
+        header_content_count = 0
+        for keyword in header_content_keywords:
+            if keyword in text_content:
+                header_content_count += 1
+        
+        # 如果包含多个首部关键词，严重减分
+        if header_content_count >= 2:
+            score -= 300  # 极严重减分，基本排除
+            debug_info.append(f"首部内容特征: -300 (发现{header_content_count}个首部关键词)")
+        
+        # 2. 检查尾部特征内容
+        footer_content_keywords = [
+            '网站说明', '网站标识码', '版权所有', '主办单位', '承办单位', 
+            '技术支持', '联系我们', '网站地图', '隐私政策', '免责声明',
+            '备案号', 'icp', '公安备案', '政府网站', '网站管理',
+            'copyright', 'all rights reserved', 'powered by', 'designed by'
+        ]
+        
+        footer_content_count = 0
+        for keyword in footer_content_keywords:
+            if keyword in text_content:
+                footer_content_count += 1
+        
+        # 如果包含多个尾部关键词，严重减分
+        if footer_content_count >= 2:
+            score -= 300  # 极严重减分，基本排除
+            debug_info.append(f"尾部内容特征: -300 (发现{footer_content_count}个尾部关键词)")
+        
+        # 3. 检查结构特征 - footer/header标签和类名
+        footer_structure_indicators = ['footer', 'foot', 'bottom', 'end', 'copyright', 'links', 'sitemap']
+        for indicator in footer_structure_indicators:
+            if (indicator in classes or indicator in elem_id or 
+                indicator in role or tag_name == 'footer'):
+                score -= 250  # 极严重减分
+                debug_info.append(f"Footer结构特征: -250 (发现'{indicator}')")
+        
+        # 4. 检查header/nav结构特征
+        header_structure_indicators = ['header', 'nav', 'navigation', 'menu', 'topbar', 'banner', 'menubar']
+        for indicator in header_structure_indicators:
+            if (indicator in classes or indicator in elem_id or 
+                indicator in role or tag_name in ['header', 'nav']):
+                score -= 200  # 严重减分
+                debug_info.append(f"Header结构特征: -200 (发现'{indicator}')")
+        
+        # 5. 检查祖先元素的负面特征（但权重降低，因为第一轮已经过滤了大部分）
+        current = container
+        depth = 0
+        while current is not None and depth < 5:  # 减少检查层级
+            parent_classes = current.get('class', '').lower()
+            parent_id = current.get('id', '').lower()
+            parent_tag = current.tag.lower()
+            
+            # 检查祖先的footer特征
+            for indicator in footer_structure_indicators:
+                if (indicator in parent_classes or indicator in parent_id or parent_tag == 'footer'):
+                    penalty = max(60 - depth * 10, 15)  # 减少祖先特征的权重
+                    score -= penalty
+                    debug_info.append(f"祖先Footer: -{penalty} (第{depth}层'{indicator}')")
+            
+            # 检查祖先的header/nav特征
+            for indicator in header_structure_indicators:
+                if (indicator in parent_classes or indicator in parent_id or parent_tag in ['header', 'nav']):
+                    penalty = max(50 - depth * 8, 12)  # 减少祖先特征的权重
+                    score -= penalty
+                    debug_info.append(f"祖先Header: -{penalty} (第{depth}层'{indicator}')")
+            
+            current = current.getparent()
+            depth += 1
+        
+        # 如果已经是严重负分，直接返回，不需要继续计算
+        if score < -150:
+            return score
+        
+        # 6. 正面特征评分 - 专注于内容质量
+        # 检查时间特征（强正面特征）
         precise_time_patterns = [
             r'\d{4}-\d{2}-\d{2}',  # YYYY-MM-DD
             r'\d{4}年\d{1,2}月\d{1,2}日',  # 完整的中文日期
@@ -213,244 +891,85 @@ def find_list_container(page_tree):
             r'发布时间', r'更新日期', r'发布日期', r'创建时间'
         ]
         
-        # 可能误匹配的简单模式（需要额外验证）
-        simple_patterns = [r'年', r'月', r'日']
-        
         precise_matches = 0
-        simple_matches = 0
-        
         for pattern in precise_time_patterns:
             matches = len(re.findall(pattern, text_content))
             precise_matches += matches
         
-        for pattern in simple_patterns:
-            matches = len(re.findall(pattern, text_content))
-            simple_matches += matches
-        
-        # 时间特征评分逻辑修正
         if precise_matches > 0:
-            # 精确时间模式，直接加分
-            time_score = min(precise_matches * 20, 60)
+            time_score = min(precise_matches * 30, 90)  # 增加时间特征权重
             score += time_score
-            debug_info.append(f"精确时间特征: +{time_score} ({precise_matches}个匹配)")
-        elif simple_matches > 3:
-            # 简单模式需要多个匹配才加分，避免footer中的单个"年"字
-            time_score = min((simple_matches - 3) * 10, 30)
-            score += time_score
-            debug_info.append(f"简单时间特征: +{time_score} ({simple_matches}个匹配)")
-        elif simple_matches <= 2:
-            # 很少的年月日字符，可能是footer版权信息，轻微减分
-            score -= 2
-            debug_info.append(f"疑似版权信息: -2 ({simple_matches}个年月日字符)")
+            debug_info.append(f"时间特征: +{time_score} ({precise_matches}个匹配)")
         
-        # 2. 检查平均文本长度（目标列表通常有较长文本）
+        # 7. 检查内容长度和质量
         items = container.xpath(".//*[self::li or self::tr or self::article or self::div[contains(@class, 'item')]]")
         if items:
             total_length = sum(len(item.text_content().strip()) for item in items)
-            avg_length = total_length / len(items)
-            if avg_length > 80:  # 平均文本长度超过80字符
-                score += 15
-                debug_info.append(f"文本长度: +15 (平均{avg_length:.1f}字符)")
-            elif avg_length > 50:  # 平均文本长度超过50字符
-                score += 10
-                debug_info.append(f"文本长度: +10 (平均{avg_length:.1f}字符)")
-            elif avg_length > 30:
-                score += 6
-                debug_info.append(f"文本长度: +6 (平均{avg_length:.1f}字符)")
-            elif avg_length > 15:
-                score += 3
-                debug_info.append(f"文本长度: +3 (平均{avg_length:.1f}字符)")
-            elif avg_length < 10:  # 文本太短，可能是导航
-                score -= 8
-                debug_info.append(f"文本长度: -8 (平均{avg_length:.1f}字符，太短)")
-        
-        # 3. 检查是否包含导航特征（导航栏通常有这些特征）
-        xpath = generate_xpath(container).lower() if container is not None else ""
-        navigation_keywords = ['nav', 'menu', 'sidebar', 'breadcrumb', 'pagination']
-        for keyword in navigation_keywords:
-            if keyword in xpath:
-                score -= 25  # 大幅减分
-                debug_info.append(f"XPath导航特征: -25 (发现'{keyword}')")
-        
-        # 4. 检查类名和ID特征
-        classes = container.get('class', '').lower()
-        elem_id = container.get('id', '').lower()
-        role = container.get('role', '').lower()
-        
-        # 负面特征（导航/页眉/页脚） - 更严格的检测
-        negative_indicators = [
-            'nav', 'menu', 'sidebar', 'header', 'footer', 'topbar', 'navigation',
-            'breadcrumb', 'pagination', 'toolbar', 'menubar', 'banner', 'aside'
-        ]
-        
-        for indicator in negative_indicators:
-            # 检查完整单词匹配和常见变体
-            patterns = [
-                rf'\b{indicator}\b',  # 完整单词
-                rf'{indicator}[-_]',  # 带分隔符
-                rf'[-_]{indicator}',  # 前缀分隔符
-                rf'{indicator}\d+',   # 带数字后缀
-            ]
+            avg_length = total_length / len(items) if items else 0
             
-            for pattern in patterns:
-                if re.search(pattern, classes):
-                    score -= 20  # 类名中发现导航特征，大幅减分
-                    debug_info.append(f"负面类名: -20 ('{indicator}')")
-                if re.search(pattern, elem_id):
-                    score -= 20  # ID中发现导航特征，大幅减分
-                    debug_info.append(f"负面ID: -20 ('{indicator}')")
-            
-            if indicator in role:
-                score -= 25  # role属性中发现导航特征，严重减分
-                debug_info.append(f"负面role: -25 ('{indicator}')")
+            if avg_length > 150:
+                score += 40  # 增加长内容的权重
+                debug_info.append(f"文本长度: +40 (平均{avg_length:.1f}字符)")
+            elif avg_length > 80:
+                score += 30
+                debug_info.append(f"文本长度: +30 (平均{avg_length:.1f}字符)")
+            elif avg_length > 40:
+                score += 20
+                debug_info.append(f"文本长度: +20 (平均{avg_length:.1f}字符)")
+            elif avg_length < 20:  # 文本太短，可能是导航
+                score -= 20
+                debug_info.append(f"文本长度: -20 (平均{avg_length:.1f}字符，太短)")
         
-        # 5. 检查是否在页面底部（footer区域）
-        # 通过检查父级元素是否包含footer相关信息
-        current = container
-        depth = 0
-        while current is not None and depth < 5:  # 检查5层父级
-            parent_classes = current.get('class', '').lower()
-            parent_id = current.get('id', '').lower()
-            
-            if 'footer' in parent_classes or 'footer' in parent_id:
-                score -= 30  # 在footer区域，严重减分
-                debug_info.append("Footer区域: -30")
-                break
-            
-            current = current.getparent()
-            depth += 1
-        
-        # 正面特征（内容/列表/主体） - 更精确的匹配，避免误匹配导航
-        # 高可信度的正面特征
-        strong_positive_indicators = [
-            'content', 'main', 'news', 'article', 'data', 'info', 'detail', 'result'
-        ]
-        
-        # 可能误匹配的特征，需要额外检查
-        weak_positive_indicators = [
-            'list', 'item', 'container', 'body', 'section', 'con'
-        ]
-        
-        # 检查高可信度正面特征
+        # 8. 检查正面结构特征
+        strong_positive_indicators = ['content', 'main', 'news', 'article', 'data', 'info', 'detail', 'result', 'list']
+        positive_score = 0
         for indicator in strong_positive_indicators:
-            patterns = [
-                rf'\b{indicator}\b',  # 完整单词
-                rf'{indicator}[-_]',  # 带分隔符
-                rf'[-_]{indicator}',  # 前缀分隔符
-            ]
-            
-            for pattern in patterns:
-                if re.search(pattern, classes):
-                    score += 15  # 高可信度特征，更多加分
-                    debug_info.append(f"强正面类名: +15 ('{indicator}')")
-                if re.search(pattern, elem_id):
-                    score += 15  # 高可信度特征，更多加分
-                    debug_info.append(f"强正面ID: +15 ('{indicator}')")
+            if indicator in classes or indicator in elem_id:
+                positive_score += 25  # 增加正面特征权重
+                debug_info.append(f"正面特征: +25 ('{indicator}')")
         
-        # 检查可能误匹配的正面特征
-        for indicator in weak_positive_indicators:
-            patterns = [
-                rf'\b{indicator}\b',
-                rf'{indicator}[-_]',
-                rf'[-_]{indicator}',
-            ]
-            
-            for pattern in patterns:
-                if re.search(pattern, classes):
-                    # 检查是否与负面特征组合（如nav-list, menu-item）
-                    negative_combo = any(neg in classes for neg in ['nav', 'menu', 'sidebar', 'header', 'footer'])
-                    if negative_combo:
-                        score -= 5  # 负面组合，减分
-                        debug_info.append(f"负面组合: -5 ('{indicator}'与导航特征组合)")
-                    else:
-                        score += 8  # 单独出现，适度加分
-                        debug_info.append(f"弱正面类名: +8 ('{indicator}')")
-                        
-                if re.search(pattern, elem_id):
-                    negative_combo = any(neg in elem_id for neg in ['nav', 'menu', 'sidebar', 'header', 'footer'])
-                    if negative_combo:
-                        score -= 5
-                        debug_info.append(f"负面组合ID: -5 ('{indicator}'与导航特征组合)")
-                    else:
-                        score += 8
-                        debug_info.append(f"弱正面ID: +8 ('{indicator}')")
+        score += min(positive_score, 75)  # 限制正面特征的最大加分
         
-        # 6. 检查列表项的多样性和长度（内容列表通常有更多样且更长的文本）
+        # 9. 检查内容多样性（图片、链接等）
+        images = container.xpath(".//img")
+        links = container.xpath(".//a[@href]")
+        
+        if len(images) > 0:
+            image_score = min(len(images) * 3, 20)
+            score += image_score
+            debug_info.append(f"图片内容: +{image_score} ({len(images)}张图片)")
+        
+        if len(links) > 5:  # 有足够的链接说明是内容区域
+            link_score = min(len(links) * 2, 30)
+            score += link_score
+            debug_info.append(f"链接内容: +{link_score} ({len(links)}个链接)")
+        
+        # 10. 最后检查：避免导航类内容（但权重降低，因为第一轮已经过滤了大部分）
         if items and len(items) > 2:
-            unique_texts = set()
-            short_texts = 0  # 统计短文本数量
-            
-            for item in items[:10]:  # 只检查前10个避免性能问题
-                text = item.text_content().strip()
-                if text:
-                    # 检查文本长度
-                    if len(text) < 15:  # 短文本，可能是导航项
-                        short_texts += 1
-                    
-                    # 用于多样性检查，取前30字符
-                    unique_texts.add(text[:30])
-            
-            checked_items = min(len(items), 10)
-            diversity_ratio = len(unique_texts) / checked_items if checked_items > 0 else 0
-            short_ratio = short_texts / checked_items if checked_items > 0 else 0
-            
-            # 多样性评分
-            if diversity_ratio > 0.8:  # 高多样性，可能是内容列表
-                score += 10
-                debug_info.append(f"文本多样性: +10 (比例{diversity_ratio:.2f})")
-            elif diversity_ratio < 0.4:  # 低多样性，可能是重复的导航项
-                score -= 8
-                debug_info.append(f"文本多样性: -8 (比例{diversity_ratio:.2f}，重复性高)")
-            
-            # 短文本比例评分
-            if short_ratio > 0.7:  # 大部分都是短文本，可能是导航
-                score -= 12
-                debug_info.append(f"短文本比例: -12 (比例{short_ratio:.2f}，可能是导航)")
-            elif short_ratio < 0.3:  # 大部分都是长文本，可能是内容
-                score += 8
-                debug_info.append(f"短文本比例: +8 (比例{short_ratio:.2f}，文本较长)")
-            
-            # 8. 检查是否包含典型的导航菜单词汇
-            navigation_words = [
-                '首页', '主页', '新闻', '产品', '服务', '关于', '联系', '登录', '注册',
-                'home', 'news', 'about', 'contact', 'login', 'register', 'product', 'service'
-            ]
-            
+            # 只检查明显的导航词汇，减少误判
+            strong_nav_words = ['登录', '注册', '首页', '主页', '联系我们', '关于我们']
             nav_word_count = 0
-            for item in items[:10]:
+            
+            for item in items[:8]:  # 减少检查的项目数
                 item_text = item.text_content().strip().lower()
-                for nav_word in navigation_words:
+                for nav_word in strong_nav_words:
                     if nav_word in item_text:
                         nav_word_count += 1
-                        break  # 每个item只计算一次
+                        break
             
-            if nav_word_count > checked_items * 0.4:  # 超过40%包含导航词汇
-                score -= 15
-                debug_info.append(f"导航词汇: -15 ({nav_word_count}/{checked_items}个包含导航词汇)")
-        
-        # 7. 检查链接比例（需要重新评估逻辑）
-        links = container.xpath(".//a")
-        if items and len(items) > 0:
-            link_ratio = len(links) / len(items)
-            
-            # 修正逻辑：导航菜单通常链接比例很高（接近100%）
-            # 内容列表通常有适中的链接比例（30-80%）
-            if link_ratio > 0.9:  # 链接比例过高，可能是导航菜单
-                score -= 10
-                debug_info.append(f"链接比例: -10 (比例{link_ratio:.2f}，可能是导航)")
-            elif 0.3 <= link_ratio <= 0.8:  # 适中的链接比例，可能是内容列表
-                score += 5
-                debug_info.append(f"链接比例: +5 (比例{link_ratio:.2f}，适中)")
-            elif link_ratio < 0.1:  # 很少链接，可能不是列表
-                score -= 3
-                debug_info.append(f"链接比例: -3 (比例{link_ratio:.2f}，链接太少)")
+            checked_items = min(len(items), 8)
+            if nav_word_count > checked_items * 0.4:  # 提高阈值，减少误判
+                nav_penalty = 30  # 减少导航词汇的减分
+                score -= nav_penalty
+                debug_info.append(f"导航词汇: -{nav_penalty} ({nav_word_count}/{checked_items}个)")
         
         # 输出调试信息
-        container_info = f"类名: {classes[:50]}..." if len(classes) > 50 else f"类名: {classes}"
+        container_info = f"标签:{tag_name}, 类名:{classes[:30]}{'...' if len(classes) > 30 else ''}"
         if elem_id:
-            container_info += f", ID: {elem_id}"
+            container_info += f", ID:{elem_id[:20]}{'...' if len(elem_id) > 20 else ''}"
+        
         print(f"容器评分: {score} - {container_info}")
-        for info in debug_info:
+        for info in debug_info[:6]:  # 显示更多调试信息
             print(f"  {info}")
         
         return score
@@ -498,29 +1017,43 @@ def find_list_container(page_tree):
         
         if is_footer:
             ancestry_penalty += 50  # footer区域严重减分
-            print(f"容器在footer区域: {footer_msg}")
         
-        # 检查其他负面祖先特征
+        # 检查其他负面祖先特征 - 但权重降低，因为第一轮已经过滤了大部分
         def check_negative_ancestry(element):
             """检查元素及其祖先的负面特征"""
             penalty = 0
             current = element
             depth = 0
-            while current is not None and depth < 6:
+            while current is not None and depth < 4:  # 减少检查层级
                 classes = current.get('class', '').lower()
                 elem_id = current.get('id', '').lower()
+                text_content = current.text_content().lower()
                 
-                negative_keywords = ['nav', 'menu', 'sidebar', 'header', 'topbar', 'navigation']
+                # 检查结构特征
+                negative_keywords = ['nav', 'menu', 'sidebar', 'header', 'topbar', 'navigation', 'head']
                 for keyword in negative_keywords:
                     if keyword in classes or keyword in elem_id:
-                        penalty += 20  # 每发现一个负面特征减20分
-                        print(f"发现祖先负面特征: {keyword} (第{depth}层)")
+                        penalty += 20  # 减少祖先特征的权重
+                
+                # 检查内容特征（只在前2层检查）
+                if depth < 2:
+                    footer_content_keywords = ['网站说明', '网站标识码', '版权所有', '备案号']
+                    header_content_keywords = ['登录', '注册', '首页', '无障碍']
+                    
+                    content_penalty = 0
+                    for keyword in footer_content_keywords + header_content_keywords:
+                        if keyword in text_content:
+                            content_penalty += 15
+                    
+                    if content_penalty > 30:  # 如果包含多个关键词
+                        penalty += content_penalty
                 
                 current = current.getparent()
                 depth += 1
             return penalty
         
         ancestry_penalty += check_negative_ancestry(container)
+        #最终分数
         final_score = score - ancestry_penalty
         
         scored_containers.append((container, final_score, count))
@@ -528,19 +1061,24 @@ def find_list_container(page_tree):
     # 按分数排序，但优先考虑分数而不是数量
     scored_containers.sort(key=lambda x: x[1], reverse=True)
     
-    # 过滤掉明显的负分容器（很可能是导航/footer）
-    positive_scored = [sc for sc in scored_containers if sc[1] > -15]  # 提高阈值
+    # 严格过滤负分容器 - 提高阈值，更严格地排除首部尾部
+    positive_scored = [sc for sc in scored_containers if sc[1] > 0]  # 只接受正分容器
     
     if positive_scored:
         # 选择得分最高的正分容器
         best_container = positive_scored[0][0]
         max_items = parent_counts[best_container]
-        print(f"选择容器得分: {positive_scored[0][1]}, 项目数: {positive_scored[0][2]}")
     else:
-        # 如果所有容器都是负分，选择得分最高的（最不坏的）
-        best_container = scored_containers[0][0]
-        max_items = parent_counts[best_container]
-        print(f"所有容器都是负分，选择最佳: {scored_containers[0][1]}, 项目数: {scored_containers[0][2]}")
+        # 如果没有正分容器，尝试稍微宽松的阈值
+        moderate_scored = [sc for sc in scored_containers if sc[1] > -50]
+        
+        if moderate_scored:
+            best_container = moderate_scored[0][0]
+            max_items = parent_counts[best_container]
+        else:
+            # 最后手段：选择得分最高的（但很可能不理想）
+            best_container = scored_containers[0][0]
+            max_items = parent_counts[best_container]
     
     # 逐层向上搜索优化容器
     current_container = best_container
@@ -549,20 +1087,37 @@ def find_list_container(page_tree):
         if parent is None or parent.tag == 'html':
             break
         
-        # 检查父级元素是否包含footer等负面特征
+        # 检查父级元素是否包含footer等负面特征 - 更严格的检查
         def has_negative_ancestor(element):
-            """检查元素的祖先是否包含负面特征"""
+            """检查元素的祖先是否包含负面特征 - 包括内容特征"""
             current = element
             depth = 0
-            while current is not None and depth < 8:  # 检查8层祖先
+            while current is not None and depth < 3:  # 检查3层祖先
                 parent_classes = current.get('class', '').lower()
                 parent_id = current.get('id', '').lower()
+                parent_tag = current.tag.lower()
+                parent_text = current.text_content().lower()
                 
-                # 检查负面关键词
-                negative_keywords = ['footer', 'nav', 'menu', 'sidebar', 'header', 'topbar', 'navigation']
-                for keyword in negative_keywords:
-                    if keyword in parent_classes or keyword in parent_id:
-                        print(f"发现负面祖先: {keyword} 在第{depth}层")
+                # 检查结构负面关键词
+                structure_negative = ['footer', 'nav', 'menu', 'sidebar', 'header', 'topbar', 'navigation', 'foot', 'head']
+                for keyword in structure_negative:
+                    if (keyword in parent_classes or keyword in parent_id or parent_tag in ['footer', 'header', 'nav']):
+                        return True
+                
+                # 检查内容负面特征（只在前2层检查，避免过度检查）
+                if depth < 2:
+                    # 首部内容特征
+                    header_content = ['登录', '注册', '首页', '主页', '无障碍', '政务', '办事', '互动', '走进']
+                    header_count = sum(1 for word in header_content if word in parent_text)
+                    
+                    # 尾部内容特征
+                    footer_content = ['网站说明', '网站标识码', '版权所有', '备案号', 'icp', '主办单位', '承办单位']
+                    footer_count = sum(1 for word in footer_content if word in parent_text)
+                    
+                    # 如果包含多个首部或尾部关键词，认为是负面祖先
+                    if header_count >= 2:
+                        return True
+                    if footer_count >= 2:
                         return True
                 
                 current = current.getparent()
@@ -577,11 +1132,6 @@ def find_list_container(page_tree):
         # 计算父元素中的列表项数量
         parent_items = count_list_items(parent)
         
-        # 修改逻辑：更倾向于选择包含完整列表的较大容器
-        
-        # 计算父元素中的列表项数量
-        parent_items = count_list_items(parent)
-        
         # 检查父元素是否更适合作为容器
         parent_score = calculate_container_score(parent)
         current_score = calculate_container_score(current_container)
@@ -589,28 +1139,32 @@ def find_list_container(page_tree):
         print(f"比较得分: 当前={current_score}, 父级={parent_score}")
         print(f"项目数量: 当前={max_items}, 父级={parent_items}")
         
-        # 新的升级条件：更宽松，倾向于选择更大的容器
         should_upgrade = False
         
-        # 条件1：父级得分明显更高
-        if parent_score > current_score + 10:
-            should_upgrade = True
-            print("父级得分明显更高，升级")
-        
-        # 条件2：父级得分相近但不是负分，且包含更多项目（但不是太多）
-        elif (parent_score >= current_score - 5 and 
-              parent_score > -10 and 
-              parent_items <= max_items * 2.5):  # 放宽项目数量限制
-            should_upgrade = True
-            print("父级得分相近且包含更多项目，升级")
-        
-        # 条件3：当前容器项目太少，父级有合理数量的项目
-        elif (max_items < 5 and 
-              parent_items >= max_items and 
-              parent_items <= 20 and 
-              parent_score > -15):
-            should_upgrade = True
-            print("当前容器项目太少，升级到父级")
+        # 首先检查父级是否有严重的负面特征
+        if parent_score < -50:
+            print(f"父级得分过低({parent_score})，跳过升级")
+        else:
+            # 条件1：父级得分明显更高且为正分
+            if parent_score > current_score + 15 and parent_score > 10:
+                should_upgrade = True
+                print("父级得分明显更高且为正分，升级")
+            
+            # 条件2：父级得分相近且为正分，包含合理数量的项目
+            elif (parent_score >= current_score - 3 and 
+                  parent_score > 5 and  # 要求父级必须是正分
+                  parent_items <= max_items * 2 and  # 更严格的项目数量限制
+                  parent_items >= max_items):
+                should_upgrade = True
+                print("父级得分相近且为正分，升级")
+            
+            # 条件3：当前容器项目太少，父级有合理数量且得分不错
+            elif (max_items < 4 and 
+                  parent_items >= max_items and 
+                  parent_items <= 15 and 
+                  parent_score > 0):  # 要求父级必须是正分
+                should_upgrade = True
+                print("当前容器项目太少，升级到正分父级")
         
         if should_upgrade:
             current_container = parent
@@ -625,86 +1179,97 @@ def find_list_container(page_tree):
             print(f"父级项目数量过多({parent_items})，停止向上搜索")
             break
     
-    # 最终验证：确保选择的容器包含足够的列表项
+    # 最终验证：确保选择的容器包含足够的列表项且不是首部尾部
     final_items = count_list_items(current_container)
-    print(f"最终容器包含 {final_items} 个列表项")
+    final_score = calculate_container_score(current_container)
+    print(f"最终容器包含 {final_items} 个列表项，得分: {final_score}")
     
-    # 如果最终容器项目太少，尝试向上找一层
-    if final_items < 5:
+    # 如果最终容器项目太少且得分不好，尝试向上找一层
+    if final_items < 4 or final_score < -10:
         parent = current_container.getparent()
         if parent is not None and parent.tag != 'html':
             parent_items = count_list_items(parent)
             parent_score = calculate_container_score(parent)
             
-            # 如果父级有更多项目且得分不是太差，选择父级
-            if parent_items > final_items and parent_score > -20:
-                print(f"最终调整：选择父级容器 (项目数: {parent_items})")
+            # 更严格的条件：父级必须有更多项目且得分为正分
+            if (parent_items > final_items and 
+                parent_score > 0 and  # 要求正分
+                parent_items <= 30):  # 避免选择过大的容器
+                print(f"最终调整：选择正分父级容器 (项目数: {parent_items}, 得分: {parent_score})")
                 current_container = parent
+            else:
+                print(f"父级不符合条件 (项目数: {parent_items}, 得分: {parent_score})，保持当前选择")
     
     return current_container
 def generate_xpath(element):
-    """从元素生成XPath表达式"""
     if not element:
         return None
 
     tag = element.tag
 
-    # 1. 优先使用ID（如果存在）
-    if element.get('id'):
-        return f"//{tag}[@id='{element.get('id')}']"
+    # 1. 优先使用ID（如果存在且不是干扰特征）
+    elem_id = element.get('id')
+    if elem_id and not is_interference_identifier(elem_id):
+        return f"//{tag}[@id='{elem_id}']"
 
-    # 2. 使用最长类名（如果存在）
+    # 2. 使用类名（过滤干扰类名）
     classes = element.get('class')
     if classes:
         class_list = [cls.strip() for cls in classes.split() if cls.strip()]
-        if class_list:
-            # 选择最长的类名
-            longest_class = max(class_list, key=len)
+        # 过滤掉干扰类名
+        clean_classes = [cls for cls in class_list if not is_interference_identifier(cls)]
+        if clean_classes:
+            # 选择最长的干净类名
+            longest_class = max(clean_classes, key=len)
             return f"//{tag}[contains(concat(' ', normalize-space(@class), ' '), ' {longest_class} ')]"
 
     # 3. 使用其他属性（如 aria-label 等）
     for attr in ['aria-label', 'role', 'data-testid', 'data-role']:
         attr_value = element.get(attr)
-        if attr_value:
+        if attr_value and not is_interference_identifier(attr_value):
             return f"//{tag}[@{attr}='{attr_value}']"
 
-    # 4. 尝试找到最近的有标识符的祖先，生成相对路径
-    def find_closest_identifier(el):
+    # 4. 尝试找到最近的有干净标识符的祖先
+    def find_closest_clean_identifier(el):
         parent = el.getparent()
         while parent is not None and parent.tag != 'html':
-            # 优先使用 ID
-            if parent.get('id'):
+            # 检查ID
+            parent_id = parent.get('id')
+            if parent_id and not is_interference_identifier(parent_id):
                 return parent
-            # 使用类名
+            
+            # 检查类名
             parent_classes = parent.get('class')
             if parent_classes:
                 parent_class_list = [cls.strip() for cls in parent_classes.split() if cls.strip()]
-                if parent_class_list:
+                clean_parent_classes = [cls for cls in parent_class_list if not is_interference_identifier(cls)]
+                if clean_parent_classes:
                     return parent
             parent = parent.getparent()
         return None
 
-    ancestor = find_closest_identifier(element)
+    ancestor = find_closest_clean_identifier(element)
     if ancestor is not None:
         # 生成祖先的 XPath
         ancestor_xpath = generate_xpath(ancestor)
-        # 生成从祖先到当前元素的相对路径
-        def generate_relative_path(ancestor_el, target_el):
-            path = []
-            current = target_el
-            while current is not None and current != ancestor_el:
-                index = 1
-                sibling = current.getprevious()
-                while sibling is not None:
-                    if sibling.tag == current.tag:
-                        index += 1
-                    sibling = sibling.getprevious()
-                path.insert(0, f"{current.tag}[{index}]")
-                current = current.getparent()
-            return '/' + '/'.join(path)
+        if ancestor_xpath:
+            # 生成从祖先到当前元素的相对路径
+            def generate_relative_path(ancestor_el, target_el):
+                path = []
+                current = target_el
+                while current is not None and current != ancestor_el:
+                    index = 1
+                    sibling = current.getprevious()
+                    while sibling is not None:
+                        if sibling.tag == current.tag:
+                            index += 1
+                        sibling = sibling.getprevious()
+                    path.insert(0, f"{current.tag}[{index}]")
+                    current = current.getparent()
+                return '/' + '/'.join(path)
 
-        relative_path = generate_relative_path(ancestor, element)
-        return f"{ancestor_xpath}{relative_path}"
+            relative_path = generate_relative_path(ancestor, element)
+            return f"{ancestor_xpath}{relative_path}"
 
     # 5. 基于位置的 XPath（最后手段）
     path = []
@@ -720,6 +1285,25 @@ def generate_xpath(element):
         current = current.getparent()
 
     return '/' + '/'.join(path)
+
+def is_interference_identifier(identifier):
+    """判断标识符是否包含干扰特征"""
+    if not identifier:
+        return False
+    
+    identifier_lower = identifier.lower()
+    
+    # 干扰关键词
+    interference_keywords = [
+        'header', 'footer', 'nav', 'navigation', 'menu', 'menubar',
+        'topbar', 'bottom', 'sidebar', 'aside', 'banner', 'ad'
+    ]
+    
+    for keyword in interference_keywords:
+        if keyword in identifier_lower:
+            return True
+    
+    return False
 
 def validate_xpath(xpath, html_content):
     """验证XPath是否返回有效结果"""
@@ -861,51 +1445,6 @@ def get_html_content_Drission(name, url):
     finally:
         page.quit()
         print("浏览器已关闭")
-
-# def get_robust_xpath(element):
-#     """生成更健壮的XPath表达式，处理空格和动态文本"""
-#     # 获取基本属性
-#     tag = element.tag
-#     raw_text = element.text.strip() if element.text else ""
-    
-#     # 清理文本：移除多余空格和不可见字符
-#     cleaned_text = re.sub(r'\s+', ' ', raw_text).strip()
-    
-#     # 获取唯一标识属性
-#     attributes = []
-#     for attr in ['id', 'class', 'href', 'src', 'name', 'type', 'value']:
-#         attr_val = element.attr(attr)
-#         if attr_val:
-#             # 简化class值（通常有多个类名）
-#             if attr == 'class':
-#                 # 取第一个有意义的class
-#                 first_class = attr_val.split()[0] if attr_val else ""
-#                 if first_class and len(first_class) > 2:  # 忽略太短的class
-#                     attributes.append(f"contains(@class, '{first_class}')")
-#             else:
-#                 # 截取部分属性值避免过长
-#                 attr_val_short = attr_val[:30] + '...' if len(attr_val) > 30 else attr_val
-#                 attributes.append(f"contains(@{attr}, '{attr_val_short}')")
-    
-#     # 构建XPath选项
-#     options = []
-    
-#     # 选项1：使用清理后的文本 + contains()
-#     if cleaned_text:
-#         # 取文本的前5个和后5个字符（避免中间变化）
-#         text_part = cleaned_text
-#         if len(cleaned_text) > 10:
-#             text_part = f"{cleaned_text[:5]}...{cleaned_text[-5:]}"
-#         options.append(f"contains(text(), '{text_part}')")
-
-    
-#     # 组合最终表达式
-#     if options:
-#         conditions = ' or '.join([f"({opt})" for opt in options])
-#         return f"//{tag}[{conditions}]"
-#     else:
-#         # 最后手段：仅使用标签
-#         return f"//{tag}"
 
 def process_entry(entry, max_retries=3):
     """处理单个条目"""
@@ -1073,7 +1612,7 @@ if __name__ == "__main__":
         driver_pool.close_all()
 
 
-# 
+# version1.0 
 
 # 一个页面中，存在k个列表，假定k=3，有三个列表，列表1为导航栏，里面有8个列表项，列表2为侧边栏，里面有5个列表项，列表3是事项列表，里面有7个列表项，
 # 此时，我的代码会把列表1作为目标获取，但实际情况应该是列表3才是正确的，这怎么办呢，
@@ -1082,3 +1621,11 @@ if __name__ == "__main__":
 # 在我的观察下，大部分情况中，只要xpath里面包含nav，那就很大可能说明获取失败了，没有获取到列表3，而是获取到了列表1
 
 # 对于js页面，name中名称一定要准确，并且！name要尽量要少一点，比如“法定主动公开内容”，这个就写“法定”即可，这俩字有代表性，不能写“内容”这俩字，没有任何的代表性
+
+
+# version2.0
+# 2025.8.22
+# 修改部分算法的逻辑，可以提取正文所在容器，而不是v1.0中提取列表，目前算法用于定位页面的主体内容，通过不断的去排除头部导航和底部footer来逐渐的定位主体。但是，对于页面中内容是一大串的文字，或者是图片，这种情况下密度算法将会失效，我们需要尽可能的排除主HTML中head和footer（就是页面的导航栏和底部栏，这两个里面可能存在大量的列表或者一大串的文字）
+# 获取到的次HTML即为排除了干扰项的HTML内容，我们需要的container可能就存在于此，对于这个次级HTML，我们需要再一次的进行过滤，排除里面的header和footer，然后逐步缩小，但是不要精确，因为过于精确的获取容器会导致出现疏漏。
+
+# 对于算法的进一步修改，需要判断出一个合理的权重，即扣分标准。首先！一定是扣分的居多，加分的少，对于可能是底部或者首部的内容，要大量的减分，应该算法的主要思路就是排除干扰项！

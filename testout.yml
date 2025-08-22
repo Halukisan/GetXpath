@@ -1,5 +1,20 @@
 ---
 name: 测试
 url: https://www.quanzhou.gov.cn/zfb/xxgk/zfxxgkzl/qzdt/qzyw/202404/t20240401_3021580.htm?area=16496
-xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' TRS_Editor ')]"
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xl_con ')]"
+xpathList4Click: []
+---
+name: 测试2
+url: https://ybj.fuzhou.gov.cn/zwgk/zcfg/
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_base_date_01 ')]"
+xpathList4Click: []
+---
+name: 测试3
+url: https://www.hubei.gov.cn/xxgk/zcjd/bm/
+xpath: "None"
+xpathList4Click: []
+---
+name: 测试4
+url: https://jtj.hefei.gov.cn/zcjdu/14945697.html
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' lmy_mainer ')]"
 xpathList4Click: []
