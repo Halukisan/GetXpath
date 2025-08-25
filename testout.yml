@@ -16,5 +16,20 @@ xpathList4Click: []
 ---
 name: 测试4
 url: https://jtj.hefei.gov.cn/zcjdu/14945697.html
-xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' lmy_mainer ')]"
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xxgk_wztable ')]"
+xpathList4Click: []
+---
+name: 测试5
+url: https://ybj.fuzhou.gov.cn/zwgk/zcfg/202406/t20240617_4843877.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' TRS_PreAppend ')]"
+xpathList4Click: []
+---
+name: 测试6
+url: https://www.hubei.gov.cn/zfwj/ezh/201202/t20120222_1712167.shtml
+xpath: "None"
+xpathList4Click: []
+---
+name: 测试7
+url: https://www.fuzhou.gov.cn/zfxxgkzl/szfbmjxsqxxgk/szfbmxxgk/fzsrmzf/zfxxgkml/xzfggzhgfxwj/202508/t20250815_5062115.htm
+xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' content_bg_02 ')]/div[2]"
 xpathList4Click: []

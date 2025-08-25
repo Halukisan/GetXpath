@@ -25,7 +25,7 @@ def get_html_content(url):
     }
     
     try:
-        response = requests.get(url, headers=headers, timeout=15)
+        response = requests.get(url, headers=headers, timeout=30)
         response.raise_for_status()
         
         return response.content
@@ -33,7 +33,7 @@ def get_html_content(url):
         print(f"网络请求错误: {e}")
         return None
 
-def get_html_content_Selenium(url, max_retries=3):
+def get_html_content_Selenium(url, max_retries=4):
     """使用 Selenium 获取页面内容"""
     for attempt in range(max_retries):
         driver = None
@@ -43,7 +43,7 @@ def get_html_content_Selenium(url, max_retries=3):
             driver.set_script_timeout(180)
             
             driver.get(url)
-            time.sleep(10)
+            time.sleep(15)
             
             html_content = driver.page_source
             driver_pool.return_driver(driver)
@@ -235,7 +235,7 @@ def preprocess_html_remove_interference(page_tree):
     # 第一步：通过内容特征回溯删除首部和尾部容器
     body = remove_header_footer_by_content_traceback(body)
     
-    # 第二步：识别并删除明显的页面级header/footer容器（原有逻辑）
+    # 第二步：识别并删除明显的页面级header/footer容器
     interference_containers = []
     
     # 查找所有可能的干扰容器
@@ -258,10 +258,10 @@ def preprocess_html_remove_interference(page_tree):
     
     
     # 输出清理后的HTML到终端
-    cleaned_html = html.tostring(body, encoding='unicode', pretty_print=True)
-    print("\n=== 清理后的HTML内容 ===")
-    print(cleaned_html[:2000] + "..." if len(cleaned_html) > 2000 else cleaned_html)
-    print("=== HTML内容结束 ===\n")
+    # cleaned_html = html.tostring(body, encoding='unicode', pretty_print=True)
+    # print("\n=== 清理后的HTML内容 ===")
+    # print(cleaned_html[:2000] + "..." if len(cleaned_html) > 2000 else cleaned_html)
+    # print("=== HTML内容结束 ===\n")
     
     return body
 
@@ -332,15 +332,328 @@ def find_article_container(page_tree):
     
     return main_content
 
+def perform_second_level_cleaning(cleaned_body):
+    """进行二次清理，基于DOM深度去除外层包装"""
+    print("\n=== 开始二次清理 ===")
+    
+    # 计算DOM深度
+    def get_dom_depth(element):
+        """计算DOM元素的深度"""
+        if element is None:
+            return 0
+        
+        # 获取所有子元素
+        children = element.xpath("./*")
+        if not children:
+            return 1
+        
+        # 计算最大子深度
+        max_child_depth = 0
+        for child in children:
+            child_depth = get_dom_depth(child)
+            if child_depth > max_child_depth:
+                max_child_depth = child_depth
+        
+        return max_child_depth + 1
+    
+    # 获取当前DOM深度
+    original_depth = get_dom_depth(cleaned_body)
+    print(f"原始DOM深度: {original_depth}")
+    
+    # 如果深度较浅，不需要清理
+    if original_depth <= 6:
+        print("DOM深度较浅，无需清理")
+        return cleaned_body
+    
+    # 计算需要移除的层数 - 更积极的清理策略
+    layers_to_remove = min(2, original_depth - 2)  # 最多移除2层
+    
+    current_element = cleaned_body
+    removed_layers = 0
+    
+    for i in range(layers_to_remove):
+        # 获取所有直接子元素
+        children = current_element.xpath("./*")
+        
+        if not children:
+            print(f"第{i+1}层没有子元素，停止清理")
+            break
+        
+        # 如果只有一个子元素，直接选择它（去除包装层）
+        if len(children) == 1:
+            print(f"移除第{i+1}层包装，只有一个子元素")
+            current_element = children[0]
+            removed_layers += 1
+            continue
+            
+        # 多个子元素时，选择最有价值的子元素
+        best_child = None
+        best_score = -1
+        
+        for j, child in enumerate(children):
+            # 计算子元素的综合评分
+            child_score = evaluate_child_element_for_cleaning(child, j)
+            
+            print(f"  子元素{j+1}: {child.tag} class='{child.get('class', '')[:30]}' 评分: {child_score}")
+            
+            if child_score > best_score:
+                best_score = child_score
+                best_child = child
+        
+        # 只有当找到明显更好的子元素时才进行替换
+        if best_child and best_score > 50:
+            print(f"移除第{i+1}层，选择评分最高的子元素 (评分: {best_score})")
+            current_element = best_child
+            removed_layers += 1
+        else:
+            print(f"第{i+1}层没有找到合适的子元素，停止清理")
+            break
+    
+    # 输出清理后的深度
+    new_depth = get_dom_depth(current_element)
+    print(f"清理后DOM深度: {new_depth}，实际移除了 {removed_layers} 层")
+    
+    # 输出清理后的HTML到终端
+    cleaned_html = html.tostring(current_element, encoding='unicode', pretty_print=True)
+    print("\n=== 二次清理后的HTML内容 ===")
+    print(cleaned_html[:2000] + "..." if len(cleaned_html) > 2000 else cleaned_html)
+    print("=== HTML内容结束 ===\n")
+    
+    return current_element
+
+def evaluate_child_element_for_cleaning(child, index):
+    """评估子元素是否适合作为清理后的主要内容"""
+    score = 0
+    
+    classes = child.get('class', '').lower()
+    elem_id = child.get('id', '').lower()
+    text_content = child.text_content().strip()
+    text_length = len(text_content)
+    
+    # 1. 内容长度评分
+    if text_length > 1000:
+        score += 60
+    elif text_length > 500:
+        score += 45
+    elif text_length > 200:
+        score += 30
+    elif text_length > 100:
+        score += 15
+    else:
+        score -= 10  # 内容太少，减分
+    
+    # 2. 正面特征评分（二次清理阶段，权重降低避免重复加分）
+    positive_keywords = [
+        'content', 'main', 'article', 'body', 'text', 'detail', 
+        'info', 'data', 'result', 'document', 'policy'
+    ]
+    
+    for keyword in positive_keywords:
+        if keyword in classes or keyword in elem_id:
+            score += 10  # 降低权重，避免与后续阶段重复加分
+            break
+    
+    # 3. 负面特征减分
+    negative_keywords = [
+        'nav', 'menu', 'header', 'footer', 'sidebar', 'aside',
+        'ad', 'advertisement', 'banner', 'topbar', 'bottom'
+    ]
+    
+    for keyword in negative_keywords:
+        if keyword in classes or keyword in elem_id:
+            score -= 40
+            break
+    
+    # 4. 结构化内容评分
+    paragraphs = child.xpath(".//p")
+    headings = child.xpath(".//h1 | .//h2 | .//h3 | .//h4")
+    lists = child.xpath(".//li")
+    
+    structure_score = len(paragraphs) * 3 + len(headings) * 5 + len(lists) * 2
+    score += min(structure_score, 40)
+    
+    # 5. 内容特征评分
+    content_indicators = [
+        r'发布时间|更新日期|发布日期',
+        r'通知|公告|意见|办法|规定|措施|方案',
+        r'第[一二三四五六七八九十\d]+条|第[一二三四五六七八九十\d]+章',
+        r'附件|下载|pdf|doc'
+    ]
+    
+    content_feature_count = 0
+    for pattern in content_indicators:
+        if re.search(pattern, text_content):
+            content_feature_count += 1
+    
+    score += content_feature_count * 15
+    
+    # 6. 位置权重（中间位置的元素更可能是主内容）
+    if index == 0:
+        score -= 5  # 第一个可能是导航
+    elif index == 1:
+        score += 10  # 第二个通常是主内容
+    
+    # 7. 子元素数量评分（有一定复杂度但不过于复杂）
+    child_count = len(child.xpath(".//*"))
+    if 10 <= child_count <= 200:
+        score += 20
+    elif child_count > 200:
+        score += 10  # 太复杂可能包含干扰内容
+    elif child_count < 5:
+        score -= 10  # 太简单可能不是主内容
+    
+    return score
+def evaluate_outer_container(container, index):
+    """评估外层容器是否应该保留"""
+    score = 0
+    debug_info = []
+    
+    classes = container.get('class', '').lower()
+    elem_id = container.get('id', '').lower()
+    text_content = container.text_content().lower()
+    text_length = len(text_content.strip())
+    
+    # 1. 基础内容长度评分（降低门槛）
+    if text_length > 2000:
+        score += 60
+        debug_info.append("超长内容: +60")
+    elif text_length > 1000:
+        score += 50
+        debug_info.append("长内容: +50")
+    elif text_length > 500:
+        score += 40
+        debug_info.append("中等内容: +40")
+    elif text_length > 200:
+        score += 30
+        debug_info.append("短内容: +30")
+    elif text_length > 100:
+        score += 20
+        debug_info.append("较短内容: +20")
+    else:
+        score -= 10
+        debug_info.append("内容太少: -10")
+    
+    # 2. 检查是否包含实质性内容特征（不仅仅是时间）
+    content_indicators = [
+        r'发布时间|更新日期|发布日期|成文日期',  # 时间特征
+        r'通知|公告|意见|办法|规定|措施|方案',  # 公文特征
+        r'第[一二三四五六七八九十\d]+条|第[一二三四五六七八九十\d]+章',  # 条款特征
+        r'附件|下载|pdf|doc',  # 附件特征
+        r'索引号|主题分类|发文机关|发文字号',  # 政务信息特征
+    ]
+    
+    content_feature_count = 0
+    for pattern in content_indicators:
+        if re.search(pattern, text_content):
+            content_feature_count += 1
+    
+    if content_feature_count > 0:
+        content_score = min(content_feature_count * 15, 60)
+        score += content_score
+        debug_info.append(f"内容特征: +{content_score} ({content_feature_count}个)")
+    
+    # 3. 检查结构化内容
+    # structured_elements = container.xpath(".//p | .//h1 | .//h2 | .//h3 | .//h4 | .//li | .//table | .//div[contains(@style, 'text-align')]")
+    structured_elements = container.xpath(".//p | .//h1 | .//h2 | .//h3 | .//h4 | .//li | .//table | .//div")
+    if len(structured_elements) > 10:
+        structure_score = min(len(structured_elements) * 2, 50)
+        score += structure_score
+        debug_info.append(f"结构化内容: +{structure_score}")
+    elif len(structured_elements) > 5:
+        score += 25
+        debug_info.append("中等结构化: +25")
+    elif len(structured_elements) > 2:
+        score += 15
+        debug_info.append("少量结构化: +15")
+    
+    # 4. 正面类名/ID特征（外层容器评估阶段，权重降低）
+    positive_keywords = [
+        'content', 'main', 'article', 'news', 'data', 'info', 
+        'detail', 'result', 'body', 'text', 'document', 'policy'
+    ]
+    
+    positive_matches = 0
+    for keyword in positive_keywords:
+        if keyword in classes or keyword in elem_id:
+            positive_matches += 1
+    
+    if positive_matches > 0:
+        positive_score = min(positive_matches * 10, 25)  # 降低权重和上限
+        score += positive_score
+        debug_info.append(f"正面特征: +{positive_score}")
+    
+    # 5. 严格的负面特征检测
+    # 导航相关负面特征
+    nav_negative_keywords = [
+        'nav', 'menu', 'navigation', 'menubar', 'topbar', 'sidebar'
+    ]
+    
+    nav_penalty = 0
+    for keyword in nav_negative_keywords:
+        if keyword in classes or keyword in elem_id:
+            nav_penalty += 40
+    
+    if nav_penalty > 0:
+        score -= nav_penalty
+        debug_info.append(f"导航特征: -{nav_penalty}")
+    
+    # 页脚相关负面特征
+    footer_negative_keywords = [
+        'footer', 'foot', 'bottom', 'copyright', 'links'
+    ]
+    
+    footer_penalty = 0
+    for keyword in footer_negative_keywords:
+        if keyword in classes or keyword in elem_id:
+            footer_penalty += 35
+    
+    if footer_penalty > 0:
+        score -= footer_penalty
+        debug_info.append(f"页脚特征: -{footer_penalty}")
+    
+    # 6. 内容质量检查 - 检查是否主要是链接导航
+    links = container.xpath(".//a")
+    if len(links) > 10:
+        link_text_length = sum(len(link.text_content()) for link in links)
+        link_ratio = link_text_length / max(text_length, 1)
+        
+        if link_ratio > 0.7:  # 如果链接文本占比超过70%
+            score -= 30
+            debug_info.append(f"链接过多: -30 (比例{link_ratio:.2f})")
+        elif link_ratio > 0.5:
+            score -= 15
+            debug_info.append(f"链接较多: -15 (比例{link_ratio:.2f})")
+    
+    # 7. 位置权重 - 中间位置的容器更可能是主内容
+    if index == 0:
+        # 第一个容器可能是导航，轻微减分
+        score -= 5
+        debug_info.append("首位容器: -5")
+    elif index == 1:
+        # 第二个容器通常是主内容，加分
+        score += 10
+        debug_info.append("次位容器: +10")
+    
+    # 输出调试信息
+    container_info = f"容器{index+1}: {container.tag} class='{classes[:30]}'"
+    print(f"外层容器评分: {score} - {container_info}")
+    for info in debug_info[:5]:
+        print(f"  {info}")
+    
+    return score
+
 def find_main_content_in_cleaned_html(cleaned_body):
     """在清理后的HTML中查找主内容区域"""
     
+    # 进行二次清理，去除外层干扰容器
+    twice_cleaned_body = perform_second_level_cleaning(cleaned_body)
+    
     # 获取所有可能的内容容器
-    content_containers = cleaned_body.xpath(".//div | .//section | .//article | .//main")
+    content_containers = twice_cleaned_body.xpath(".//div | .//section | .//article | .//main")
     
     if not content_containers:
         print("未找到内容容器，返回body")
-        return cleaned_body
+        return twice_cleaned_body
     
     # 对容器进行评分
     scored_containers = []
@@ -353,20 +666,146 @@ def find_main_content_in_cleaned_html(cleaned_body):
         print("未找到正分容器，返回第一个容器")
         return content_containers[0]
     
-    # 选择得分最高的容器
+    # 选择得分最高的容器，但优先考虑层级最深的
     scored_containers.sort(key=lambda x: x[1], reverse=True)
-    # best_container = scored_containers[0][0]
     best_score = scored_containers[0][1]
-    same_score_containers = [container for container, score in scored_containers if score == best_score]
-    if len(same_score_containers) > 1:
-        # 检查层级关系，层级关系。这一步直接影响结果的范围，对于某些范围大的页面，你可以考虑不获取最佳的，而获取次佳的容器 
-        best_container = select_best_from_same_score_containers(same_score_containers)
+    
+    # 设置分数阈值，考虑分数相近的容器（差距在40分以内）
+    score_threshold = 40
+    
+    # 找出分数在阈值范围内的容器
+    similar_score_containers = [(container, score) for container, score in scored_containers 
+                               if abs(score - best_score) <= score_threshold]
+    
+    print(f"找到 {len(similar_score_containers)} 个分数相近的容器:")
+    for i, (container, score) in enumerate(similar_score_containers):
+        print(f"容器{i+1}: {container.tag} class='{container.get('class', '')[:30]}' 得分: {score}")
+    
+    # 如果有多个分数相近的容器，选择层级最深的
+    if len(similar_score_containers) > 1:
+        best_container = select_deepest_container_from_similar([c for c, s in similar_score_containers])
     else:
         best_container = scored_containers[0][0]
-    print(f"选择最佳内容容器，得分: {best_score}")
+    
+    # 获取最终选择的容器分数
+    final_score = next(score for container, score in scored_containers if container == best_container)
+    print(f"最终选择容器，得分: {final_score}")
     print(f"容器信息: {best_container.tag} class='{best_container.get('class', '')[:50]}'")
     
     return best_container
+
+def select_deepest_container_from_similar(similar_containers):
+    """从分数相近的容器中选择层级最深的一个"""
+    if not similar_containers:
+        return None
+    
+    if len(similar_containers) == 1:
+        return similar_containers[0]
+    
+    # 计算每个容器的层级深度
+    container_depths = []
+    for container in similar_containers:
+        depth = calculate_container_depth(container)
+        container_depths.append((container, depth))
+        print(f"  候选容器层级深度: {depth} - {container.tag} class='{container.get('class', '')[:30]}'")
+    
+    # 按层级深度排序（深度越大，层级越深）
+    container_depths.sort(key=lambda x: x[1], reverse=True)
+    
+    # 选择层级最深的容器
+    deepest_container = container_depths[0][0]
+    deepest_depth = container_depths[0][1]
+    
+    print(f"选择最深层容器 (深度 {deepest_depth}): {deepest_container.tag} class='{deepest_container.get('class', '')[:30]}'")
+    return deepest_container
+
+def select_best_container_prefer_child(similar_containers, all_scored_containers):
+    """从分数相近的容器中选择最佳的，优先选择子节点"""
+    
+    # 检查容器之间的父子关系
+    parent_child_pairs = []
+    
+    for i, container1 in enumerate(similar_containers):
+        for j, container2 in enumerate(similar_containers):
+            if i != j:
+                # 检查container2是否是container1的子节点
+                if is_child_of(container2, container1):
+                    # 获取两个容器的分数
+                    score1 = next(score for c, score in all_scored_containers if c == container1)
+                    score2 = next(score for c, score in all_scored_containers if c == container2)
+                    parent_child_pairs.append((container1, container2, score1, score2))
+                    print(f"发现父子关系: 父容器得分{score1}, 子容器得分{score2}")
+    
+    # 如果找到父子关系，需要更严格的判断
+    if parent_child_pairs:
+        # 找出所有符合条件的子节点（分数差距小于20分，更严格）
+        valid_children = []
+        for parent, child, parent_score, child_score in parent_child_pairs:
+            score_diff = parent_score - child_score
+            # 只有当子节点分数差距很小时才考虑选择子节点
+            if score_diff <= 20 and child_score >= 200:  # 子节点本身分数要足够高
+                valid_children.append((child, child_score, score_diff))
+        
+        if valid_children:
+            # 按分数排序，选择分数最高的子节点
+            valid_children.sort(key=lambda x: (-x[1], x[2]))  # 按子节点分数降序，分差升序
+            
+            best_child, best_score, score_diff = valid_children[0]
+            
+            # 额外检查：确保选择的子节点确实比父节点更精确
+            # 检查子节点的内容密度是否更高
+            child_text_length = len(best_child.text_content().strip())
+            parent_candidates = [parent for parent, child, p_score, c_score in parent_child_pairs 
+                               if child == best_child]
+            
+            if parent_candidates:
+                parent = parent_candidates[0]
+                parent_text_length = len(parent.text_content().strip())
+                
+                # 如果子节点的内容长度不到父节点的60%，可能选择了错误的子节点
+                if child_text_length < parent_text_length * 0.6:
+                    print(f"子节点内容过少({child_text_length} vs {parent_text_length})，选择父节点")
+                    return parent
+            
+            print(f"选择子容器: {best_child.tag} class='{best_child.get('class', '')[:30]}' (父子分差: {score_diff})")
+            return best_child
+    
+    # 如果没有合适的父子关系，使用原来的层级深度选择逻辑
+    return select_best_from_same_score_containers(similar_containers)
+
+def is_child_of(child_element, parent_element):
+    """检查child_element是否是parent_element的子节点"""
+    current = child_element.getparent()
+    while current is not None:
+        if current == parent_element:
+            return True
+        current = current.getparent()
+    return False
+
+def select_deepest_container(containers):
+    """从多个容器中选择层级最深的一个"""
+    if not containers:
+        return None
+    
+    if len(containers) == 1:
+        return containers[0]
+    
+    # 计算每个容器的层级深度
+    container_depths = []
+    for container in containers:
+        depth = calculate_container_depth(container)
+        container_depths.append((container, depth))
+        print(f"  候选容器层级深度: {depth} - {container.tag} class='{container.get('class', '')[:30]}'")
+    
+    # 按层级深度排序（深度越大，层级越深）
+    container_depths.sort(key=lambda x: x[1], reverse=True)
+    
+    # 选择层级最深的容器
+    deepest_container = container_depths[0][0]
+    deepest_depth = container_depths[0][1]
+    
+    print(f"  选择最深层容器 (深度 {deepest_depth}): {deepest_container.tag} class='{deepest_container.get('class', '')[:30]}'")
+    return deepest_container
 
 def select_best_from_same_score_containers(containers):
     """从得分相同的多个容器中选择层级最深的一个（儿子容器）"""
@@ -405,7 +844,7 @@ def calculate_container_depth(container):
     
     return depth
 def calculate_content_container_score(container):
-    """计算内容容器得分 - 专注于识别真正的内容区域"""
+    """计算内容容器得分 - 专注于识别真正的内容区域，减少对时间特征的依赖"""
     score = 0
     debug_info = []
     
@@ -428,56 +867,219 @@ def calculate_content_container_score(container):
         score -= 20
         debug_info.append("内容太少: -20")
     
-    # 2. 时间特征检测（强正面特征）
-    time_patterns = [
-        r'\d{4}-\d{2}-\d{2}',
-        r'\d{4}年\d{1,2}月\d{1,2}日',
-        r'\d{4}/\d{1,2}/\d{1,2}',
-        r'发布时间', r'更新日期', r'发布日期'
+    # 2. 多样化内容特征检测（避免重复加分）
+    content_indicators = [
+        # 时间特征（合并所有时间相关）
+        (r'\d{4}-\d{2}-\d{2}|\d{4}年\d{1,2}月\d{1,2}日|\d{4}/\d{1,2}/\d{1,2}|发布时间|更新日期|发布日期|成文日期', 30, '时间特征'),
+        # 公文特征（权重高）
+        (r'通知|公告|意见|办法|规定|措施|方案|决定|指导|实施', 40, '公文特征'),
+        # 条款特征（权重高）
+        (r'第[一二三四五六七八九十\d]+条|第[一二三四五六七八九十\d]+章|第[一二三四五六七八九十\d]+节', 35, '条款特征'),
+        # 政务信息特征（移除时间相关）
+        (r'索引号|主题分类|发文机关|发文字号|有效性', 25, '政务信息'),
+        # 附件特征
+        (r'附件|下载|pdf|doc|docx|文件下载', 20, '附件特征'),
+        # 内容结构特征
+        (r'为了|根据|按照|依据|现将|特制定|现印发|请结合实际', 30, '内容结构')
     ]
     
-    time_matches = 0
-    for pattern in time_patterns:
-        time_matches += len(re.findall(pattern, text_content))
+    total_content_score = 0
+    matched_features = []
     
-    if time_matches > 0:
-        time_score = min(time_matches * 25, 75)
-        score += time_score
-        debug_info.append(f"时间特征: +{time_score}")
+    for pattern, weight, feature_name in content_indicators:
+        if re.search(pattern, text_content):
+            total_content_score += weight
+            matched_features.append(feature_name)
     
-    # 3. 正面类名/ID特征
+    # 限制总的内容特征得分，但提高上限
+    if total_content_score > 0:
+        final_content_score = min(total_content_score, 120)  # 提高上限到120
+        score += final_content_score
+        debug_info.append(f"内容特征: +{final_content_score} ({','.join(matched_features)})")
+    
+    # 3. 正面类名/ID特征（排除样式类）
     positive_keywords = [
         'content', 'main', 'article', 'news', 'data', 'info', 
         'detail', 'result', 'list', 'body', 'text'
     ]
     
+    # 样式类关键词（这些通常不是内容特征）
+    style_keywords = [
+        'bg', 'color', 'pad', 'margin', 'border', 'shadow', 'gradient',
+        'xl', 'lg', 'md', 'sm', 'xs', 'row', 'col', 'grid', 'flex'
+    ]
+    
     positive_matches = 0
+    style_penalty = 0
+    
     for keyword in positive_keywords:
         if keyword in classes or keyword in elem_id:
-            positive_matches += 1
+            # 检查是否与样式类混合（如 content_bg_02）
+            class_parts = classes.split()
+            for class_part in class_parts:
+                if keyword in class_part:
+                    # 检查这个类是否主要是样式类
+                    is_style_class = any(style_kw in class_part for style_kw in style_keywords)
+                    if not is_style_class:
+                        positive_matches += 1
+                        break
+    
+    # 检查是否主要包含样式类
+    total_classes = len(classes.split()) if classes else 0
+    style_class_count = 0
+    for class_part in classes.split():
+        if any(style_kw in class_part for style_kw in style_keywords):
+            style_class_count += 1
+    
+    # 如果样式类占比过高，减分
+    if total_classes > 0 and style_class_count / total_classes > 0.6:
+        style_penalty = 20
+        debug_info.append(f"样式类过多: -{style_penalty}")
     
     if positive_matches > 0:
-        positive_score = min(positive_matches * 20, 60)
-        score += positive_score
-        debug_info.append(f"正面特征: +{positive_score}")
+        positive_score = min(positive_matches * 15, 60) - style_penalty
+        if positive_score > 0:
+            score += positive_score
+            debug_info.append(f"正面特征: +{positive_score}")
+    elif style_penalty > 0:
+        score -= style_penalty
     
-    # 4. 结构化内容检测
-    structured_elements = container.xpath(".//p | .//h1 | .//h2 | .//h3 | .//li | .//table")
-    if len(structured_elements) > 5:
-        structure_score = min(len(structured_elements) * 2, 40)
-        score += structure_score
-        debug_info.append(f"结构化内容: +{structure_score}")
+    # 4. 增强的结构化内容检测
+    # 检查不同类型的结构化元素
+    paragraphs = container.xpath(".//p")
+    headings = container.xpath(".//h1 | .//h2 | .//h3 | .//h4 | .//h5 | .//h6")
+    lists = container.xpath(".//li")
+    tables = container.xpath(".//table")
+    divs_with_style = container.xpath(".//div[contains(@style, 'text-align') or contains(@style, 'margin') or contains(@style, 'padding')]")
     
-    # 5. 图片内容
+    structure_score = 0
+    structure_details = []
+    
+    # 段落评分
+    if len(paragraphs) > 10:
+        para_score = min(len(paragraphs) * 3, 60)
+        structure_score += para_score
+        structure_details.append(f"段落{len(paragraphs)}个")
+    elif len(paragraphs) > 5:
+        structure_score += 30
+        structure_details.append(f"段落{len(paragraphs)}个")
+    elif len(paragraphs) > 2:
+        structure_score += 15
+        structure_details.append(f"段落{len(paragraphs)}个")
+    
+    # 标题评分
+    if len(headings) > 0:
+        heading_score = min(len(headings) * 8, 40)
+        structure_score += heading_score
+        structure_details.append(f"标题{len(headings)}个")
+    
+    # 列表评分
+    if len(lists) > 0:
+        list_score = min(len(lists) * 2, 30)
+        structure_score += list_score
+        structure_details.append(f"列表{len(lists)}个")
+    
+    # 表格评分
+    if len(tables) > 0:
+        table_score = min(len(tables) * 10, 30)
+        structure_score += table_score
+        structure_details.append(f"表格{len(tables)}个")
+    
+    # 样式化div评分
+    if len(divs_with_style) > 0:
+        div_score = min(len(divs_with_style) * 1, 20)
+        structure_score += div_score
+        structure_details.append(f"样式div{len(divs_with_style)}个")
+    
+    if structure_score > 0:
+        final_structure_score = min(structure_score, 80)  # 提高结构化内容的上限
+        score += final_structure_score
+        debug_info.append(f"结构化内容: +{final_structure_score} ({','.join(structure_details)})")
+    
+    # 5. 多媒体内容评分
     images = container.xpath(".//img")
-    if len(images) > 0:
-        image_score = min(len(images) * 3, 20)
-        score += image_score
-        debug_info.append(f"图片内容: +{image_score}")
+    links = container.xpath(".//a[@href]")
     
-    # 6. 负面特征检测（剩余的干扰项）
+    multimedia_score = 0
+    multimedia_details = []
+    
+    # 图片评分
+    if len(images) > 0:
+        image_score = min(len(images) * 4, 25)  # 提高图片权重
+        multimedia_score += image_score
+        multimedia_details.append(f"图片{len(images)}张")
+    
+    # 链接评分（但要区分导航链接和内容链接）
+    if len(links) > 0:
+        # 检查链接的平均文本长度，长文本链接更可能是内容链接
+        link_texts = [link.text_content().strip() for link in links if link.text_content().strip()]
+        if link_texts:
+            avg_link_length = sum(len(text) for text in link_texts) / len(link_texts)
+            
+            if avg_link_length > 10:  # 长文本链接，可能是内容链接
+                link_score = min(len(links) * 2, 20)
+                multimedia_score += link_score
+                multimedia_details.append(f"内容链接{len(links)}个")
+            elif len(links) <= 5:  # 少量短链接，可能是相关链接
+                multimedia_score += 10
+                multimedia_details.append(f"相关链接{len(links)}个")
+            # 大量短链接可能是导航，不加分
+    
+    if multimedia_score > 0:
+        score += multimedia_score
+        debug_info.append(f"多媒体内容: +{multimedia_score} ({','.join(multimedia_details)})")
+    
+    # 6. 内容密度和质量评分（新增）
+    content_quality_score = 0
+    quality_details = []
+    
+    # 检查文本密度（非空白字符比例）
+    non_whitespace_chars = len(re.sub(r'\s', '', text_content))
+    if text_length > 0:
+        density_ratio = non_whitespace_chars / text_length
+        if density_ratio > 0.7:  # 高密度文本
+            content_quality_score += 20
+            quality_details.append("高密度文本")
+        elif density_ratio > 0.5:
+            content_quality_score += 10
+            quality_details.append("中密度文本")
+    
+    # 检查句子结构（包含句号、问号、感叹号的完整句子）
+    sentences = re.findall(r'[^。！？]*[。！？]', text_content)
+    if len(sentences) > 10:
+        sentence_score = min(len(sentences) * 2, 30)
+        content_quality_score += sentence_score
+        quality_details.append(f"完整句子{len(sentences)}个")
+    elif len(sentences) > 5:
+        content_quality_score += 15
+        quality_details.append(f"完整句子{len(sentences)}个")
+    
+    # 检查专业词汇（政务、法律、技术类词汇）
+    professional_terms = [
+        '实施', '管理', '服务', '发展', '建设', '完善', '推进', '加强', '提升', '优化',
+        '规范', '监督', '协调', '统筹', '落实', '保障', '促进', '支持', '鼓励', '引导','发文字号','发文机关'
+    ]
+    
+    professional_count = 0
+    for term in professional_terms:
+        professional_count += text_content.count(term)
+    
+    if professional_count > 20:
+        prof_score = min(professional_count, 40)
+        content_quality_score += prof_score
+        quality_details.append(f"专业词汇{professional_count}次")
+    elif professional_count > 10:
+        content_quality_score += 20
+        quality_details.append(f"专业词汇{professional_count}次")
+    
+    if content_quality_score > 0:
+        final_quality_score = min(content_quality_score, 60)
+        score += final_quality_score
+        debug_info.append(f"内容质量: +{final_quality_score} ({','.join(quality_details)})")
+    
+    # 7. 负面特征检测（剩余的干扰项）
     remaining_negative_keywords = [
-        'sidebar', 'aside', 'related', 'recommend', 'ad', 'advertisement'
+        'sidebar', 'aside', 'related', 'recommend', 'advertisement'
     ]
     
     for keyword in remaining_negative_keywords:
@@ -488,7 +1090,7 @@ def calculate_content_container_score(container):
     # 输出调试信息
     container_info = f"{container.tag} class='{classes[:30]}'"
     print(f"容器评分: {score} - {container_info}")
-    for info in debug_info[:4]:
+    for info in debug_info:  # 显示所有评分项
         print(f"  {info}")
     
     return score
@@ -724,7 +1326,7 @@ def calculate_main_content_score(container):
     content_keywords = ['content', 'main', 'article', 'detail', 'body']
     for keyword in content_keywords:
         if keyword in classes or keyword in elem_id:
-            score += 15
+            score += 10
     
     return score
 

@@ -227,14 +227,26 @@ def generate_xpath(element):
     if element.get('id'):
         return f"//{tag}[@id='{element.get('id')}']"
 
-    # 2. 使用最长类名（如果存在）
+    # 2. 使用类名组合（如果存在）
     classes = element.get('class')
     if classes:
         class_list = [cls.strip() for cls in classes.split() if cls.strip()]
         if class_list:
-            # 选择最长的类名
-            longest_class = max(class_list, key=len)
-            return f"//{tag}[contains(concat(' ', normalize-space(@class), ' '), ' {longest_class} ')]"
+            # 如果有多个类名，优先使用最具特征性的组合
+            if len(class_list) >= 2:
+                # 选择最长的两个类名组合
+                sorted_classes = sorted(class_list, key=len, reverse=True)
+                primary_class = sorted_classes[0]
+                secondary_class = sorted_classes[1] if len(sorted_classes) > 1 else None
+                
+                # 生成更精确的XPath
+                if secondary_class:
+                    return f"//{tag}[contains(@class, '{primary_class}') and contains(@class, '{secondary_class}')]"
+                else:
+                    return f"//{tag}[contains(@class, '{primary_class}')]"
+            else:
+                # 只有一个类名
+                return f"//{tag}[contains(@class, '{class_list[0]}')]"
 
     # 3. 使用其他属性（如 aria-label 等）
     for attr in ['aria-label', 'role', 'data-testid', 'data-role']:

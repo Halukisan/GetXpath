@@ -25,7 +25,7 @@ def get_html_content(url):
     }
     
     try:
-        response = requests.get(url, headers=headers, timeout=15)
+        response = requests.get(url, headers=headers, timeout=30)
         response.raise_for_status()
         
         return response.content
@@ -33,7 +33,7 @@ def get_html_content(url):
         print(f"网络请求错误: {e}")
         return None
 
-def get_html_content_Selenium(url, max_retries=3):
+def get_html_content_Selenium(url, max_retries=4):
     """使用 Selenium 获取页面内容"""
     for attempt in range(max_retries):
         driver = None
@@ -43,7 +43,7 @@ def get_html_content_Selenium(url, max_retries=3):
             driver.set_script_timeout(180)
             
             driver.get(url)
-            time.sleep(10)
+            time.sleep(15)
             
             html_content = driver.page_source
             driver_pool.return_driver(driver)
@@ -441,7 +441,8 @@ def calculate_content_container_score(container):
         time_matches += len(re.findall(pattern, text_content))
     
     if time_matches > 0:
-        time_score = min(time_matches * 25, 75)
+        # time_score = min(time_matches * 25, 75)
+        time_score = 75  # 只要有时间特征就给满分
         score += time_score
         debug_info.append(f"时间特征: +{time_score}")
     
