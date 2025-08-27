@@ -366,7 +366,7 @@ def perform_second_level_cleaning(cleaned_body):
         return cleaned_body
     
     # 计算需要移除的层数 - 更积极的清理策略
-    layers_to_remove = min(2, original_depth - 2)  # 最多移除2层
+    layers_to_remove = min(1, original_depth - 1)  # 最多移除1层
     
     current_element = cleaned_body
     removed_layers = 0
@@ -721,7 +721,7 @@ def select_best_container_prefer_child(similar_containers, all_scored_containers
         for parent, child, parent_score, child_score in parent_child_pairs:
             score_diff = parent_score - child_score
             # 只有当子节点分数差距很小时才考虑选择子节点
-            if score_diff <= 20 and child_score >= 200:  # 子节点本身分数要足够高
+            if score_diff <= 20 and child_score >= 150:  # 子节点本身分数要足够高
                 valid_children.append((child, child_score, score_diff))
         
         if valid_children:

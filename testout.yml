@@ -21,15 +21,15 @@ xpathList4Click: []
 ---
 name: 测试8
 url: https://ybj.jinan.gov.cn/art/2025/8/21/art_38257_4774360.html
-xpath: "//div[@class='content']"
+xpath: "//div[@id='barrierfree_container']"
 xpathList4Click: []
 ---
 name: 测试9
 url: https://www.shanxi.gov.cn/szf/zfld/zsh/
-xpath: "//div[@class='main-wrap']"
+xpath: "//div[@class='container boxcenter ']"
 xpathList4Click: []
 ---
 name: 测试10
 url: https://www.hebei.gov.cn/columns/179e5ec1-f239-49ac-a83d-9260dd430dc7/index.html
-xpath: "//div[@class='pc-css']"
+xpath: "//div[@id='right_top']"
 xpathList4Click: []
