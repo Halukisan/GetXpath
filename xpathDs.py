@@ -100,14 +100,14 @@ def remove_header_footer_by_content_traceback(body):
         container = find_header_footer_container(element)
         if container and container not in containers_to_remove:
             containers_to_remove.add(container)
-            print(f"发现首部容器: {container.tag} class='{container.get('class', '')[:50]}'")
+            print(f"发现首部容器: {container.tag} class='{container.get('class', '')}'")
     
     # 处理尾部元素
     for element in footer_elements:
         container = find_footer_container_by_traceback(element)
         if container and container not in containers_to_remove:
             containers_to_remove.add(container)
-            print(f"发现尾部容器: {container.tag} class='{container.get('class', '')[:50]}'")
+            print(f"发现尾部容器: {container.tag} class='{container.get('class', '')}'")
     
     # 额外检查：查找所有直接包含header/footer标签的div容器
     header_divs = body.xpath(".//div[.//header] | .//div[.//footer] | .//div[.//nav]")
@@ -394,7 +394,7 @@ def perform_second_level_cleaning(cleaned_body):
             # 计算子元素的综合评分
             child_score = evaluate_child_element_for_cleaning(child, j)
             
-            print(f"  子元素{j+1}: {child.tag} class='{child.get('class', '')[:30]}' 评分: {child_score}")
+            print(f"  子元素{j+1}: {child.tag} class='{child.get('class', '')}' 评分: {child_score}")
             
             if child_score > best_score:
                 best_score = child_score
@@ -635,7 +635,7 @@ def evaluate_outer_container(container, index):
         debug_info.append("次位容器: +10")
     
     # 输出调试信息
-    container_info = f"容器{index+1}: {container.tag} class='{classes[:30]}'"
+    container_info = f"容器{index+1}: {container.tag} class='{classes}'"
     print(f"外层容器评分: {score} - {container_info}")
     for info in debug_info[:5]:
         print(f"  {info}")
@@ -670,8 +670,8 @@ def find_main_content_in_cleaned_html(cleaned_body):
     scored_containers.sort(key=lambda x: x[1], reverse=True)
     best_score = scored_containers[0][1]
     
-    # 设置分数阈值，考虑分数相近的容器（差距在40分以内）
-    score_threshold = 40
+    # 设置分数阈值，考虑分数相近的容器（差距在45分以内）
+    score_threshold = 45
     
     # 找出分数在阈值范围内的容器
     similar_score_containers = [(container, score) for container, score in scored_containers 
@@ -679,45 +679,23 @@ def find_main_content_in_cleaned_html(cleaned_body):
     
     print(f"找到 {len(similar_score_containers)} 个分数相近的容器:")
     for i, (container, score) in enumerate(similar_score_containers):
-        print(f"容器{i+1}: {container.tag} class='{container.get('class', '')[:30]}' 得分: {score}")
+        print(f"容器{i+1}: {container.tag} class='{container.get('class', '')}' 得分: {score}")
     
     # 如果有多个分数相近的容器，选择层级最深的
-    if len(similar_score_containers) > 1:
-        best_container = select_deepest_container_from_similar([c for c, s in similar_score_containers])
-    else:
-        best_container = scored_containers[0][0]
-    
+    # if len(similar_score_containers) > 1:
+    #     # best_container = select_deepest_container_from_similar([c for c, s in similar_score_containers])
+    #     # 选择最优的
+    #     best_container = select_best_container_prefer_child([c for c, s in similar_score_containers], scored_containers)
+    # else:
+    #     best_container = scored_containers[0][0]
+    best_container = scored_containers[0][0]
     # 获取最终选择的容器分数
     final_score = next(score for container, score in scored_containers if container == best_container)
     print(f"最终选择容器，得分: {final_score}")
-    print(f"容器信息: {best_container.tag} class='{best_container.get('class', '')[:50]}'")
+    print(f"容器信息: {best_container.tag} class='{best_container.get('class', '')}'")
     
     return best_container
 
-def select_deepest_container_from_similar(similar_containers):
-    """从分数相近的容器中选择层级最深的一个"""
-    if not similar_containers:
-        return None
-    
-    if len(similar_containers) == 1:
-        return similar_containers[0]
-    
-    # 计算每个容器的层级深度
-    container_depths = []
-    for container in similar_containers:
-        depth = calculate_container_depth(container)
-        container_depths.append((container, depth))
-        print(f"  候选容器层级深度: {depth} - {container.tag} class='{container.get('class', '')[:30]}'")
-    
-    # 按层级深度排序（深度越大，层级越深）
-    container_depths.sort(key=lambda x: x[1], reverse=True)
-    
-    # 选择层级最深的容器
-    deepest_container = container_depths[0][0]
-    deepest_depth = container_depths[0][1]
-    
-    print(f"选择最深层容器 (深度 {deepest_depth}): {deepest_container.tag} class='{deepest_container.get('class', '')[:30]}'")
-    return deepest_container
 
 def select_best_container_prefer_child(similar_containers, all_scored_containers):
     """从分数相近的容器中选择最佳的，优先选择子节点"""
@@ -767,11 +745,11 @@ def select_best_container_prefer_child(similar_containers, all_scored_containers
                     print(f"子节点内容过少({child_text_length} vs {parent_text_length})，选择父节点")
                     return parent
             
-            print(f"选择子容器: {best_child.tag} class='{best_child.get('class', '')[:30]}' (父子分差: {score_diff})")
+            print(f"选择子容器: {best_child.tag} class='{best_child.get('class', '')}' (父子分差: {score_diff})")
             return best_child
     
     # 如果没有合适的父子关系，使用原来的层级深度选择逻辑
-    return select_best_from_same_score_containers(similar_containers)
+    return select_deepest_container_from_similar(similar_containers)
 
 def is_child_of(child_element, parent_element):
     """检查child_element是否是parent_element的子节点"""
@@ -795,7 +773,7 @@ def select_deepest_container(containers):
     for container in containers:
         depth = calculate_container_depth(container)
         container_depths.append((container, depth))
-        print(f"  候选容器层级深度: {depth} - {container.tag} class='{container.get('class', '')[:30]}'")
+        print(f"  候选容器层级深度: {depth} - {container.tag} class='{container.get('class', '')}'")
     
     # 按层级深度排序（深度越大，层级越深）
     container_depths.sort(key=lambda x: x[1], reverse=True)
@@ -804,31 +782,33 @@ def select_deepest_container(containers):
     deepest_container = container_depths[0][0]
     deepest_depth = container_depths[0][1]
     
-    print(f"  选择最深层容器 (深度 {deepest_depth}): {deepest_container.tag} class='{deepest_container.get('class', '')[:30]}'")
+    print(f"  选择最深层容器 (深度 {deepest_depth}): {deepest_container.tag} class='{deepest_container.get('class', '')}'")
     return deepest_container
 
-def select_best_from_same_score_containers(containers):
-    """从得分相同的多个容器中选择层级最深的一个（儿子容器）"""
-    # 检查容器之间的层级关系，选择层级最深的
-    container_depths = []
+def select_deepest_container_from_similar(similar_containers):
+    """从分数相近的容器中选择层级最深的一个"""
+    if not similar_containers:
+        return None
     
-    for container in containers:
-        # 计算容器的层级深度（距离body的层级数）
+    if len(similar_containers) == 1:
+        return similar_containers[0]
+    
+    # 计算每个容器的层级深度
+    container_depths = []
+    for container in similar_containers:
         depth = calculate_container_depth(container)
         container_depths.append((container, depth))
-        
-        print(f"容器层级深度: {depth} - {container.tag} class='{container.get('class', '')[:30]}'")
+        print(f"  候选容器层级深度: {depth} - {container.tag} class='{container.get('class', '')}'")
     
     # 按层级深度排序（深度越大，层级越深）
     container_depths.sort(key=lambda x: x[1], reverse=True)
     
-    # 选择层级最深的容器（儿子容器）
-    best_container = container_depths[0][0]
-    best_depth = container_depths[0][1]
+    # 选择层级最深的容器
+    deepest_container = container_depths[0][0]
+    deepest_depth = container_depths[0][1]
     
-    print(f"选择层级最深的容器 (深度 {best_depth}): {best_container.tag} class='{best_container.get('class', '')[:30]}'")
-    
-    return best_container
+    print(f"选择最深层容器 (深度 {deepest_depth}): {deepest_container.tag} class='{deepest_container.get('class', '')}'")
+    return deepest_container
 
 def calculate_container_depth(container):
     """计算容器距离body的层级深度"""
@@ -866,7 +846,15 @@ def calculate_content_container_score(container):
     elif text_length < 50:
         score -= 20
         debug_info.append("内容太少: -20")
-    
+
+    role = container.get('role', '').lower()
+    if role == 'viewlist':
+        debug_info.append(f"-----------------发现role------------------{role}")
+        score += 150  # 大幅度加分
+        debug_info.append("Role特征: +100 (role='viewlist')")
+    elif role in ['list', 'listbox', 'grid']:
+        score += 50  # 其他列表相关role也加分
+        debug_info.append(f"Role特征: +50 (role='{role}')")
     # 2. 多样化内容特征检测（避免重复加分）
     content_indicators = [
         # 时间特征（合并所有时间相关）
@@ -1088,7 +1076,7 @@ def calculate_content_container_score(container):
             debug_info.append(f"负面特征: -30 ({keyword})")
     
     # 输出调试信息
-    container_info = f"{container.tag} class='{classes[:30]}'"
+    container_info = f"{container.tag} class='{classes}'"
     print(f"容器评分: {score} - {container_info}")
     for info in debug_info:  # 显示所有评分项
         print(f"  {info}")
@@ -1522,7 +1510,10 @@ def find_list_container(page_tree):
                 score -= 20
                 debug_info.append(f"文本长度: -20 (平均{avg_length:.1f}字符，太短)")
         
-        # 8. 检查正面结构特征
+        # 8. 检查role属性特征（优先级最高）
+        # 不是在这里生效的！
+        
+        # 9. 检查正面结构特征
         strong_positive_indicators = ['content', 'main', 'news', 'article', 'data', 'info', 'detail', 'result', 'list']
         positive_score = 0
         for indicator in strong_positive_indicators:
@@ -1532,7 +1523,7 @@ def find_list_container(page_tree):
         
         score += min(positive_score, 75)  # 限制正面特征的最大加分
         
-        # 9. 检查内容多样性（图片、链接等）
+        # 10. 检查内容多样性（图片、链接等）
         images = container.xpath(".//img")
         links = container.xpath(".//a[@href]")
         
@@ -1546,7 +1537,7 @@ def find_list_container(page_tree):
             score += link_score
             debug_info.append(f"链接内容: +{link_score} ({len(links)}个链接)")
         
-        # 10. 最后检查：避免导航类内容（但权重降低，因为第一轮已经过滤了大部分）
+        # 11. 最后检查：避免导航类内容（但权重降低，因为第一轮已经过滤了大部分）
         if items and len(items) > 2:
             # 只检查明显的导航词汇，减少误判
             strong_nav_words = ['登录', '注册', '首页', '主页', '联系我们', '关于我们']
@@ -1566,9 +1557,9 @@ def find_list_container(page_tree):
                 debug_info.append(f"导航词汇: -{nav_penalty} ({nav_word_count}/{checked_items}个)")
         
         # 输出调试信息
-        container_info = f"标签:{tag_name}, 类名:{classes[:30]}{'...' if len(classes) > 30 else ''}"
+        container_info = f"标签:{tag_name}, 类名:{classes}"
         if elem_id:
-            container_info += f", ID:{elem_id[:20]}{'...' if len(elem_id) > 20 else ''}"
+            container_info += f", ID:{elem_id}"
         
         print(f"容器评分: {score} - {container_info}")
         for info in debug_info[:6]:  # 显示更多调试信息
@@ -1814,16 +1805,11 @@ def generate_xpath(element):
     if elem_id and not is_interference_identifier(elem_id):
         return f"//{tag}[@id='{elem_id}']"
 
-    # 2. 使用类名（过滤干扰类名）
+    # 2. 使用完整的类名
     classes = element.get('class')
     if classes:
-        class_list = [cls.strip() for cls in classes.split() if cls.strip()]
-        # 过滤掉干扰类名
-        clean_classes = [cls for cls in class_list if not is_interference_identifier(cls)]
-        if clean_classes:
-            # 选择最长的干净类名
-            longest_class = max(clean_classes, key=len)
-            return f"//{tag}[contains(concat(' ', normalize-space(@class), ' '), ' {longest_class} ')]"
+        # 使用完整的class值，不进行过滤处理
+        return f"//{tag}[@class='{classes}']"
 
     # 3. 使用其他属性（如 aria-label 等）
     for attr in ['aria-label', 'role', 'data-testid', 'data-role']:

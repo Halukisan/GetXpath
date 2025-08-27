@@ -1,35 +1,35 @@
 ---
 name: 测试
 url: https://www.quanzhou.gov.cn/zfb/xxgk/zfxxgkzl/qzdt/qzyw/202404/t20240401_3021580.htm?area=16496
-xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xl_con ')]"
+xpath: "//div[@class='xl_con']"
 xpathList4Click: []
 ---
 name: 测试2
 url: https://ybj.fuzhou.gov.cn/zwgk/zcfg/
-xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_base_date_01 ')]"
-xpathList4Click: []
----
-name: 测试3
-url: https://www.hubei.gov.cn/xxgk/zcjd/bm/
-xpath: "None"
-xpathList4Click: []
----
-name: 测试4
-url: https://jtj.hefei.gov.cn/zcjdu/14945697.html
-xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' xxgk_wztable ')]"
+xpath: "//div[@class='trt-col-18 trt-col-sm-24 slb-trt-col-16 slb-trt-col-sm-24']"
 xpathList4Click: []
 ---
 name: 测试5
 url: https://ybj.fuzhou.gov.cn/zwgk/zcfg/202406/t20240617_4843877.htm
-xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' TRS_PreAppend ')]"
-xpathList4Click: []
----
-name: 测试6
-url: https://www.hubei.gov.cn/zfwj/ezh/201202/t20120222_1712167.shtml
-xpath: "None"
+xpath: "//div[@class='article_content article_content_01 font_family_cn font1']"
 xpathList4Click: []
 ---
 name: 测试7
 url: https://www.fuzhou.gov.cn/zfxxgkzl/szfbmjxsqxxgk/szfbmxxgk/fzsrmzf/zfxxgkml/xzfggzhgfxwj/202508/t20250815_5062115.htm
-xpath: "//div[contains(concat(' ', normalize-space(@class), ' '), ' content_bg_02 ')]/div[2]"
+xpath: "//div[@class='row content_bg_02 pad_xl pad_base_sm pad_t_small pad_t_base0_sm']"
+xpathList4Click: []
+---
+name: 测试8
+url: https://ybj.jinan.gov.cn/art/2025/8/21/art_38257_4774360.html
+xpath: "//div[@class='content']"
+xpathList4Click: []
+---
+name: 测试9
+url: https://www.shanxi.gov.cn/szf/zfld/zsh/
+xpath: "//div[@class='main-wrap']"
+xpathList4Click: []
+---
+name: 测试10
+url: https://www.hebei.gov.cn/columns/179e5ec1-f239-49ac-a83d-9260dd430dc7/index.html
+xpath: "//div[@class='pc-css']"
 xpathList4Click: []

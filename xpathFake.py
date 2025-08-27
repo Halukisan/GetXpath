@@ -428,23 +428,43 @@ def calculate_content_container_score(container):
         score -= 20
         debug_info.append("内容太少: -20")
     
-    # 2. 时间特征检测（强正面特征）
-    time_patterns = [
-        r'\d{4}-\d{2}-\d{2}',
-        r'\d{4}年\d{1,2}月\d{1,2}日',
-        r'\d{4}/\d{1,2}/\d{1,2}',
-        r'发布时间', r'更新日期', r'发布日期'
+    role = container.get('role', '').lower()
+    if role == 'viewlist':
+        debug_info.append(f"-----------------发现role------------------{role}")
+        score += 150  # 大幅度加分
+        debug_info.append("Role特征: +100 (role='viewlist')")
+    elif role in ['list', 'listbox', 'grid']:
+        score += 50  # 其他列表相关role也加分
+        debug_info.append(f"Role特征: +50 (role='{role}')")
+    # 2. 多样化内容特征检测（避免重复加分）
+    content_indicators = [
+        # 时间特征（合并所有时间相关）
+        (r'\d{4}-\d{2}-\d{2}|\d{4}年\d{1,2}月\d{1,2}日|\d{4}/\d{1,2}/\d{1,2}|发布时间|更新日期|发布日期|成文日期', 30, '时间特征'),
+        # 公文特征（权重高）
+        (r'通知|公告|意见|办法|规定|措施|方案|决定|指导|实施', 40, '公文特征'),
+        # 条款特征（权重高）
+        (r'第[一二三四五六七八九十\d]+条|第[一二三四五六七八九十\d]+章|第[一二三四五六七八九十\d]+节', 35, '条款特征'),
+        # 政务信息特征（移除时间相关）
+        (r'索引号|主题分类|发文机关|发文字号|有效性', 25, '政务信息'),
+        # 附件特征
+        (r'附件|下载|pdf|doc|docx|文件下载', 20, '附件特征'),
+        # 内容结构特征
+        (r'为了|根据|按照|依据|现将|特制定|现印发|请结合实际', 30, '内容结构')
     ]
     
-    time_matches = 0
-    for pattern in time_patterns:
-        time_matches += len(re.findall(pattern, text_content))
+    total_content_score = 0
+    matched_features = []
     
-    if time_matches > 0:
-        # time_score = min(time_matches * 25, 75)
-        time_score = 75  # 只要有时间特征就给满分
-        score += time_score
-        debug_info.append(f"时间特征: +{time_score}")
+    for pattern, weight, feature_name in content_indicators:
+        if re.search(pattern, text_content):
+            total_content_score += weight
+            matched_features.append(feature_name)
+    
+    # 限制总的内容特征得分，但提高上限
+    if total_content_score > 0:
+        final_content_score = min(total_content_score, 120)  # 提高上限到120
+        score += final_content_score
+        debug_info.append(f"内容特征: +{final_content_score} ({','.join(matched_features)})")
     
     # 3. 正面类名/ID特征
     positive_keywords = [
@@ -1214,15 +1234,19 @@ def generate_xpath(element):
         return f"//{tag}[@id='{elem_id}']"
 
     # 2. 使用类名（过滤干扰类名）
+    # classes = element.get('class')
+    # if classes:
+    #     class_list = [cls.strip() for cls in classes.split() if cls.strip()]
+    #     # 过滤掉干扰类名
+    #     clean_classes = [cls for cls in class_list if not is_interference_identifier(cls)]
+    #     if clean_classes:
+    #         # 选择最长的干净类名
+    #         longest_class = max(clean_classes, key=len)
+    #         return f"//{tag}[contains(concat(' ', normalize-space(@class), ' '), ' {longest_class} ')]"
     classes = element.get('class')
     if classes:
-        class_list = [cls.strip() for cls in classes.split() if cls.strip()]
-        # 过滤掉干扰类名
-        clean_classes = [cls for cls in class_list if not is_interference_identifier(cls)]
-        if clean_classes:
-            # 选择最长的干净类名
-            longest_class = max(clean_classes, key=len)
-            return f"//{tag}[contains(concat(' ', normalize-space(@class), ' '), ' {longest_class} ')]"
+        # 使用完整的class值，不进行过滤处理
+        return f"//{tag}[@class='{classes}']"
 
     # 3. 使用其他属性（如 aria-label 等）
     for attr in ['aria-label', 'role', 'data-testid', 'data-role']:

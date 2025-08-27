@@ -28,7 +28,58 @@ v3.0
 最后，写个下一个使用者：
 最终过滤的代码也是需要修改的，不一定要获取最精确的容器，也不要获取最宽泛的容器，我的场景大部分都是政务网站，所以项目的赋分机制，过滤机制，以及最终的容器选择机制，还有一些xpath以及文字的识别都是有一定的针对性的，不过，我觉得大部分的网站都是这个样子吧，所以，这个项目应该可以满足大部分的使用场景。
 ---
+#xpathFake.py #xpathDs.py xpathFake代码的效果比xpathDs的效果要好
+1. 更简洁的算法流程
+xpathFake.py：
 
+直接使用 find_article_container() → find_main_content_in_cleaned_html()
+流程简单清晰，减少了过度处理的风险
+xpathDs.py：
+
+增加了 perform_second_level_cleaning() 二次清理步骤
+流程更复杂，可能过度清理导致丢失有效内容
+2. 容器选择策略的差异
+xpathFake.py 在 find_main_content_in_cleaned_html() 中：
+
+# 选择得分最高的容器
+scored_containers.sort(key=lambda x: x[1], reverse=True)
+best_score = scored_containers[0][1]
+same_score_containers = [container for container, score in scored_containers if score == best_score]
+if len(same_score_containers) > 1:
+    # 选择层级最深的一个（儿子容器）
+    best_container = select_best_from_same_score_containers(same_score_containers)
+else:
+    best_container = scored_containers[0][0]
+xpathDs.py 中：
+
+# 直接选择得分最高的，注释掉了层级选择逻辑
+best_container = scored_containers[0][0]
+3. HTML输出调试的差异
+xpathFake.py：
+
+# 输出清理后的HTML到终端
+cleaned_html = html.tostring(body, encoding='unicode', pretty_print=True)
+print("\n=== 清理后的HTML内容 ===")
+print(cleaned_html[:2000] + "..." if len(cleaned_html) > 2000 else cleaned_html)
+xpathDs.py：
+
+# 注释掉了HTML输出
+# cleaned_html = html.tostring(body, encoding='unicode', pretty_print=True)
+# print("\n=== 清理后的HTML内容 ===")
+4. 二次清理的影响
+xpathDs.py
+ 中的 perform_second_level_cleaning() 可能过于激进：
+
+最多移除2层DOM结构
+可能误删包含目标内容的容器
+增加了算法复杂度和出错概率
+5. 容器深度选择逻辑
+xpathFake.py
+ 保留了 select_best_from_same_score_containers() 函数，能够：
+
+在得分相同的容器中选择层级最深的
+更精确地定位到实际内容容器
+避免选择过于宽泛的父容器
 
 
 ## 核心算法：智能HTML预处理 + 内容容器定位
