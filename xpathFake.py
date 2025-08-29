@@ -342,12 +342,42 @@ def find_main_content_in_cleaned_html(cleaned_body):
         print("未找到内容容器，返回body")
         return cleaned_body
     
-    # 对容器进行评分
+    # 对容器进行评分，同时删除大幅度减分的标签
     scored_containers = []
+    containers_to_remove = []
+    
     for container in content_containers:
         score = calculate_content_container_score(container)
-        if score > 0:  # 只考虑正分容器
+        
+        # 如果分数极低（大幅度减分），标记为删除
+        if score < -100:
+            containers_to_remove.append(container)
+            print(f"标记删除大幅减分容器: {container.tag} class='{container.get('class', '')[:30]}' 得分: {score}")
+        elif score > -50:  # 只考虑分数不太低的容器
             scored_containers.append((container, score))
+    
+    # 删除大幅度减分的标签
+    removed_count = 0
+    for container in containers_to_remove:
+        try:
+            parent = container.getparent()
+            if parent is not None:
+                parent.remove(container)
+                removed_count += 1
+                print(f"已删除干扰容器: {container.tag}")
+        except Exception as e:
+            print(f"删除容器时出错: {e}")
+    
+    print(f"共删除 {removed_count} 个大幅减分的干扰容器")
+    
+    # 重新获取容器（删除干扰项后）
+    if removed_count > 0:
+        content_containers = cleaned_body.xpath(".//div | .//section | .//article | .//main")
+        scored_containers = []
+        for container in content_containers:
+            score = calculate_content_container_score(container)
+            if score > -50:
+                scored_containers.append((container, score))
     
     if not scored_containers:
         print("未找到正分容器，返回第一个容器")
@@ -530,7 +560,7 @@ def calculate_container_depth(container):
     
     return depth
 def calculate_content_container_score(container):
-    """计算内容容器得分 - 专注于识别真正的内容区域"""
+    """计算内容容器得分 - 专注于识别真正的内容区域，大幅度减分干扰标签"""
     score = 0
     debug_info = []
     
@@ -539,7 +569,70 @@ def calculate_content_container_score(container):
     text_content = container.text_content()
     text_length = len(text_content.strip())
     
-    # 1. 基础内容长度评分
+    # 首先进行大幅度减分检查 - 直接排除干扰标签
+    # 1. 检查标签名 - 直接排除
+    if container.tag.lower() in ['header', 'footer', 'nav', 'aside']:
+        score -= 500  # 极大减分，基本排除
+        debug_info.append(f"干扰标签: -{500} ({container.tag})")
+        return score  # 直接返回，不再计算其他分数
+    
+    # 2. 检查强烈的干扰类名/ID - 大幅减分
+    strong_interference_keywords = [
+        'header', 'footer', 'nav', 'navigation', 'menu', 'menubar', 
+        'topbar', 'bottom', 'sidebar', 'aside', 'banner', 'ad', 'advertisement'
+    ]
+    
+    interference_count = 0
+    for keyword in strong_interference_keywords:
+        if keyword in classes or keyword in elem_id:
+            interference_count += 1
+    
+    if interference_count > 0:
+        interference_penalty = interference_count * 200  # 每个干扰关键词减200分
+        score -= interference_penalty
+        debug_info.append(f"强干扰特征: -{interference_penalty} (发现{interference_count}个)")
+        
+        # 如果干扰特征太多，直接返回负分
+        if interference_count >= 2:
+            return score
+    
+    # 3. 检查内容特征 - 识别首部尾部内容
+    header_content_keywords = [
+        '登录', '注册', '首页', '主页', '无障碍', '政务', '办事', '互动', 
+        '走进', '移动版', '手机版', '导航', '菜单', '搜索', '市政府',
+        'login', 'register', 'home', 'menu', 'search', 'nav'
+    ]
+    
+    footer_content_keywords = [
+        '网站说明', '网站标识码', '版权所有', '主办单位', '承办单位', 
+        '技术支持', '联系我们', '网站地图', '隐私政策', '免责声明',
+        '备案号', 'icp', '公安备案', '政府网站', '网站管理',
+        'copyright', 'all rights reserved', 'powered by', 'designed by'
+    ]
+    
+    header_content_count = sum(1 for keyword in header_content_keywords if keyword in text_content.lower())
+    footer_content_count = sum(1 for keyword in footer_content_keywords if keyword in text_content.lower())
+    
+    # 大幅减分首部尾部内容
+    if header_content_count >= 3:
+        score -= 300
+        debug_info.append(f"首部内容: -300 (发现{header_content_count}个关键词)")
+    elif header_content_count >= 2:
+        score -= 150
+        debug_info.append(f"首部内容: -150 (发现{header_content_count}个关键词)")
+    
+    if footer_content_count >= 3:
+        score -= 300
+        debug_info.append(f"尾部内容: -300 (发现{footer_content_count}个关键词)")
+    elif footer_content_count >= 2:
+        score -= 150
+        debug_info.append(f"尾部内容: -150 (发现{footer_content_count}个关键词)")
+    
+    # 如果已经是严重负分，不再继续计算
+    if score < -200:
+        return score
+    
+    # 4. 基础内容长度评分
     if text_length > 1000:
         score += 50
         debug_info.append("长内容: +50")
@@ -553,28 +646,33 @@ def calculate_content_container_score(container):
         score -= 20
         debug_info.append("内容太少: -20")
     
+    # 5. Role属性检查
     role = container.get('role', '').lower()
     if role == 'viewlist':
-        debug_info.append(f"-----------------发现role------------------{role}")
-        score += 150  # 大幅度加分
-        debug_info.append("Role特征: +100 (role='viewlist')")
-    elif role in ['list', 'listbox', 'grid']:
-        score += 50  # 其他列表相关role也加分
+        score += 150
+        debug_info.append("Role特征: +150 (role='viewlist')")
+    elif role in ['list', 'listbox', 'grid', 'main', 'article']:
+        score += 50
         debug_info.append(f"Role特征: +50 (role='{role}')")
-    # 2. 多样化内容特征检测（避免重复加分）
+    
+    # 6. 内容特征检测 - 不限于列表
     content_indicators = [
-        # 时间特征（合并所有时间相关）
+        # 时间特征
         (r'\d{4}-\d{2}-\d{2}|\d{4}年\d{1,2}月\d{1,2}日|\d{4}/\d{1,2}/\d{1,2}|发布时间|更新日期|发布日期|成文日期', 30, '时间特征'),
-        # 公文特征（权重高）
+        # 公文特征
         (r'通知|公告|意见|办法|规定|措施|方案|决定|指导|实施', 40, '公文特征'),
-        # 条款特征（权重高）
+        # 条款特征
         (r'第[一二三四五六七八九十\d]+条|第[一二三四五六七八九十\d]+章|第[一二三四五六七八九十\d]+节', 35, '条款特征'),
-        # 政务信息特征（移除时间相关）
+        # 政务信息特征
         (r'索引号|主题分类|发文机关|发文字号|有效性', 25, '政务信息'),
         # 附件特征
         (r'附件|下载|pdf|doc|docx|文件下载', 20, '附件特征'),
         # 内容结构特征
-        (r'为了|根据|按照|依据|现将|特制定|现印发|请结合实际', 30, '内容结构')
+        (r'为了|根据|按照|依据|现将|特制定|现印发|请结合实际', 30, '内容结构'),
+        # 新闻内容特征
+        (r'记者|报道|消息|新闻|采访|发表|刊登', 25, '新闻特征'),
+        # 正文内容特征
+        (r'正文|内容|详情|全文|摘要|概述', 20, '正文特征')
     ]
     
     total_content_score = 0
@@ -585,16 +683,15 @@ def calculate_content_container_score(container):
             total_content_score += weight
             matched_features.append(feature_name)
     
-    # 限制总的内容特征得分，但提高上限
     if total_content_score > 0:
-        final_content_score = min(total_content_score, 120)  # 提高上限到120
+        final_content_score = min(total_content_score, 120)
         score += final_content_score
         debug_info.append(f"内容特征: +{final_content_score} ({','.join(matched_features)})")
     
-    # 3. 正面类名/ID特征
+    # 7. 正面类名/ID特征
     positive_keywords = [
         'content', 'main', 'article', 'news', 'data', 'info', 
-        'detail', 'result', 'list', 'body', 'text'
+        'detail', 'result', 'list', 'body', 'text', 'container'
     ]
     
     positive_matches = 0
@@ -607,34 +704,24 @@ def calculate_content_container_score(container):
         score += positive_score
         debug_info.append(f"正面特征: +{positive_score}")
     
-    # 4. 结构化内容检测
-    structured_elements = container.xpath(".//p | .//h1 | .//h2 | .//h3 | .//li | .//table")
+    # 8. 结构化内容检测 - 不限于列表
+    structured_elements = container.xpath(".//p | .//h1 | .//h2 | .//h3 | .//h4 | .//h5 | .//h6 | .//li | .//table | .//div[contains(@class,'content')] | .//section")
     if len(structured_elements) > 5:
         structure_score = min(len(structured_elements) * 2, 40)
         score += structure_score
         debug_info.append(f"结构化内容: +{structure_score}")
     
-    # 5. 图片内容
+    # 9. 图片内容
     images = container.xpath(".//img")
     if len(images) > 0:
         image_score = min(len(images) * 3, 20)
         score += image_score
         debug_info.append(f"图片内容: +{image_score}")
     
-    # 6. 负面特征检测（剩余的干扰项）
-    remaining_negative_keywords = [
-        'sidebar', 'aside', 'related', 'recommend', 'ad', 'advertisement'
-    ]
-    
-    for keyword in remaining_negative_keywords:
-        if keyword in classes or keyword in elem_id:
-            score -= 30
-            debug_info.append(f"负面特征: -30 ({keyword})")
-    
     # 输出调试信息
     container_info = f"{container.tag} class='{classes[:30]}'"
     print(f"容器评分: {score} - {container_info}")
-    for info in debug_info[:4]:
+    for info in debug_info[:5]:
         print(f"  {info}")
     
     return score
@@ -1456,7 +1543,7 @@ def is_interference_identifier(identifier):
     return False
 
 def validate_xpath(xpath, html_content):
-    """验证XPath是否返回有效结果"""
+    """验证XPath是否返回有效结果（不检测列表）"""
     try:
         tree = html.fromstring(html_content)
         results = tree.xpath(xpath)
@@ -1464,14 +1551,8 @@ def validate_xpath(xpath, html_content):
         if not results:
             return False, "未找到元素"
         
-        container = results[0]
-        list_items = container.xpath(".//li | .//tr | .//article | .//div[contains(concat(' ', normalize-space(@class), ' '), ' item ')]")
-
-        
-        if len(list_items) >= 3:
-            return True, f"找到 {len(list_items)} 个列表项"
-        
-        return False, f"仅找到 {len(list_items)} 个列表项（需要至少3个）"
+        # 只要找到元素就认为是有效的，不检测列表项数量
+        return True, f"找到有效容器，标签: {results[0].tag}"
     except Exception as e:
         return False, f"XPath执行错误: {str(e)}"
 
@@ -1611,46 +1692,53 @@ def process_entry(entry, max_retries=3):
         # 有100%可以获取的方法就不要换成可能出风险的方法，慢一点就慢一点，准确率最重要
         html_content = get_html_content_Selenium(url)
 
-    # html_content = get_html_content(url)
-    
     if not html_content:
         print("\nHtml content获取失败")
         return {**entry, 'xpath': None, 'status': 'failed'}
         
     best_xpath = None
     validation_result = ""
-    candidate_xpath = None  # 添加初始化
+    candidate_xpath = None
 
     for attempt in range(1, max_retries + 1):
         print(f"\n尝试 #{attempt}")
         
         tree = html.fromstring(html_content)
         
-        container = find_list_container(tree)
+        # 使用新的逻辑：直接获取分数最高的容器，不检测列表
+        cleaned_body = preprocess_html_remove_interference(tree)
+        best_container = find_main_content_in_cleaned_html(cleaned_body)
         
-        if not container:
-            print("未找到有效的列表容器")
+        if not best_container:
+            print("未找到有效的内容容器")
             continue
         
-        candidate_xpath = generate_xpath(container)
+        candidate_xpath = generate_xpath(best_container)
         if not candidate_xpath:
             print("无法生成XPath")
             time.sleep(1)
             continue
 
         print(f"XPath: {candidate_xpath}")
-        is_valid, validation_msg = validate_xpath(candidate_xpath, html_content)
-        print(f"XPath候选: {candidate_xpath}")
-        print(f"验证结果: {validation_msg}")
         
-        if is_valid:
+        # 新的验证逻辑：只验证XPath是否有效，不检测列表项数量
+        try:
+            results = tree.xpath(candidate_xpath)
+            if results:
+                best_xpath = candidate_xpath
+                validation_result = f"找到有效容器，标签: {results[0].tag}"
+                break
+            else:
+                validation_result = "XPath未找到元素"
+        except Exception as e:
+            validation_result = f"XPath执行错误: {str(e)}"
+        
+        print(f"验证结果: {validation_result}")
+        
+        if attempt == max_retries and not best_xpath:
+            # 最后一次尝试，使用最佳候选
             best_xpath = candidate_xpath
-            validation_result = validation_msg
-            break
-        elif attempt == max_retries:
-            # 最后一次尝试，使用最佳候选（即使不完美）
-            best_xpath = candidate_xpath
-            validation_result = f"最终选择: {validation_msg}"
+            validation_result = f"最终选择: {validation_result}"
 
     if best_xpath:
         if xpathList4Click:
